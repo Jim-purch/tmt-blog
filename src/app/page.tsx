@@ -16,17 +16,42 @@ export default function Index() {
     <main>
       <Container>
         <Intro />
-        <div className="mb-8 flex justify-center">
+        
+        {/* 产品搜索区域 */}
+        <div className="mb-16 py-12 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-gray-800 dark:to-gray-900 -mx-4 px-4 rounded-2xl">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              零配件产品搜索
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              快速找到您需要的零配件产品
+            </p>
+          </div>
           <Search posts={allPosts} />
         </div>
-        <HeroPost
-          title={heroPost.title}
-          date={heroPost.date}
-          author={heroPost.author}
-          slug={heroPost.slug}
-          excerpt={heroPost.excerpt}
-        />
-        {morePosts.length > 0 && <MoreStories posts={morePosts} />}
+
+        {/* 产品展示区域 */}
+        <div className="mb-8">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+            推荐产品
+          </h3>
+          <HeroPost
+            title={heroPost.title}
+            date={heroPost.date}
+            author={heroPost.author}
+            slug={heroPost.slug}
+            excerpt={heroPost.excerpt}
+          />
+        </div>
+        
+        {morePosts.length > 0 && (
+          <div>
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+              更多产品
+            </h3>
+            <MoreStories posts={morePosts} />
+          </div>
+        )}
       </Container>
     </main>
   );
