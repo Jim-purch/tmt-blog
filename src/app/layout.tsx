@@ -2,17 +2,18 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
 import { ThemeSwitcher } from "./_components/theme-switcher";
+import { SITE_CONFIG } from "@/lib/constants";
 
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "TMT Blog",
-  description: "分享技术见解与思考的个人博客",
+  title: SITE_CONFIG.title,
+  description: SITE_CONFIG.metaDescription,
   openGraph: {
-    title: "TMT Blog",
-    description: "分享技术见解与思考的个人博客",
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.metaDescription,
   },
 };
 
