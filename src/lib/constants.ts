@@ -16,8 +16,16 @@ export const CONTACT_CONFIG = {
   email: "contact@tmtparts.com",
   phone: "+86 400-123-4567",
   address: "北京市朝阳区科技园区123号",
-  Whatsapp: "TMT_Parts",
-  Wechat: "123456789",
+  wechat: "TMT_Parts",
+  qq: "123456789",
   workingHours: "周一至周五 9:00-18:00",
   copyright: "© 2024 TMT Parts Sale. 保留所有权利。",
+};
+
+// 产品图片配置
+export const IMAGE_CONFIG = {
+  baseUrl: "https://cdn.tmtparts.com/products",
+  thumbnailBaseUrl: "https://cdn.tmtparts.com/thumbnails",
+  defaultImage: "/assets/default-product.jpg",
+  enabled: false, // 暂时关闭图片服务
 };

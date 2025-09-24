@@ -1,0 +1,156 @@
+"use client";
+
+import Container from "@/app/_components/container";
+import { ProductFilter } from "@/app/_components/product-filter";
+import { ProductGrid } from "@/app/_components/product-grid";
+import TopSearch from "@/app/_components/top-search";
+// 移除直接导入，改用API调用
+import { Product } from "@/interfaces/product";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
+
+export default function ProductsPage() {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
+  const [categories, setCategories] = useState<string[]>([]);
+  const [brands, setBrands] = useState<string[]>([]);
+  const [loading, setLoading] = useState(true);
+  
+  const searchParams = useSearchParams();
+  const categoryParam = searchParams.get('category');
+  const brandParam = searchParams.get('brand');
+
+  useEffect(() => {
+    // 加载数据
+    const loadData = async () => {
+      try {
+        // 并行加载所有数据
+        const [productsRes, categoriesRes, brandsRes] = await Promise.all([
+          fetch('/api/products?action=all'),
+          fetch('/api/products?action=categories'),
+          fetch('/api/products?action=brands')
+        ]);
+
+        if (!productsRes.ok || !categoriesRes.ok || !brandsRes.ok) {
+          throw new Error('加载数据失败');
+        }
+
+        const allProducts: Product[] = await productsRes.json();
+        const allCategories: string[] = await categoriesRes.json();
+        const allBrands: string[] = await brandsRes.json();
+        
+        setProducts(allProducts);
+        setCategories(allCategories);
+        setBrands(allBrands);
+        
+        // 根据URL参数过滤产品
+        let filtered = allProducts;
+        if (categoryParam) {
+          filtered = allProducts.filter(product => product.category === categoryParam);
+        } else if (brandParam) {
+          filtered = allProducts.filter(product => product.brand === brandParam);
+        }
+        
+        setFilteredProducts(filtered);
+      } catch (error) {
+        console.error('加载数据时出错:', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadData();
+  }, [categoryParam, brandParam]);
+
+  const handleFilterChange = async (filters: { category: string; brand: string; search: string }) => {
+    let filtered = products;
+
+    // 应用搜索过滤
+    if (filters.search) {
+      try {
+        const response = await fetch(`/api/products?action=search&q=${encodeURIComponent(filters.search)}`);
+        if (response.ok) {
+          filtered = await response.json();
+        }
+      } catch (error) {
+        console.error('搜索时出错:', error);
+      }
+    }
+
+    // 应用分类过滤
+    if (filters.category) {
+      filtered = filtered.filter(product => product.category === filters.category);
+    }
+
+    // 应用品牌过滤
+    if (filters.brand) {
+      filtered = filtered.filter(product => product.brand === filters.brand);
+    }
+
+    setFilteredProducts(filtered);
+  };
+
+  if (loading) {
+    return (
+      <main>
+        <Container>
+          <div className="flex justify-center items-center min-h-screen">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600 dark:text-gray-400">加载中...</p>
+            </div>
+          </div>
+        </Container>
+      </main>
+    );
+  }
+
+  return (
+    <main>
+      <Container>
+        <div className="py-8">
+          <div className="text-center mb-8">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              产品中心
+            </h1>
+            <p className="text-lg text-gray-600 dark:text-gray-300">
+              浏览我们的全部产品，找到您需要的零配件
+            </p>
+          </div>
+
+          {/* 顶部搜索区域 */}
+          <div className="mb-8 py-6 bg-white dark:bg-gray-800 -mx-4 px-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+            <TopSearch placeholder="搜索产品名称..." />
+          </div>
+
+          <ProductFilter
+            categories={categories}
+            brands={brands}
+            onFilterChange={handleFilterChange}
+          />
+
+          <div className="mb-4">
+            <p className="text-gray-600 dark:text-gray-400">
+              共找到 <span className="font-semibold text-blue-600">{filteredProducts.length}</span> 个产品
+              {categoryParam && (
+                <span className="ml-2">
+                  - 分类: <span className="font-semibold">{categoryParam}</span>
+                </span>
+              )}
+              {brandParam && (
+                <span className="ml-2">
+                  - 品牌: <span className="font-semibold">{brandParam}</span>
+                </span>
+              )}
+            </p>
+          </div>
+
+          <ProductGrid
+            products={filteredProducts}
+            showAll={true}
+          />
+        </div>
+      </Container>
+    </main>
+  );
+}
