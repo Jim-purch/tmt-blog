@@ -2,12 +2,8 @@
 title: 'Next.js 静态博客开发指南'
 date: '2024-01-10'
 excerpt: '详细介绍如何使用 Next.js 14 构建一个现代化的静态博客，包括 Markdown 处理、静态生成和部署优化。'
-coverImage: '/assets/blog/nextjs-guide/cover.jpg'
 author:
   name: 'TMT Team'
-  picture: '/assets/blog/authors/tmt.jpeg'
-ogImage:
-  url: '/assets/blog/nextjs-guide/cover.jpg'
 tags: ['Next.js', 'React', '静态网站', 'Markdown']
 ---
 

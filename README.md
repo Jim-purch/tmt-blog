@@ -1,72 +1,69 @@
-# A statically generated blog example using Next.js, Markdown, and TypeScript
+# TMT Blog
 
-This is the existing [blog-starter](https://github.com/vercel/next.js/tree/canary/examples/blog-starter) plus TypeScript.
+这是一个使用 Next.js、Markdown 和 TypeScript 构建的静态博客。
 
-This example showcases Next.js's [Static Generation](https://nextjs.org/docs/app/building-your-application/routing/layouts-and-templates) feature using Markdown files as the data source.
+## 功能特点
 
-The blog posts are stored in `/_posts` as Markdown files with front matter support. Adding a new Markdown file in there will create a new blog post.
+- 使用 Next.js 14 的静态生成功能
+- 支持 Markdown 格式的博客文章
+- TypeScript 类型安全
+- 使用 Tailwind CSS 进行样式设计
+- 响应式设计，支持移动端
 
-To create the blog posts we use [`remark`](https://github.com/remarkjs/remark) and [`remark-html`](https://github.com/remarkjs/remark-html) to convert the Markdown files into an HTML string, and then send it down as a prop to the page. The metadata of every post is handled by [`gray-matter`](https://github.com/jonschlinkert/gray-matter) and also sent in props to the page.
+## 技术栈
 
-## Demo
+- **Next.js 14**: React 框架，支持静态生成
+- **TypeScript**: 提供类型安全
+- **Tailwind CSS**: CSS 框架
+- **remark**: Markdown 处理
+- **gray-matter**: frontmatter 解析
 
-[https://next-blog-starter.vercel.app/](https://next-blog-starter.vercel.app/)
+## 项目结构
 
-## Deploy your own
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/next.js/tree/canary/examples/blog-starter&project-name=blog-starter&repository-name=blog-starter)
-
-### Related examples
-
-- [AgilityCMS](/examples/cms-agilitycms)
-- [Builder.io](/examples/cms-builder-io)
-- [ButterCMS](/examples/cms-buttercms)
-- [Contentful](/examples/cms-contentful)
-- [Cosmic](/examples/cms-cosmic)
-- [DatoCMS](/examples/cms-datocms)
-- [DotCMS](/examples/cms-dotcms)
-- [Drupal](/examples/cms-drupal)
-- [Enterspeed](/examples/cms-enterspeed)
-- [Ghost](/examples/cms-ghost)
-- [GraphCMS](/examples/cms-graphcms)
-- [Kontent.ai](/examples/cms-kontent-ai)
-- [MakeSwift](/examples/cms-makeswift)
-- [Payload](/examples/cms-payload)
-- [Plasmic](/examples/cms-plasmic)
-- [Prepr](/examples/cms-prepr)
-- [Prismic](/examples/cms-prismic)
-- [Sanity](/examples/cms-sanity)
-- [Sitecore XM Cloud](/examples/cms-sitecore-xmcloud)
-- [Sitefinity](/examples/cms-sitefinity)
-- [Storyblok](/examples/cms-storyblok)
-- [TakeShape](/examples/cms-takeshape)
-- [Tina](/examples/cms-tina)
-- [Umbraco](/examples/cms-umbraco)
-- [Umbraco heartcore](/examples/cms-umbraco-heartcore)
-- [Webiny](/examples/cms-webiny)
-- [WordPress](/examples/cms-wordpress)
-- [Blog Starter](/examples/blog-starter)
-
-## How to use
-
-Execute [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app) with [npm](https://docs.npmjs.com/cli/init), [Yarn](https://yarnpkg.com/lang/en/docs/cli/create/), or [pnpm](https://pnpm.io) to bootstrap the example:
-
-```bash
-npx create-next-app --example blog-starter blog-starter-app
+```
+├── posts/                 # 博客文章目录
+├── src/
+│   ├── app/               # Next.js App Router
+│   ├── interfaces/        # TypeScript 接口定义
+│   └── lib/               # 工具函数
+├── public/                # 静态资源
+└── package.json
 ```
 
+## 本地开发
+
+1. 安装依赖：
 ```bash
-yarn create next-app --example blog-starter blog-starter-app
+npm install
 ```
 
+2. 启动开发服务器：
 ```bash
-pnpm create next-app --example blog-starter blog-starter-app
+npm run dev
 ```
 
-Your blog should be up and running on [http://localhost:3000](http://localhost:3000)! If it doesn't work, post on [GitHub discussions](https://github.com/vercel/next.js/discussions).
+3. 在浏览器中打开 [http://localhost:3000](http://localhost:3000)
 
-Deploy it to the cloud with [Vercel](https://vercel.com/new?utm_source=github&utm_medium=readme&utm_campaign=next-example) ([Documentation](https://nextjs.org/docs/deployment)).
+## 添加文章
 
-# Notes
+在 `posts` 目录下创建新的 `.md` 文件，文件开头需要包含 frontmatter：
 
-`blog-starter` uses [Tailwind CSS](https://tailwindcss.com) [(v3.0)](https://tailwindcss.com/blog/tailwindcss-v3).
+```markdown
+---
+title: '文章标题'
+date: '2024-01-15'
+excerpt: '文章摘要'
+tags: ['标签1', '标签2']
+---
+
+# 文章内容
+
+这里是文章的正文内容...
+```
+
+## 构建和部署
+
+```bash
+npm run build
+npm start
+```

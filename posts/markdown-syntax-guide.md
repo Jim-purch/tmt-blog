@@ -2,12 +2,8 @@
 title: 'Markdown 语法完全指南'
 date: '2024-01-05'
 excerpt: '全面介绍 Markdown 语法，包括基础语法、扩展语法和最佳实践，帮助你写出更好的技术文档。'
-coverImage: '/assets/blog/markdown-guide/cover.jpg'
 author:
   name: 'TMT Team'
-  picture: '/assets/blog/authors/tmt.jpeg'
-ogImage:
-  url: '/assets/blog/markdown-guide/cover.jpg'
 tags: ['Markdown', '写作', '文档']
 ---
 

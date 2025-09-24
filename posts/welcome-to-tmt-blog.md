@@ -2,12 +2,8 @@
 title: '欢迎来到 TMT Blog'
 date: '2024-01-15'
 excerpt: '这是 TMT Blog 的第一篇文章，介绍了这个博客的特点和使用方法。'
-coverImage: '/assets/blog/welcome/cover.jpg'
 author:
   name: 'TMT Team'
-  picture: '/assets/blog/authors/tmt.jpeg'
-ogImage:
-  url: '/assets/blog/welcome/cover.jpg'
 tags: ['博客', '介绍', 'Next.js']
 ---
 
