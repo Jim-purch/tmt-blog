@@ -2,6 +2,7 @@ import Container from "@/app/_components/container";
 import { HeroPost } from "@/app/_components/hero-post";
 import { Intro } from "@/app/_components/intro";
 import { MoreStories } from "@/app/_components/more-stories";
+import Search from "@/app/_components/search";
 import { getAllPosts } from "@/lib/api";
 
 export default function Index() {
@@ -15,6 +16,9 @@ export default function Index() {
     <main>
       <Container>
         <Intro />
+        <div className="mb-8 flex justify-center">
+          <Search posts={allPosts} />
+        </div>
         <HeroPost
           title={heroPost.title}
           date={heroPost.date}
