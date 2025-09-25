@@ -1,5 +1,6 @@
 import Container from "@/app/_components/container";
 import { ProductGrid } from "@/app/_components/product-grid";
+import { ProductStructuredData } from "@/app/_components/product-structured-data";
 import { getAllProducts, getProductBySlug, getProductsByCategory } from "@/lib/productApi";
 import { IMAGE_CONFIG } from "@/lib/constants";
 import { Metadata } from "next";
@@ -27,6 +28,7 @@ export default function ProductPage({ params }: Params) {
 
   return (
     <main>
+      <ProductStructuredData product={product} />
       <Container>
         <div className="py-8">
           {/* 面包屑导航 */}
@@ -172,12 +174,31 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   }
 
   return {
-    title: `${product.title} - ${product.seo}`,
+    title: product.title,
     description: product.description,
+    keywords: [product.brand, product.partNumber, product.category, 'TMT配件'],
     openGraph: {
+      type: 'website',
+      title: product.title,
+      description: product.description,
+      images: [
+        {
+          url: product.imageUrl,
+          width: 800,
+          height: 600,
+          alt: product.title,
+        },
+      ],
+      url: `https://your-domain.com/products/${product.slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
       title: product.title,
       description: product.description,
       images: [product.imageUrl],
+    },
+    alternates: {
+      canonical: `https://your-domain.com/products/${product.slug}`,
     },
   };
 }

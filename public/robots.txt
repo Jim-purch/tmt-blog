@@ -1,0 +1,18 @@
+User-agent: *
+Allow: /
+
+# 允许所有搜索引擎访问
+Allow: /products
+Allow: /posts
+Allow: /api/products
+
+# 禁止访问敏感目录
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# 网站地图位置
+Sitemap: https://your-domain.com/sitemap.xml
+
+# 爬取延迟（可选，避免服务器过载）
+Crawl-delay: 1

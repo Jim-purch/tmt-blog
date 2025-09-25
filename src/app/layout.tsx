@@ -10,11 +10,55 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: SITE_CONFIG.title,
+  title: {
+    default: SITE_CONFIG.title,
+    template: `%s | ${SITE_CONFIG.title}`,
+  },
   description: SITE_CONFIG.metaDescription,
+  keywords: ['TMT配件', '汽车配件', '机械配件', '工业配件', '配件销售', '零部件'],
+  authors: [{ name: 'TMT Parts Sale' }],
+  creator: 'TMT Parts Sale',
+  publisher: 'TMT Parts Sale',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
+    type: 'website',
+    locale: 'zh_CN',
+    url: 'https://your-domain.com',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.metaDescription,
+    siteName: SITE_CONFIG.title,
+    images: [
+      {
+        url: '/assets/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: SITE_CONFIG.title,
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_CONFIG.title,
+    description: SITE_CONFIG.metaDescription,
+    images: ['/assets/og-image.jpg'],
+  },
+  verification: {
+    google: 'your-google-verification-code',
+    yandex: 'your-yandex-verification-code',
+    yahoo: 'your-yahoo-verification-code',
+  },
+  alternates: {
+    canonical: 'https://your-domain.com',
   },
 };
 
