@@ -28,7 +28,7 @@ Disallow: /admin/
 Disallow: /private/
 
 # 站点地图
-Sitemap: https://tmtparts.com/sitemap.xml
+Sitemap: https://parts.toomotoo.com/sitemap.xml
 
 # 爬取延迟（毫秒）
 Crawl-delay: 1

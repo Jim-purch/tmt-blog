@@ -2,16 +2,16 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: '产品中心',
-  description: '浏览我们的全系列TMT配件产品，包括汽车配件、机械配件、工业配件等。快速找到您所需的高质量配件。',
-  keywords: ['产品中心', 'TMT配件', '配件目录', '汽车配件', '机械配件'],
+  description: '浏览我们的全系列TMT叉车配件产品，包括叉车配件、叉车零部件、工业配件等。快速找到您所需的高质量叉车配件。',
+  keywords: ['产品中心', 'TMT叉车配件', '叉车配件目录', '叉车配件', '叉车零部件'],
   openGraph: {
-    title: '产品中心 | TMT Parts Sale',
-    description: '浏览我们的全系列TMT配件产品，包括汽车配件、机械配件、工业配件等。',
+    title: '产品中心 | TMT叉车配件销售',
+    description: '浏览我们的全系列TMT叉车配件产品，包括叉车配件、叉车零部件、工业配件等。',
     type: 'website',
-    url: 'https://your-domain.com/products',
+    url: 'https://parts.toomotoo.com/products',
   },
   alternates: {
-    canonical: 'https://your-domain.com/products',
+    canonical: 'https://parts.toomotoo.com/products',
   },
 };
 

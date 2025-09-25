@@ -4,13 +4,13 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.tmtparts.com',
+        hostname: 'cdn.toomotoo.com',
         port: '',
         pathname: '/**',
       },
       {
         protocol: 'https',
-        hostname: 'thumbnails.tmtparts.com',
+        hostname: 'thumbnails.toomotoo.com',
         port: '',
         pathname: '/**',
       },

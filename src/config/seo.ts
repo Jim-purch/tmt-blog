@@ -7,51 +7,51 @@ export interface SEOConfig {
 
 export const seoConfig: Record<string, SEOConfig> = {
   'zh-CN': {
-    title: 'TMT汽车配件 - 高品质汽车零部件和配件',
-    description: '专业提供高品质汽车配件，服务全球汽车爱好者。品质保证，全球配送，专业支持。',
-    keywords: '汽车配件,汽车零部件,TMT,汽车用品,汽车维修,汽车改装,发动机配件,刹车系统,悬挂系统',
+    title: 'TMT叉车配件 - 高品质叉车零部件和配件',
+    description: '专业提供高品质叉车配件，服务全球叉车用户。品质保证，全球配送，专业支持。',
+    keywords: '叉车配件,叉车零部件,TMT,叉车用品,叉车维修,叉车改装,液压系统,传动系统,制动系统',
     ogImage: '/assets/og-image-zh.jpg'
   },
   'en': {
-    title: 'TMT Auto Parts - High Quality Automotive Parts & Accessories',
-    description: 'Professional high-quality auto parts serving car enthusiasts worldwide. Quality assurance, global shipping, expert support.',
-    keywords: 'auto parts,automotive parts,TMT,car accessories,car repair,car modification,engine parts,brake system,suspension system',
+    title: 'TMT Forklift Parts - High Quality Forklift Parts & Accessories',
+    description: 'Professional high-quality forklift parts serving forklift operators worldwide. Quality assurance, global shipping, expert support.',
+    keywords: 'forklift parts,forklift components,TMT,forklift accessories,forklift repair,forklift maintenance,hydraulic system,transmission parts,brake system',
     ogImage: '/assets/og-image-en.jpg'
   },
   'ru': {
-    title: 'TMT Автозапчасти - Высококачественные автомобильные детали и аксессуары',
-    description: 'Профессиональные высококачественные автозапчасти для автолюбителей по всему миру. Гарантия качества, глобальная доставка, экспертная поддержка.',
-    keywords: 'автозапчасти,автомобильные детали,TMT,автоаксессуары,ремонт автомобилей,тюнинг,детали двигателя,тормозная система,подвеска',
+    title: 'TMT Запчасти для погрузчиков - Высококачественные детали и аксессуары для погрузчиков',
+    description: 'Профессиональные высококачественные запчасти для погрузчиков для операторов по всему миру. Гарантия качества, глобальная доставка, экспертная поддержка.',
+    keywords: 'запчасти для погрузчиков,детали погрузчиков,TMT,аксессуары для погрузчиков,ремонт погрузчиков,обслуживание,гидравлическая система,трансмиссия,тормозная система',
     ogImage: '/assets/og-image-ru.jpg'
   },
   'ja': {
-    title: 'TMT自動車部品 - 高品質な自動車部品とアクセサリー',
-    description: '世界中の自動車愛好家に専門的な高品質自動車部品を提供。品質保証、世界配送、専門サポート。',
-    keywords: '自動車部品,自動車パーツ,TMT,カーアクセサリー,自動車修理,カスタマイズ,エンジン部品,ブレーキシステム,サスペンション',
+    title: 'TMTフォークリフト部品 - 高品質なフォークリフト部品とアクセサリー',
+    description: '世界中のフォークリフトオペレーターに専門的な高品質フォークリフト部品を提供。品質保証、世界配送、専門サポート。',
+    keywords: 'フォークリフト部品,フォークリフトパーツ,TMT,フォークリフトアクセサリー,フォークリフト修理,メンテナンス,油圧システム,トランスミッション,ブレーキシステム',
     ogImage: '/assets/og-image-ja.jpg'
   },
   'de': {
-    title: 'TMT Autoteile - Hochwertige Autoteile und Zubehör',
-    description: 'Professionelle hochwertige Autoteile für Autoliebhaber weltweit. Qualitätssicherung, weltweiter Versand, Expertenunterstützung.',
-    keywords: 'Autoteile,Fahrzeugteile,TMT,Autozubehör,Autoreparatur,Fahrzeugtuning,Motorteile,Bremssystem,Fahrwerk',
+    title: 'TMT Gabelstaplerteile - Hochwertige Gabelstaplerteile und Zubehör',
+    description: 'Professionelle hochwertige Gabelstaplerteile für Gabelstaplerfahrer weltweit. Qualitätssicherung, weltweiter Versand, Expertenunterstützung.',
+    keywords: 'Gabelstaplerteile,Staplerteile,TMT,Gabelstaplerzubehör,Gabelstaplerreparatur,Wartung,Hydrauliksystem,Getriebeteile,Bremssystem',
     ogImage: '/assets/og-image-de.jpg'
   },
   'fr': {
-    title: 'TMT Pièces Auto - Pièces et accessoires automobiles de haute qualité',
-    description: 'Pièces automobiles professionnelles de haute qualité pour les passionnés d\'automobile du monde entier. Assurance qualité, expédition mondiale, support expert.',
-    keywords: 'pièces auto,pièces automobiles,TMT,accessoires auto,réparation automobile,tuning,pièces moteur,système de freinage,suspension',
+    title: 'TMT Pièces de Chariot Élévateur - Pièces et accessoires de chariot élévateur de haute qualité',
+    description: 'Pièces de chariot élévateur professionnelles de haute qualité pour les opérateurs de chariots élévateurs du monde entier. Assurance qualité, expédition mondiale, support expert.',
+    keywords: 'pièces de chariot élévateur,pièces de chariot,TMT,accessoires de chariot élévateur,réparation de chariot élévateur,maintenance,système hydraulique,transmission,système de freinage',
     ogImage: '/assets/og-image-fr.jpg'
   },
   'es': {
-    title: 'TMT Autopartes - Repuestos y accesorios automotrices de alta calidad',
-    description: 'Autopartes profesionales de alta calidad para entusiastas del automóvil en todo el mundo. Garantía de calidad, envío mundial, soporte experto.',
-    keywords: 'autopartes,repuestos automotrices,TMT,accesorios para autos,reparación de autos,tuning,partes del motor,sistema de frenos,suspensión',
+    title: 'TMT Repuestos de Montacargas - Repuestos y accesorios de montacargas de alta calidad',
+    description: 'Repuestos de montacargas profesionales de alta calidad para operadores de montacargas en todo el mundo. Garantía de calidad, envío mundial, soporte experto.',
+    keywords: 'repuestos de montacargas,partes de montacargas,TMT,accesorios de montacargas,reparación de montacargas,mantenimiento,sistema hidráulico,transmisión,sistema de frenos',
     ogImage: '/assets/og-image-es.jpg'
   },
   'pt': {
-    title: 'TMT Autopeças - Peças e acessórios automotivos de alta qualidade',
-    description: 'Autopeças profissionais de alta qualidade para entusiastas automotivos em todo o mundo. Garantia de qualidade, envio mundial, suporte especializado.',
-    keywords: 'autopeças,peças automotivas,TMT,acessórios para carros,reparação de carros,tuning,peças do motor,sistema de freios,suspensão',
+    title: 'TMT Peças de Empilhadeira - Peças e acessórios de empilhadeira de alta qualidade',
+    description: 'Peças de empilhadeira profissionais de alta qualidade para operadores de empilhadeira em todo o mundo. Garantia de qualidade, envio mundial, suporte especializado.',
+    keywords: 'peças de empilhadeira,peças de empilhador,TMT,acessórios de empilhadeira,reparação de empilhadeira,manutenção,sistema hidráulico,transmissão,sistema de freios',
     ogImage: '/assets/og-image-pt.jpg'
   }
 }
@@ -64,7 +64,7 @@ export function getSEOConfig(locale: string): SEOConfig {
 // 生成多语言页面的结构化数据
 export function generateStructuredData(locale: string, pageType: 'website' | 'product' | 'article', data?: any) {
   const config = getSEOConfig(locale)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
   
   const baseStructuredData = {
     "@context": "https://schema.org",

@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 // 联系方式配置
 export const CONTACT_CONFIG = {
   company: "TMT Parts Sale",
-  email: "contact@tmtparts.com",
+  email: "contact@toomotoo.com",
   phone: "+86 400-123-4567",
   address: "北京市朝阳区科技园区123号",
   wechat: "TMT_Parts",
@@ -24,8 +24,8 @@ export const CONTACT_CONFIG = {
 
 // 产品图片配置
 export const IMAGE_CONFIG = {
-  baseUrl: "https://cdn.tmtparts.com/products",
-  thumbnailBaseUrl: "https://cdn.tmtparts.com/thumbnails",
+  baseUrl: "https://cdn.toomotoo.com/products",
+  thumbnailBaseUrl: "https://thumbnails.toomotoo.com/thumbnails",
   defaultImage: "/assets/default-product.jpg",
   enabled: false, // 暂时关闭图片服务
 };

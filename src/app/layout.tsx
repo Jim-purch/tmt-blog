@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.title}`,
   },
   description: SITE_CONFIG.metaDescription,
-  keywords: ['TMT配件', '汽车配件', '机械配件', '工业配件', '配件销售', '零部件'],
+  keywords: ['TMT配件', '叉车配件', '叉车零部件', '工业配件', '配件销售', '叉车维修'],
   authors: [{ name: 'TMT Parts Sale' }],
   creator: 'TMT Parts Sale',
   publisher: 'TMT Parts Sale',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.metaDescription,
     siteName: SITE_CONFIG.title,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     yahoo: 'your-yahoo-verification-code',
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com',
+    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
   },
 };
 

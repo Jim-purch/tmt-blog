@@ -107,11 +107,11 @@ export const MOBILE_OPTIMIZATION = {
     // 预连接到外部域名
     preconnect: [
       'https://fonts.googleapis.com',
-      'https://cdn.tmtparts.com',
+      'https://cdn.toomotoo.com',
     ],
     // DNS预解析
     dnsPrefetch: [
-      'https://thumbnails.tmtparts.com',
+      'https://thumbnails.toomotoo.com',
     ],
   },
 }

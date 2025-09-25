@@ -23,9 +23,9 @@ const supportedLocales = [
 ]
 
 export default function SEOHead({ 
-  title = 'TMT汽车配件 - 高品质汽车零部件和配件',
-  description = '专业提供高品质汽车配件，服务全球汽车爱好者。品质保证，全球配送，专业支持。',
-  keywords = '汽车配件,汽车零部件,TMT,汽车用品,汽车维修,汽车改装',
+  title = 'TMT叉车配件 - 高品质叉车零部件和配件',
+  description = '专业提供高品质叉车配件，服务全球叉车操作员。品质保证，全球配送，专业支持。',
+  keywords = '叉车配件,叉车零部件,TMT,叉车用品,叉车维修,叉车保养',
   ogImage = '/assets/og-image.jpg',
   canonicalUrl
 }: SEOHeadProps) {
@@ -75,7 +75,7 @@ export default function SEOHead({
       <meta property="og:image" content={`${baseUrl}${ogImage}`} />
       <meta property="og:url" content={currentUrl} />
       <meta property="og:type" content="website" />
-      <meta property="og:site_name" content="TMT汽车配件" />
+      <meta property="og:site_name" content="TMT叉车配件" />
       <meta property="og:locale" content={locale} />
       
       {/* Twitter Card标签 */}
@@ -91,7 +91,7 @@ export default function SEOHead({
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "Organization",
-            "name": "TMT汽车配件",
+            "name": "TMT叉车配件",
             "url": baseUrl,
             "logo": `${baseUrl}/assets/logo.png`,
             "description": description,
