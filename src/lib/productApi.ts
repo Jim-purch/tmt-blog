@@ -22,18 +22,11 @@ function parseCSV(csvContent: string): ProductCSVRow[] {
   });
 }
 
-// 生成产品slug
-function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9\u4e00-\u9fa5]/g, '-')
-    .replace(/-+/g, '-')
-    .replace(/^-|-$/g, '');
-}
+// 注意：现在直接使用seo字段作为slug，因为它已经是URL友好的格式
 
 // 生成图片URL
-function generateImageUrls(title: string) {
-  const filename = `${generateSlug(title)}.jpg`;
+function generateImageUrls(seo: string) {
+  const filename = `${seo}.jpg`;
   return {
     imageUrl: `${IMAGE_CONFIG.baseUrl}/${filename}`,
     thumbnailUrl: `${IMAGE_CONFIG.thumbnailBaseUrl}/${filename}`,
@@ -44,8 +37,8 @@ function generateImageUrls(title: string) {
 function csvRowToProduct(row: ProductCSVRow): Product {
   const title = generateProductTitle(row.brand, row.partNumber, row.description);
   const seo = generateProductSeo(row.brand, row.partNumber, row.description);
-  const slug = generateSlug(title);
-  const { imageUrl, thumbnailUrl } = generateImageUrls(title);
+  const slug = seo; // 直接使用seo字段作为slug，因为它已经是URL友好的格式
+  const { imageUrl, thumbnailUrl } = generateImageUrls(seo);
   
   return {
     slug,

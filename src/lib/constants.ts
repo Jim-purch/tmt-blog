@@ -32,8 +32,8 @@ export const IMAGE_CONFIG = {
 
 // 产品标题和SEO配置
 export const PRODUCT_CONFIG = {
-  titlePrefix: "TMT配件", // 可自定义的标题前缀
-  seoPrefix: "tmt-parts", // 可自定义的SEO前缀
-  titleSeparator: " | ", // 标题分隔符
+  titlePrefix: "forklift-parts", // 可自定义的标题前缀
+  seoPrefix: "forklift-parts", // 可自定义的SEO前缀
+  titleSeparator: "-", // 标题分隔符
   seoSeparator: "-", // SEO分隔符
 };
