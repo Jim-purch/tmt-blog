@@ -130,11 +130,11 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
                 <span className="font-medium text-gray-900 dark:text-white">{product.weight}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">品牌:</span>
+                <span className="text-gray-600 dark:text-gray-400">{t('product.brand')}</span>
                 <span className="font-medium text-gray-900 dark:text-white">{product.brand}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">零件号:</span>
+                <span className="text-gray-600 dark:text-gray-400">{t('product.partNumber')}</span>
                 <span className="font-medium text-gray-900 dark:text-white">{product.partNumber}</span>
               </div>
               <div className="flex justify-between">
@@ -169,21 +169,21 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
                   <svg className="w-5 h-5 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                   </svg>
-                  添加中...
+                  {t('product.adding')}
                 </>
               ) : isProductInCart ? (
                 <>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                   </svg>
-                  已在购物车 ({itemQuantity})
+                  {t('product.inCart').replace('{quantity}', itemQuantity.toString())}
                 </>
               ) : (
                 <>
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5m0 0h8" />
                   </svg>
-                  加入购物车
+                  {t('product.addToCart')}
                 </>
               )}
             </button>
@@ -195,7 +195,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
               </svg>
-              商品已成功添加到购物车！
+              {t('product.addSuccess')}
             </div>
           )}
         </div>

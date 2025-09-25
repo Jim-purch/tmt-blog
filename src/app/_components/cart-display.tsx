@@ -131,15 +131,15 @@ export function CartDisplay() {
                       {item.product.title}
                     </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 truncate">
-                      型号: {item.product.partNumber}
+                      {t('product.model')} {item.product.partNumber}
                     </p>
                     <p className="text-xs text-gray-500 dark:text-gray-400 truncate">
-                      品牌: {item.product.brand}
+                      {t('product.brand')} {item.product.brand}
                     </p>
                   </div>
                   <div className="text-right flex-shrink-0">
                     <p className="text-sm font-medium text-gray-900 dark:text-white">
-                      数量: {item.quantity}
+                      {t('product.quantity')} {item.quantity}
                     </p>
                   </div>
                 </div>

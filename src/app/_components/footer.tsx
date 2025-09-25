@@ -48,12 +48,12 @@ export function Footer() {
                 </a>
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">Wechat：</span>
+                <span className="font-medium">{t('footer.wechat')}：</span>
                 {CONTACT_CONFIG.wechat}
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">QQ：</span>
-                {CONTACT_CONFIG.qq}
+                <span className="font-medium">{t('footer.whatsapp')}：</span>
+                {CONTACT_CONFIG.whatsapp}
               </p>
             </div>
           </div>

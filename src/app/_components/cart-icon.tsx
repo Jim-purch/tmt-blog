@@ -1,10 +1,12 @@
 'use client';
 
 import { useCart } from "@/hooks/useCart";
+import { useTranslation } from "@/lib/i18n";
 import { useState } from "react";
 
 export function CartIcon() {
   const { cart } = useCart();
+  const { t } = useTranslation();
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
@@ -30,7 +32,7 @@ export function CartIcon() {
       {showTooltip && cart.totalItems > 0 && (
         <div className="absolute right-0 top-full mt-2 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-lg p-4 min-w-64 z-50">
           <div className="text-sm font-medium text-gray-900 dark:text-white mb-2">
-            购物车 ({cart.totalItems} 件商品)
+            {t('cart.tooltip').replace('{count}', cart.totalItems.toString())}
           </div>
           <div className="space-y-2 max-h-48 overflow-y-auto">
             {cart.items.slice(0, 3).map((item) => (
@@ -48,13 +50,13 @@ export function CartIcon() {
             ))}
             {cart.items.length > 3 && (
               <div className="text-xs text-gray-500 dark:text-gray-400 text-center pt-1">
-                还有 {cart.items.length - 3} 件商品...
+                {t('cart.moreItems').replace('{count}', (cart.items.length - 3).toString())}
               </div>
             )}
           </div>
           <div className="border-t border-gray-200 dark:border-gray-700 mt-3 pt-3">
             <div className="flex justify-between items-center text-sm font-medium">
-              <span className="text-gray-900 dark:text-white">总计:</span>
+              <span className="text-gray-900 dark:text-white">{t('cart.total')}</span>
               <span className="text-blue-600 dark:text-blue-400">¥{cart.totalPrice.toFixed(2)}</span>
             </div>
           </div>

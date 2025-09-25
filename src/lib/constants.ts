@@ -17,7 +17,7 @@ export const CONTACT_CONFIG = {
   phone: "+86 400-123-4567",
   address: "北京市朝阳区科技园区123号",
   wechat: "TMT_Parts",
-  qq: "123456789",
+  whatsapp: "+86 400-123-4567",
   workingHours: "周一至周五 9:00-18:00",
   copyright: "© 2024 TMT Parts Sale. 保留所有权利。",
 };
