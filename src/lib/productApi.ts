@@ -1,4 +1,4 @@
-import { Product, ProductCSVRow, generateProductTitle, generateProductSeo } from "@/interfaces/product";
+import { Product, ProductCSVRow, generateProductTitle, generateProductSeo, generateProductSlug } from "@/interfaces/product";
 import { IMAGE_CONFIG } from "@/lib/constants";
 import fs from "fs";
 import { join } from "path";
@@ -36,9 +36,9 @@ function generateImageUrls(seo: string) {
 // 将CSV行转换为Product对象
 function csvRowToProduct(row: ProductCSVRow): Product {
   const title = generateProductTitle(row.brand, row.partNumber, row.description);
-  const seo = generateProductSeo(row.brand, row.partNumber, row.description);
-  const slug = seo; // 直接使用seo字段作为slug，因为它已经是URL友好的格式
-  const { imageUrl, thumbnailUrl } = generateImageUrls(seo);
+  const slug = generateProductSlug(row.brand, row.partNumber, row.description); // 基础slug，不含前缀
+  const seo = generateProductSeo(row.brand, row.partNumber, row.description); // 完整SEO路径，含前缀
+  const { imageUrl, thumbnailUrl } = generateImageUrls(slug); // 图片使用基础slug
   
   return {
     slug,
@@ -67,10 +67,16 @@ export function getAllProducts(): Product[] {
   }
 }
 
-// 根据slug获取单个产品
+// 根据slug获取单个产品（支持通过seo字段查找）
 export function getProductBySlug(slug: string): Product | null {
   const products = getAllProducts();
-  return products.find(product => product.slug === slug) || null;
+  // 首先尝试通过seo字段查找（完整路径）
+  let product = products.find(product => product.seo === slug);
+  // 如果没找到，再尝试通过基础slug查找
+  if (!product) {
+    product = products.find(product => product.slug === slug);
+  }
+  return product || null;
 }
 
 // 根据分类获取产品

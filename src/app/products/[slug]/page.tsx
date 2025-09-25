@@ -160,7 +160,7 @@ export default function ProductPage({ params }: Params) {
 export async function generateStaticParams() {
   const products = getAllProducts();
   return products.map((product) => ({
-    slug: product.slug,
+    slug: product.seo, // 使用完整的seo路径作为URL参数
   }));
 }
 
@@ -189,7 +189,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
           alt: product.title,
         },
       ],
-      url: `https://your-domain.com/products/${product.slug}`,
+      url: `https://your-domain.com/products/${product.seo}`,
     },
     twitter: {
       card: 'summary_large_image',
@@ -198,7 +198,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       images: [product.imageUrl],
     },
     alternates: {
-      canonical: `https://your-domain.com/products/${product.slug}`,
+      canonical: `https://your-domain.com/products/${product.seo}`,
     },
   };
 }

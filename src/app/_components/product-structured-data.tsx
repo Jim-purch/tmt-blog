@@ -18,7 +18,7 @@ export function ProductStructuredData({ product }: ProductStructuredDataProps) {
     "sku": product.partNumber,
     "mpn": product.partNumber,
     "image": product.imageUrl,
-    "url": `https://your-domain.com/products/${product.slug}`,
+    "url": `https://your-domain.com/products/${product.seo}`,
     "offers": {
       "@type": "Offer",
       "price": product.price,

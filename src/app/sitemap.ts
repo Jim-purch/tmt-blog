@@ -33,7 +33,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // 产品页面
   const productPages = products.map((product) => ({
-    url: `${baseUrl}/products/${product.slug}`,
+    url: `${baseUrl}/products/${product.seo}`,
     lastModified: new Date(),
     changeFrequency: 'weekly' as const,
     priority: 0.7,

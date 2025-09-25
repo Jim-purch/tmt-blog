@@ -10,7 +10,7 @@ type Props = {
 export function ProductCard({ product }: Props) {
   return (
     <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <Link href={`/products/${product.slug}`} className="block">
+      <Link href={`/products/${product.seo}`} className="block">
         <div className="relative aspect-square overflow-hidden bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
           {IMAGE_CONFIG.enabled ? (
             <Image

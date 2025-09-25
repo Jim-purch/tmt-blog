@@ -67,7 +67,7 @@ export default function TopSearch({
   const handleProductClick = (product: Product) => {
     setShowDropdown(false)
     setSearchTerm('')
-    router.push(`/products/${product.slug}`)
+    router.push(`/products/${product.seo}`)
   }
 
   // 处理输入框失焦
