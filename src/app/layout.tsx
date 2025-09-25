@@ -19,7 +19,16 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_CONFIG.title}`,
   },
   description: SITE_CONFIG.metaDescription,
-  keywords: ['TMT配件', '叉车配件', '叉车零部件', '工业配件', '配件销售', '叉车维修'],
+  keywords: [
+    'TMT配件', '叉车配件', '叉车零部件', '工业配件', '配件销售', '叉车维修',
+    'forklift parts', 'TMT parts', 'industrial parts', 'forklift accessories',
+    'запчасти для погрузчиков', 'TMT запчасти', 'детали погрузчиков',
+    'フォークリフト部品', 'TMT部品', 'フォークリフトパーツ',
+    'Gabelstaplerteile', 'TMT Teile', 'Staplerteile',
+    'pièces de chariot élévateur', 'TMT pièces', 'accessoires chariot',
+    'repuestos montacargas', 'TMT repuestos', 'partes montacargas',
+    'peças empilhadeira', 'TMT peças', 'acessórios empilhadeira'
+  ],
   authors: [{ name: 'TMT Parts Sale' }],
   creator: 'TMT Parts Sale',
   publisher: 'TMT Parts Sale',
@@ -57,12 +66,28 @@ export const metadata: Metadata = {
     images: ['/assets/og-image.jpg'],
   },
   verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
+    google: process.env.GOOGLE_VERIFICATION_CODE || 'your-google-verification-code',
+    yandex: process.env.YANDEX_VERIFICATION_CODE || 'your-yandex-verification-code',
+    yahoo: process.env.YAHOO_VERIFICATION_CODE || 'your-yahoo-verification-code',
   },
   alternates: {
     canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
+    languages: {
+      'zh-CN': 'https://parts.toomotoo.com',
+      'en-US': 'https://parts.toomotoo.com/en',
+      'ru-RU': 'https://parts.toomotoo.com/ru',
+      'ja-JP': 'https://parts.toomotoo.com/ja',
+      'de-DE': 'https://parts.toomotoo.com/de',
+      'fr-FR': 'https://parts.toomotoo.com/fr',
+      'es-ES': 'https://parts.toomotoo.com/es',
+      'pt-BR': 'https://parts.toomotoo.com/pt',
+      'x-default': 'https://parts.toomotoo.com',
+    },
+  },
+  other: {
+    'google-site-verification': process.env.GOOGLE_VERIFICATION_CODE || '',
+    'yandex-verification': process.env.YANDEX_VERIFICATION_CODE || '',
+    'msvalidate.01': process.env.BING_VERIFICATION_CODE || '',
   },
 };
 

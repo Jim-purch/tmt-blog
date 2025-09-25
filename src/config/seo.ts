@@ -3,6 +3,10 @@ export interface SEOConfig {
   description: string
   keywords: string
   ogImage?: string
+  locale: string
+  region: string
+  language: string
+  alternateUrls?: Record<string, string>
 }
 
 export const seoConfig: Record<string, SEOConfig> = {
@@ -10,55 +14,79 @@ export const seoConfig: Record<string, SEOConfig> = {
     title: 'TMT叉车配件 - 高品质叉车零部件和配件',
     description: '专业提供高品质叉车配件，服务全球叉车用户。品质保证，全球配送，专业支持。',
     keywords: '叉车配件,叉车零部件,TMT,叉车用品,叉车维修,叉车改装,液压系统,传动系统,制动系统',
-    ogImage: '/assets/og-image-zh.jpg'
+    ogImage: '/assets/og-image-zh.jpg',
+    locale: 'zh-CN',
+    region: 'CN',
+    language: 'zh'
   },
   'en': {
     title: 'TMT Forklift Parts - High Quality Forklift Parts & Accessories',
     description: 'Professional high-quality forklift parts serving forklift operators worldwide. Quality assurance, global shipping, expert support.',
     keywords: 'forklift parts,forklift components,TMT,forklift accessories,forklift repair,forklift maintenance,hydraulic system,transmission parts,brake system',
-    ogImage: '/assets/og-image-en.jpg'
+    ogImage: '/assets/og-image-en.jpg',
+    locale: 'en',
+    region: 'US',
+    language: 'en'
   },
   'ru': {
     title: 'TMT Запчасти для погрузчиков - Высококачественные детали и аксессуары для погрузчиков',
     description: 'Профессиональные высококачественные запчасти для погрузчиков для операторов по всему миру. Гарантия качества, глобальная доставка, экспертная поддержка.',
     keywords: 'запчасти для погрузчиков,детали погрузчиков,TMT,аксессуары для погрузчиков,ремонт погрузчиков,обслуживание,гидравлическая система,трансмиссия,тормозная система',
-    ogImage: '/assets/og-image-ru.jpg'
+    ogImage: '/assets/og-image-ru.jpg',
+    locale: 'ru',
+    region: 'RU',
+    language: 'ru'
   },
   'ja': {
     title: 'TMTフォークリフト部品 - 高品質なフォークリフト部品とアクセサリー',
     description: '世界中のフォークリフトオペレーターに専門的な高品質フォークリフト部品を提供。品質保証、世界配送、専門サポート。',
     keywords: 'フォークリフト部品,フォークリフトパーツ,TMT,フォークリフトアクセサリー,フォークリフト修理,メンテナンス,油圧システム,トランスミッション,ブレーキシステム',
-    ogImage: '/assets/og-image-ja.jpg'
+    ogImage: '/assets/og-image-ja.jpg',
+    locale: 'ja',
+    region: 'JP',
+    language: 'ja'
   },
   'de': {
     title: 'TMT Gabelstaplerteile - Hochwertige Gabelstaplerteile und Zubehör',
     description: 'Professionelle hochwertige Gabelstaplerteile für Gabelstaplerfahrer weltweit. Qualitätssicherung, weltweiter Versand, Expertenunterstützung.',
     keywords: 'Gabelstaplerteile,Staplerteile,TMT,Gabelstaplerzubehör,Gabelstaplerreparatur,Wartung,Hydrauliksystem,Getriebeteile,Bremssystem',
-    ogImage: '/assets/og-image-de.jpg'
+    ogImage: '/assets/og-image-de.jpg',
+    locale: 'de',
+    region: 'DE',
+    language: 'de'
   },
   'fr': {
     title: 'TMT Pièces de Chariot Élévateur - Pièces et accessoires de chariot élévateur de haute qualité',
     description: 'Pièces de chariot élévateur professionnelles de haute qualité pour les opérateurs de chariots élévateurs du monde entier. Assurance qualité, expédition mondiale, support expert.',
     keywords: 'pièces de chariot élévateur,pièces de chariot,TMT,accessoires de chariot élévateur,réparation de chariot élévateur,maintenance,système hydraulique,transmission,système de freinage',
-    ogImage: '/assets/og-image-fr.jpg'
+    ogImage: '/assets/og-image-fr.jpg',
+    locale: 'fr',
+    region: 'FR',
+    language: 'fr'
   },
   'es': {
     title: 'TMT Repuestos de Montacargas - Repuestos y accesorios de montacargas de alta calidad',
     description: 'Repuestos de montacargas profesionales de alta calidad para operadores de montacargas en todo el mundo. Garantía de calidad, envío mundial, soporte experto.',
     keywords: 'repuestos de montacargas,partes de montacargas,TMT,accesorios de montacargas,reparación de montacargas,mantenimiento,sistema hidráulico,transmisión,sistema de frenos',
-    ogImage: '/assets/og-image-es.jpg'
+    ogImage: '/assets/og-image-es.jpg',
+    locale: 'es',
+    region: 'ES',
+    language: 'es'
   },
   'pt': {
     title: 'TMT Peças de Empilhadeira - Peças e acessórios de empilhadeira de alta qualidade',
     description: 'Peças de empilhadeira profissionais de alta qualidade para operadores de empilhadeira em todo o mundo. Garantia de qualidade, envio mundial, suporte especializado.',
     keywords: 'peças de empilhadeira,peças de empilhador,TMT,acessórios de empilhadeira,reparação de empilhadeira,manutenção,sistema hidráulico,transmissão,sistema de freios',
-    ogImage: '/assets/og-image-pt.jpg'
+    ogImage: '/assets/og-image-pt.jpg',
+    locale: 'pt',
+    region: 'BR',
+    language: 'pt'
   }
 }
 
 // 获取特定语言的SEO配置
 export function getSEOConfig(locale: string): SEOConfig {
-  return seoConfig[locale] || seoConfig['zh-CN']
+  return seoConfig[locale] || seoConfig['en']
 }
 
 // 生成多语言页面的结构化数据
