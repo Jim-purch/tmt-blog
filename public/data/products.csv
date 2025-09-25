@@ -1,9 +1,9 @@
-title,seo,weight,price,description,category,brand,partNumber
-高性能刹车片,high-performance-brake-pads,2.5kg,299.00,Premium ceramic brake pads for enhanced stopping power and durability,刹车系统,Brembo,BP-001
-机油滤清器,oil-filter,0.8kg,89.00,High-quality oil filter for engine protection and optimal performance,发动机系统,Mann,OF-002
-空气滤清器,air-filter,1.2kg,159.00,Advanced air filtration system for improved engine efficiency,发动机系统,K&N,AF-003
-火花塞套装,spark-plug-set,0.5kg,199.00,Platinum spark plugs set for better ignition and fuel economy,发动机系统,NGK,SP-004
-减震器,shock-absorber,8.5kg,899.00,Premium gas-filled shock absorber for smooth ride comfort,悬挂系统,Bilstein,SA-005
-轮胎,performance-tire,25kg,1299.00,High-performance all-season tire with excellent grip,轮胎系统,Michelin,PT-006
-车灯总成,headlight-assembly,3.2kg,599.00,LED headlight assembly with adaptive lighting technology,照明系统,Osram,HL-007
-雨刷片,windshield-wiper,0.3kg,79.00,All-weather windshield wiper blades for clear visibility,外观配件,Bosch,WW-008
+weight,price,description,category,brand,partNumber
+2.5kg,299.00,Premium ceramic brake pads for enhanced stopping power and durability,刹车系统,Brembo,BP-001
+0.8kg,89.00,High-quality oil filter for engine protection and optimal performance,发动机系统,Mann,OF-002
+1.2kg,159.00,Advanced air filtration system for improved engine efficiency,发动机系统,K&N,AF-003
+0.5kg,199.00,Platinum spark plugs set for better ignition and fuel economy,发动机系统,NGK,SP-004
+8.5kg,899.00,Premium gas-filled shock absorber for smooth ride comfort,悬挂系统,Bilstein,SA-005
+25kg,1299.00,High-performance all-season tire with excellent grip,轮胎系统,Michelin,PT-006
+3.2kg,599.00,LED headlight assembly with adaptive lighting technology,照明系统,Osram,HL-007
+0.3kg,79.00,All-weather windshield wiper blades for clear visibility,外观配件,Bosch,WW-008

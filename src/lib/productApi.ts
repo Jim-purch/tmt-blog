@@ -1,4 +1,4 @@
-import { Product, ProductCSVRow } from "@/interfaces/product";
+import { Product, ProductCSVRow, generateProductTitle, generateProductSeo } from "@/interfaces/product";
 import { IMAGE_CONFIG } from "@/lib/constants";
 import fs from "fs";
 import { join } from "path";
@@ -42,13 +42,15 @@ function generateImageUrls(title: string) {
 
 // 将CSV行转换为Product对象
 function csvRowToProduct(row: ProductCSVRow): Product {
-  const slug = generateSlug(row.title);
-  const { imageUrl, thumbnailUrl } = generateImageUrls(row.title);
+  const title = generateProductTitle(row.brand, row.partNumber, row.description);
+  const seo = generateProductSeo(row.brand, row.partNumber, row.description);
+  const slug = generateSlug(title);
+  const { imageUrl, thumbnailUrl } = generateImageUrls(title);
   
   return {
     slug,
-    title: row.title,
-    seo: row.seo,
+    title,
+    seo,
     weight: row.weight,
     price: row.price,
     description: row.description,
