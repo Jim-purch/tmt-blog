@@ -63,11 +63,13 @@
   "filter": {
     "title": "筛选产品",
     "search": "搜索",
+    "searchPlaceholder": "输入产品名称或零件号...",
     "category": "分类",
     "allCategories": "所有分类",
     "brand": "品牌",
     "allBrands": "所有品牌",
-    "clear": "清除筛选"
+    "clear": "清除筛选",
+    "clearFilters": "清除筛选"
   },
   "page": {
     "productsTitle": "产品中心",
@@ -126,6 +128,12 @@
     "search": "搜索",
     "filter": "筛选",
     "clear": "清除",
+    "home": "首页",
+    "products": "产品中心",
+    "about": "关于我们",
+    "contact": "联系我们"
+  },
+  "nav": {
     "home": "首页",
     "products": "产品中心",
     "about": "关于我们",

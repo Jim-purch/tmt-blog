@@ -62,11 +62,13 @@
   "filter": {
     "title": "Фильтр товаров",
     "search": "Поиск",
+    "searchPlaceholder": "Введите название товара или номер детали...",
     "category": "Категория",
     "allCategories": "Все категории",
     "brand": "Бренд",
     "allBrands": "Все бренды",
-    "clear": "Очистить фильтры"
+    "clear": "Очистить фильтры",
+    "clearFilters": "Очистить фильтры"
   },
   "page": {
     "productsTitle": "Центр продуктов",

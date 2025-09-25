@@ -63,11 +63,13 @@
   "filter": {
     "title": "Filter Products",
     "search": "Search",
+    "searchPlaceholder": "Enter product name or part number...",
     "category": "Category",
     "allCategories": "All Categories",
     "brand": "Brand",
     "allBrands": "All Brands",
-    "clear": "Clear Filters"
+    "clear": "Clear Filters",
+    "clearFilters": "Clear Filters"
   },
   "page": {
     "productsTitle": "Product Center",
@@ -126,6 +128,12 @@
     "search": "Search",
     "filter": "Filter",
     "clear": "Clear",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "nav": {
     "home": "Home",
     "products": "Products",
     "about": "About",

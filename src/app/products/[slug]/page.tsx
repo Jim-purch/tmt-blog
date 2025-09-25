@@ -1,6 +1,7 @@
 import Container from "@/app/_components/container";
 import { ProductGrid } from "@/app/_components/product-grid";
 import { ProductStructuredData } from "@/app/_components/product-structured-data";
+import StickySearchBar from "@/app/_components/sticky-search-bar";
 import { getAllProducts, getProductBySlug, getProductsByCategory } from "@/lib/productApi";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -26,12 +27,17 @@ export default async function ProductPage({ params }: Params) {
     .slice(0, 4);
 
   return (
-    <main>
-      <ProductStructuredData product={product} />
-      <Container>
-        <ProductPageClient product={product} relatedProducts={relatedProducts} />
-      </Container>
-    </main>
+    <>
+      {/* 固定搜索栏 */}
+      <StickySearchBar showOnScroll={true} />
+      
+      <main>
+        <ProductStructuredData product={product} />
+        <Container>
+          <ProductPageClient product={product} relatedProducts={relatedProducts} />
+        </Container>
+      </main>
+    </>
   );
 }
 

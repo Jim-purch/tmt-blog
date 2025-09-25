@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 固定搜索栏动画 */
+@keyframes slide-down {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-down {
+  animation: slide-down 0.3s ease-out;
+}
+
+/* 确保页面内容不被固定搜索栏遮挡 */
+.sticky-search-offset {
+  padding-top: 120px; /* 移动端需要更多空间 */
+}
+
+@media (min-width: 768px) {
+  .sticky-search-offset {
+    padding-top: 80px; /* 桌面端较少空间 */
+  }
+}

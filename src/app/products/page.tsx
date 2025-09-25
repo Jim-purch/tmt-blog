@@ -4,6 +4,7 @@ import Container from "@/app/_components/container";
 import { ProductFilter } from "@/app/_components/product-filter";
 import { ProductGrid } from "@/app/_components/product-grid";
 import TopSearch from "@/app/_components/top-search";
+import StickySearchBar from "@/app/_components/sticky-search-bar";
 import { useTranslation } from "@/lib/i18n";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
@@ -109,22 +110,34 @@ export default function ProductsPage() {
   }
 
   return (
-    <main>
-      <Container>
-        <div className="py-8">
-          <div className="text-center mb-8">
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              {t('page.productsTitle')}
-            </h1>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              {t('page.productsDesc')}
-            </p>
-          </div>
+    <>
+      {/* 固定搜索栏 - 始终显示在顶部 */}
+      <StickySearchBar showOnScroll={true} />
+      
+      <main>
+        <Container>
+          <div className="py-8">
+            <div className="text-center mb-8">
+              <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+                {t('page.productsTitle')}
+              </h1>
+              <p className="text-lg text-gray-600 dark:text-gray-300">
+                {t('page.productsDesc')}
+              </p>
+            </div>
 
-          {/* 顶部搜索区域 */}
-          <div className="mb-8 py-6 bg-white dark:bg-gray-800 -mx-4 px-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <TopSearch placeholder={t('search.placeholder')} />
-          </div>
+            {/* 原有的搜索区域保留，但样式调整 */}
+            <div className="mb-8 py-6 bg-white dark:bg-gray-800 -mx-4 px-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
+              <div className="text-center mb-4">
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
+                  {t('search.quickSearch')}
+                </h2>
+                <p className="text-gray-600 dark:text-gray-300 text-sm">
+                  {t('search.quickSearchDesc')}
+                </p>
+              </div>
+              <TopSearch placeholder={t('search.placeholder')} />
+            </div>
 
           <ProductFilter
             categories={categories}
@@ -155,5 +168,6 @@ export default function ProductsPage() {
         </div>
       </Container>
     </main>
+    </>
   );
 }
