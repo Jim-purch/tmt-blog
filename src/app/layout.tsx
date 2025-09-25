@@ -108,7 +108,7 @@ export default function RootLayout({
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
-        <div className="fixed left-2 sm:left-5 top-20 z-40 flex flex-col gap-3">
+        <div className="absolute right-4 top-4 z-40 flex items-center gap-3">
           <LanguageSwitcher />
           <ThemeSwitcher />
         </div>

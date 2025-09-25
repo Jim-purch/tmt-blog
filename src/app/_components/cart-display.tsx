@@ -11,10 +11,8 @@ export function CartDisplay() {
   const [isExpanded, setIsExpanded] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
 
-  // 如果购物车为空，不显示组件
-  if (!cart || cart.items.length === 0) {
-    return null;
-  }
+  // 计算购物车商品总数
+  const totalItems = cart?.items?.reduce((sum: number, item: CartItem) => sum + item.quantity, 0) || 0;
 
   // 生成购物车文本内容（表格格式）
   const generateCartText = () => {
@@ -56,7 +54,7 @@ export function CartDisplay() {
   };
 
   return (
-    <div className="fixed right-2 sm:right-5 top-28 z-40">
+    <div className="fixed right-4 bottom-4 z-40">
       {/* 购物车图标 */}
       <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl border border-gray-200 dark:border-gray-700 backdrop-blur-sm bg-white/95 dark:bg-gray-800/95">
         <button
@@ -68,26 +66,36 @@ export function CartDisplay() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
             </svg>
             {/* 数量徽章 */}
-            <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium min-w-[20px]">
-              {cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)}
-            </span>
+            {totalItems > 0 && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-medium min-w-[20px]">
+                {totalItems}
+              </span>
+            )}
           </div>
         </button>
       </div>
 
       {/* 购物车展开内容 */}
       {isExpanded && (
-        <div className="absolute right-0 top-full mt-2 w-80 max-w-[calc(100vw-1rem)] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl backdrop-blur-sm bg-white/95 dark:bg-gray-800/95">
+        <div className="absolute right-0 bottom-full mb-2 w-80 max-w-[calc(100vw-1rem)] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl backdrop-blur-sm bg-white/95 dark:bg-gray-800/95">
           {/* 头部 */}
           <div className="p-4 border-b border-gray-200 dark:border-gray-700">
             <h3 className="font-medium text-gray-900 dark:text-white">
-              购物车 ({cart.items.length}项)
+              {t('cart.title')} ({totalItems}{t('cart.items')})
             </h3>
           </div>
 
           {/* 商品列表 */}
           <div className="max-h-64 overflow-y-auto">
-            {cart.items.map((item: CartItem) => (
+            {totalItems === 0 ? (
+              <div className="p-6 text-center text-gray-500 dark:text-gray-400">
+                <svg className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
+                </svg>
+                <p className="text-sm">{t('cart.empty')}</p>
+              </div>
+            ) : (
+              cart?.items?.map((item: CartItem) => (
               <div key={`${item.product.slug}-${item.product.partNumber}`} className="p-3 border-b border-gray-100 dark:border-gray-700 last:border-b-0 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                 <div className="flex justify-between items-start gap-2">
                   <div className="flex-1 min-w-0">
@@ -108,12 +116,13 @@ export function CartDisplay() {
                   </div>
                 </div>
               </div>
-            ))}
+            )))}
           </div>
 
           {/* 底部操作区 */}
-          <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-b-lg space-y-3">
-            <div className="flex space-x-2">
+          {totalItems > 0 && (
+            <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-b-lg space-y-3">
+              <div className="flex space-x-2">
               <button
                 onClick={copyToClipboard}
                 className={`flex-1 px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 ${
@@ -145,8 +154,9 @@ export function CartDisplay() {
               >
                 {t('cart.clear')}
               </button>
+              </div>
             </div>
-          </div>
+          )}
         </div>
       )}
     </div>
