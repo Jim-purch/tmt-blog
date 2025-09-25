@@ -59,8 +59,8 @@ export function ProductCard({ product }: Props) {
           </div>
           
           <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-            <span>{t('product.weight')}: {product.weight}</span>
-            <span>{t('product.partNumber')}: {product.partNumber}</span>
+            <span>{t('product.weight')} {product.weight}</span>
+            <span>{t('product.partNumber')} {product.partNumber}</span>
           </div>
         </div>
       </Link>

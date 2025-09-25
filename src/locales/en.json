@@ -96,12 +96,11 @@
     }
   },
   "footer": {
-    "contact": "Contact Us",
-    "phone": "Phone: +86 400-123-4567",
-    "email": "Email: info@tmt-parts.com",
-    "wechat": "WeChat: TMT-Parts",
-    "qq": "QQ: 123456789",
-    "workingHours": "Working Hours: Mon-Fri 9:00-18:00",
+    "companyInfo": "Company Info",
+    "contactUs": "Contact Us",
+    "phone": "Phone",
+    "email": "Email",
+    "workingHours": "Working Hours",
     "quickLinks": "Quick Links",
     "home": "Home",
     "products": "Products",

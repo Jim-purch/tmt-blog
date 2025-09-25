@@ -1,11 +1,12 @@
 'use client';
 
 import { Product } from '@/interfaces/product';
+import { CONTACT_CONFIG } from './constants';
 
 // 邮件配置
 const EMAIL_CONFIG = {
-  // 这里可以配置公司的联系邮箱
-  contactEmail: 'contact@tmt-company.com',
+  // 使用统一的联系邮箱
+  contactEmail: CONTACT_CONFIG.email,
   subject: '产品咨询 - TMT叉车配件',
 };
 

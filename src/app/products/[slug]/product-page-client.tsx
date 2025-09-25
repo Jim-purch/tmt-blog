@@ -49,11 +49,11 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
       {/* 面包屑导航 */}
       <nav className="flex mb-8 text-sm">
         <Link href="/" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-          首页
+          {t('common.home')}
         </Link>
         <span className="mx-2 text-gray-500">/</span>
         <Link href="/products" className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300">
-          产品中心
+          {t('common.products')}
         </Link>
         <span className="mx-2 text-gray-500">/</span>
         <Link 
