@@ -14,21 +14,20 @@ export function CartDisplay() {
     return null;
   }
 
-  // 生成购物车内容文本（不包含价格）
+  // 生成购物车文本内容（表格格式）
   const generateCartText = () => {
-    const header = "=== TMT 配件采购清单 ===\n\n";
+    const header = `TMT工业自动化配件清单\t\t\t\t\n` +
+                  `生成时间: ${new Date().toLocaleString('zh-CN')}\t\t\t\t\n\n` +
+                  `序号\t产品名称\t零件号\t品牌\t分类\t数量\n`;
+    
     const itemsList = cart.items.map((item: CartItem, index: number) => 
-      `${index + 1}. ${item.product.title}\n` +
-      `   零件号: ${item.product.partNumber}\n` +
-      `   品牌: ${item.product.brand}\n` +
-      `   分类: ${item.product.category}\n` +
-      `   数量: ${item.quantity}\n`
+      `${index + 1}\t${item.product.title}\t${item.product.partNumber}\t${item.product.brand}\t${item.product.category}\t${item.quantity}`
     ).join('\n');
     
-    const footer = `\n商品数量: ${cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)} 件\n\n` +
-                  `注：价格仅供参考，实际价格请联系确认。\n` +
-                  `联系邮箱: contact@tmtparts.com\n` +
-                  `联系电话: +86 400-123-4567`;
+    const footer = `\n\n总计商品数量:\t${cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)} 件\t\t\t\t\n\n` +
+                  `注：价格仅供参考，实际价格请联系确认。\t\t\t\t\n` +
+                  `联系邮箱: contact@tmtparts.com\t\t\t\t\n` +
+                  `联系电话: +86 400-123-4567\t\t\t\t`;
     
     return header + itemsList + footer;
   };
