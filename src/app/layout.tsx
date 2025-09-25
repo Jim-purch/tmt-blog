@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    url: 'https://your-domain.com',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.metaDescription,
     siteName: SITE_CONFIG.title,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
     yahoo: 'your-yahoo-verification-code',
   },
   alternates: {
-    canonical: 'https://your-domain.com',
+    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com',
   },
 };
 

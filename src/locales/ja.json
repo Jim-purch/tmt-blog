@@ -14,8 +14,8 @@
     "items": "個",
     "note": "注意：価格は参考価格です。実際の価格についてはお問い合わせください。",
     "contact": {
-      "email": "お問い合わせメール：contact@tmtparts.com",
-      "phone": "お問い合わせ電話：+86 400-123-4567"
+      "emailLabel": "お問い合わせメール",
+      "phoneLabel": "お問い合わせ電話"
     },
     "copyList": "📋 リストをコピー",
     "copySuccess": "コピーしました",

@@ -20,6 +20,16 @@ const nextConfig = {
     locales: ['zh-CN', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt'],
     defaultLocale: 'zh-CN',
     localeDetection: false,
+    domains: [
+      {
+        domain: 'tmtparts.com',
+        defaultLocale: 'zh-CN',
+      },
+      {
+        domain: 'en.tmtparts.com',
+        defaultLocale: 'en',
+      },
+    ],
   },
 }
 

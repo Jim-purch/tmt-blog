@@ -4,12 +4,16 @@ import { useCart } from "@/contexts/CartContext";
 import { useState } from "react";
 import { CartItem } from "@/interfaces/cart";
 import { useTranslation } from "@/lib/i18n";
+import { getLocalizedContact } from "@/config/contact";
 
 export function CartDisplay() {
   const { cart, clearCart, removeItem, updateQuantity } = useCart();
-  const { t } = useTranslation();
+  const { t, locale } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
+  
+  // 获取本地化的联系方式
+  const contact = getLocalizedContact(locale);
 
   // 计算购物车商品总数
   const totalItems = cart?.items?.reduce((sum: number, item: CartItem) => sum + item.quantity, 0) || 0;
@@ -26,8 +30,8 @@ export function CartDisplay() {
     
     const footer = `\n\n${t('cart.totalItems')}:\t${cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)} ${t('cart.items')}\t\t\t\t\n\n` +
                   `${t('cart.note')}\t\t\t\t\n` +
-                  `${t('cart.contact.email')}\t\t\t\t\n` +
-                  `${t('cart.contact.phone')}\t\t\t\t`;
+                  `${contact.email}\t\t\t\t\n` +
+                  `${contact.phone}\t\t\t\t`;
     
     return header + itemsList + footer;
   };

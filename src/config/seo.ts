@@ -64,7 +64,7 @@ export function getSEOConfig(locale: string): SEOConfig {
 // 生成多语言页面的结构化数据
 export function generateStructuredData(locale: string, pageType: 'website' | 'product' | 'article', data?: any) {
   const config = getSEOConfig(locale)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://your-domain.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com'
   
   const baseStructuredData = {
     "@context": "https://schema.org",
@@ -82,14 +82,14 @@ export function generateStructuredData(locale: string, pageType: 'website' | 'pr
       "logo": `${baseUrl}/assets/logo.png`,
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+86-xxx-xxxx-xxxx",
+        "telephone": process.env.NEXT_PUBLIC_CONTACT_PHONE || "+86-400-123-4567",
         "contactType": "customer service",
         "availableLanguage": Object.keys(seoConfig)
       },
       "sameAs": [
-        "https://facebook.com/tmtautoparts",
-        "https://twitter.com/tmtautoparts",
-        "https://instagram.com/tmtautoparts"
+        process.env.NEXT_PUBLIC_FACEBOOK_URL || "https://facebook.com/tmtautoparts",
+        process.env.NEXT_PUBLIC_TWITTER_URL || "https://twitter.com/tmtautoparts",
+        process.env.NEXT_PUBLIC_INSTAGRAM_URL || "https://instagram.com/tmtautoparts"
       ]
     }
   }

@@ -14,8 +14,8 @@
     "items": "pcs",
     "note": "Note: Prices are for reference only, please contact for actual pricing.",
     "contact": {
-      "email": "Contact Email: contact@tmtparts.com",
-      "phone": "Contact Phone: +86 400-123-4567"
+      "emailLabel": "Contact Email",
+      "phoneLabel": "Contact Phone"
     },
     "copyList": "📋 Copy List",
     "copySuccess": "Copied",

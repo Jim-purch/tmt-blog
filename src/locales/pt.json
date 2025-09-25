@@ -14,8 +14,8 @@
     "items": "itens",
     "note": "Nota: Os preços são apenas para referência. Entre em contato conosco para preços reais.",
     "contact": {
-      "email": "Email de contato: contact@tmtparts.com",
-      "phone": "Telefone de contato: +86 400-123-4567"
+      "emailLabel": "Email de contato",
+      "phoneLabel": "Telefone de contato"
     },
     "copyList": "📋 Copiar Lista",
     "copySuccess": "Copiado com sucesso",

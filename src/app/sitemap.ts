@@ -17,7 +17,7 @@ function generateAlternates(baseUrl: string, path: string, locales: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://your-domain.com' // 替换为您的实际域名
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://tmtparts.com'
   
   // 获取所有产品和文章
   const products = getAllProducts()

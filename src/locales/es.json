@@ -14,8 +14,8 @@
     "items": "pzs",
     "note": "Nota: Los precios son solo de referencia, por favor contacte para precios reales.",
     "contact": {
-      "email": "Email de Contacto: contact@tmtparts.com",
-      "phone": "Teléfono de Contacto: +86 400-123-4567"
+      "emailLabel": "Email de Contacto",
+      "phoneLabel": "Teléfono de Contacto"
     },
     "copyList": "📋 Copiar Lista",
     "copySuccess": "Copiado",
