@@ -1,6 +1,10 @@
+"use client";
+
 import { CONTACT_CONFIG } from "@/lib/constants";
+import { useTranslation } from "@/lib/i18n";
 
 export function Footer() {
+  const { t } = useTranslation();
   return (
     <footer className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
       <div className="container mx-auto px-5 py-12">
@@ -14,6 +18,7 @@ export function Footer() {
               {CONTACT_CONFIG.address}
             </p>
             <p className="text-neutral-600 dark:text-neutral-400">
+              <span className="font-medium">{t('footer.workingHours')}：</span>
               {CONTACT_CONFIG.workingHours}
             </p>
           </div>
@@ -21,11 +26,11 @@ export function Footer() {
           {/* 联系方式 */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
-              联系我们
+              {t('footer.contactUs')}
             </h3>
             <div className="space-y-2">
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">电话：</span>
+                <span className="font-medium">{t('footer.phone')}：</span>
                 <a 
                   href={`tel:${CONTACT_CONFIG.phone}`}
                   className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -34,7 +39,7 @@ export function Footer() {
                 </a>
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">邮箱：</span>
+                <span className="font-medium">{t('footer.email')}：</span>
                 <a 
                   href={`mailto:${CONTACT_CONFIG.email}`}
                   className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -43,12 +48,12 @@ export function Footer() {
                 </a>
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">Whatsapp：</span>
-                {CONTACT_CONFIG.Whatsapp}
+                <span className="font-medium">Wechat：</span>
+                {CONTACT_CONFIG.wechat}
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
-                <span className="font-medium">Wechat：</span>
-                {CONTACT_CONFIG.Wechat}
+                <span className="font-medium">QQ：</span>
+                {CONTACT_CONFIG.qq}
               </p>
             </div>
           </div>
@@ -56,20 +61,26 @@ export function Footer() {
           {/* 快速链接 */}
           <div>
             <h3 className="text-lg font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
-              快速链接
+              {t('footer.quickLinks')}
             </h3>
             <div className="space-y-2">
-              <a 
+              <a
                 href="/"
-                className="block text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               >
-                首页
+                {t('footer.home')}
               </a>
-              <a 
-                href="https://www.toomotoo.com/"
-                className="block text-neutral-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              <a
+                href="/products"
+                className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               >
-                关于我们
+                {t('footer.products')}
+              </a>
+              <a
+                href="/about"
+                className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
+              >
+                {t('footer.about')}
               </a>
             </div>
           </div>
@@ -78,7 +89,7 @@ export function Footer() {
         {/* 版权信息 */}
         <div className="border-t border-neutral-200 dark:border-neutral-800 mt-8 pt-8 text-center">
           <p className="text-neutral-500 dark:text-neutral-500 text-sm">
-            {CONTACT_CONFIG.copyright}
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

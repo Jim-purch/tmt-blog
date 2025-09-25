@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import type { Post } from '@/interfaces/post';
+import { useTranslation } from '@/lib/i18n';
 
 interface SearchProps {
   posts: Post[];
@@ -16,6 +17,7 @@ interface ProductMetadata {
 }
 
 export default function Search({ posts }: SearchProps) {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState<ProductMetadata[]>([]);
   const [isSearching, setIsSearching] = useState(false);
@@ -77,7 +79,7 @@ export default function Search({ posts }: SearchProps) {
       <form onSubmit={handleSearchSubmit} className="relative">
         <input
           type="text"
-          placeholder="搜索零件号"
+          placeholder={t('search.partNumberPlaceholder')}
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           className="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-800 dark:border-gray-600 dark:text-white dark:focus:border-blue-400 shadow-lg"
@@ -119,7 +121,7 @@ export default function Search({ posts }: SearchProps) {
           {searchResults.length > 0 ? (
             <div className="py-2">
               <div className="px-4 py-2 text-sm text-gray-500 dark:text-gray-400 border-b border-gray-100 dark:border-gray-600">
-                找到 {searchResults.length} 个产品
+                {t('search.foundResults').replace('{count}', searchResults.length.toString())}
               </div>
               {searchResults.map((product) => (
                 <Link
@@ -144,8 +146,8 @@ export default function Search({ posts }: SearchProps) {
               <svg className="mx-auto h-12 w-12 text-gray-300 dark:text-gray-600 mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.172 16.172a4 4 0 015.656 0M9 12h6m-6-4h6m2 5.291A7.962 7.962 0 0112 15c-2.34 0-4.47-.881-6.08-2.33" />
               </svg>
-              <div className="text-lg font-medium mb-1">未找到相关产品</div>
-              <div className="text-sm">请尝试其他关键词</div>
+              <div className="text-lg font-medium mb-1">{t('search.noResults')}</div>
+              <div className="text-sm">{t('search.tryOtherKeywords')}</div>
             </div>
           )}
         </div>

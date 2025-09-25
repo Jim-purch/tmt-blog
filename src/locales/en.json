@@ -1,0 +1,132 @@
+{
+  "cart": {
+    "title": "TMT Industrial Automation Parts List",
+    "generatedAt": "Generated at",
+    "headers": {
+      "index": "No.",
+      "productName": "Product Name",
+      "partNumber": "Part Number",
+      "brand": "Brand",
+      "category": "Category",
+      "quantity": "Quantity"
+    },
+    "totalItems": "Total Items",
+    "items": "pcs",
+    "note": "Note: Prices are for reference only, please contact for actual pricing.",
+    "contact": {
+      "email": "Contact Email: contact@tmtparts.com",
+      "phone": "Contact Phone: +86 400-123-4567"
+    },
+    "copyList": "📋 Copy List",
+    "copySuccess": "Copied",
+    "clear": "Clear",
+    "cartTitle": "Cart",
+    "itemsCount": "items",
+    "tooltip": "Cart ({count} items)",
+    "moreItems": "{count} more items...",
+    "total": "Total:"
+  },
+  "product": {
+    "notFound": "Product Not Found",
+    "imageNotAvailable": "Product image not available",
+    "imageServiceClosed": "Image service temporarily closed",
+    "specifications": "Product Specifications",
+    "weight": "Weight:",
+    "brand": "Brand:",
+    "partNumber": "Part Number:",
+    "category": "Category:",
+    "contactNow": "Contact Now",
+    "adding": "Adding...",
+    "inCart": "In Cart ({quantity})",
+    "addToCart": "Add to Cart",
+    "addSuccess": "Product successfully added to cart!",
+    "relatedProducts": "Related Products",
+    "model": "Model:",
+    "quantity": "Quantity:",
+    "noProducts": "No products available",
+    "viewMore": "View more products ({count}+)"
+  },
+  "search": {
+    "placeholder": "Search products...",
+    "partNumberPlaceholder": "Search part number",
+    "quickSearch": "Quick Product Search",
+    "quickSearchDesc": "Enter product name to quickly find the parts you need",
+    "found": "Found {count} products",
+    "foundRelated": "Found {count} related products",
+    "noResults": "No related products found",
+    "tryOtherKeywords": "Please try other keywords",
+    "viewAllResults": "View all search results →",
+    "searchFailed": "Search request failed",
+    "searchError": "Error searching products:"
+  },
+  "filter": {
+    "title": "Filter Products",
+    "search": "Search",
+    "category": "Category",
+    "allCategories": "All Categories",
+    "brand": "Brand",
+    "allBrands": "All Brands",
+    "clear": "Clear Filters"
+  },
+  "page": {
+    "productsTitle": "Product Center",
+    "productsDesc": "Browse all our products and find the parts you need",
+    "foundProducts": "Found {count} products",
+    "categoryFilter": "Category:",
+    "brandFilter": "Brand:",
+    "featuredProducts": "Featured Products",
+    "featuredProductsDesc": "Carefully selected high-quality parts for you",
+    "productCategories": "Product Categories",
+    "productCategoriesDesc": "Browse our products by category",
+    "viewAllCategory": "View all {category} products"
+  },
+  "home": {
+    "featuredProducts": "Featured Products",
+    "featuredProductsDesc": "Carefully selected quality auto parts for you",
+    "productCategories": "Product Categories",
+    "productCategoriesDesc": "Browse our products by category",
+    "viewAllProducts": "View all {category} products",
+    "categories": {
+      "brakeSystem": "Brake System",
+      "engineSystem": "Engine System",
+      "suspensionSystem": "Suspension System",
+      "tireSystem": "Tire System",
+      "lightingSystem": "Lighting System",
+      "exteriorAccessories": "Exterior Accessories"
+    }
+  },
+  "footer": {
+    "contact": "Contact Us",
+    "phone": "Phone: +86 400-123-4567",
+    "email": "Email: info@tmt-parts.com",
+    "wechat": "WeChat: TMT-Parts",
+    "qq": "QQ: 123456789",
+    "workingHours": "Working Hours: Mon-Fri 9:00-18:00",
+    "quickLinks": "Quick Links",
+    "home": "Home",
+    "products": "Products",
+    "about": "About Us",
+    "copyright": "© 2024 TMT Parts. All rights reserved."
+  },
+  "theme": {
+    "light": "Light Mode",
+    "dark": "Dark Mode",
+    "system": "Follow System"
+  },
+  "language": {
+    "switch": "Switch Language",
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "common": {
+    "loading": "Loading...",
+    "search": "Search",
+    "filter": "Filter",
+    "clear": "Clear",
+    "home": "Home",
+    "products": "Products",
+    "about": "About",
+    "contact": "Contact"
+  }
+}

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Product } from '@/interfaces/product'
+import { useTranslation } from '@/lib/i18n'
 
 interface TopSearchProps {
   placeholder?: string
@@ -10,14 +11,18 @@ interface TopSearchProps {
 }
 
 export default function TopSearch({ 
-  placeholder = "搜索产品...", 
+  placeholder, 
   showResults = true 
 }: TopSearchProps) {
+  const { t } = useTranslation()
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<Product[]>([])
   const [isSearching, setIsSearching] = useState(false)
   const [showDropdown, setShowDropdown] = useState(false)
   const router = useRouter()
+  
+  // 使用国际化的默认占位符
+  const searchPlaceholder = placeholder || t('search.placeholder')
 
   // 搜索产品
   const searchProducts = async (term: string) => {
@@ -31,13 +36,13 @@ export default function TopSearch({
     try {
       const response = await fetch(`/api/products?action=search&q=${encodeURIComponent(term)}`)
       if (!response.ok) {
-        throw new Error('搜索请求失败')
+        throw new Error(t('search.searchFailed'))
       }
       const filtered: Product[] = await response.json()
       setSearchResults(filtered.slice(0, 5)) // 只显示前5个结果
       setShowDropdown(showResults && filtered.length > 0)
     } catch (error) {
-      console.error('搜索产品时出错:', error)
+      console.error(t('search.searchError'), error)
       setSearchResults([])
       setShowDropdown(false)
     } finally {
@@ -86,7 +91,7 @@ export default function TopSearch({
             onChange={(e) => setSearchTerm(e.target.value)}
             onFocus={() => searchTerm && searchResults.length > 0 && setShowDropdown(true)}
             onBlur={handleBlur}
-            placeholder={placeholder}
+            placeholder={searchPlaceholder}
             className="w-full px-4 py-3 pl-12 pr-4 text-gray-900 bg-white border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
           />
           <div className="absolute inset-y-0 left-0 flex items-center pl-4">
@@ -117,7 +122,7 @@ export default function TopSearch({
         <div className="absolute z-50 w-full mt-2 bg-white border border-gray-200 rounded-lg shadow-lg max-h-80 overflow-y-auto">
           <div className="p-2">
             <div className="text-xs text-gray-500 px-3 py-2 border-b">
-              找到 {searchResults.length} 个相关产品
+              {t('search.foundRelated').replace('{count}', searchResults.length.toString())}
             </div>
             {searchResults.map((product) => (
               <button
@@ -163,7 +168,7 @@ export default function TopSearch({
                 }}
                 className="w-full px-3 py-2 text-sm text-blue-600 hover:bg-blue-50 transition-colors"
               >
-                查看所有搜索结果 →
+                {t('search.viewAllResults')}
               </button>
             )}
           </div>

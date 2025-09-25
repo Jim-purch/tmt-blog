@@ -3,31 +3,33 @@
 import { useCart } from "@/hooks/useCart";
 import { useState } from "react";
 import { CartItem } from "@/interfaces/cart";
+import { useTranslation } from "@/lib/i18n";
 
 export function CartDisplay() {
   const { cart, clearCart } = useCart();
+  const { t } = useTranslation();
   const [isExpanded, setIsExpanded] = useState(false);
   const [copySuccess, setCopySuccess] = useState(false);
 
   // 如果购物车为空，不显示组件
-  if (cart.items.length === 0) {
+  if (!cart || cart.items.length === 0) {
     return null;
   }
 
   // 生成购物车文本内容（表格格式）
   const generateCartText = () => {
-    const header = `TMT工业自动化配件清单\t\t\t\t\n` +
-                  `生成时间: ${new Date().toLocaleString('zh-CN')}\t\t\t\t\n\n` +
-                  `序号\t产品名称\t零件号\t品牌\t分类\t数量\n`;
+    const header = `${t('cart.title')}\t\t\t\t\n` +
+                  `${t('cart.generatedAt')}: ${new Date().toLocaleString()}\t\t\t\t\n\n` +
+                  `${t('cart.headers.index')}\t${t('cart.headers.productName')}\t${t('cart.headers.partNumber')}\t${t('cart.headers.brand')}\t${t('cart.headers.category')}\t${t('cart.headers.quantity')}\n`;
     
     const itemsList = cart.items.map((item: CartItem, index: number) => 
       `${index + 1}\t${item.product.title}\t${item.product.partNumber}\t${item.product.brand}\t${item.product.category}\t${item.quantity}`
     ).join('\n');
     
-    const footer = `\n\n总计商品数量:\t${cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)} 件\t\t\t\t\n\n` +
-                  `注：价格仅供参考，实际价格请联系确认。\t\t\t\t\n` +
-                  `联系邮箱: contact@tmtparts.com\t\t\t\t\n` +
-                  `联系电话: +86 400-123-4567\t\t\t\t`;
+    const footer = `\n\n${t('cart.totalItems')}:\t${cart.items.reduce((sum: number, item: CartItem) => sum + item.quantity, 0)} ${t('cart.items')}\t\t\t\t\n\n` +
+                  `${t('cart.note')}\t\t\t\t\n` +
+                  `${t('cart.contact.email')}\t\t\t\t\n` +
+                  `${t('cart.contact.phone')}\t\t\t\t`;
     
     return header + itemsList + footer;
   };
@@ -125,14 +127,14 @@ export function CartDisplay() {
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>已复制</span>
+                    <span>{t('cart.copySuccess')}</span>
                   </div>
                 ) : (
                   <div className="flex items-center justify-center space-x-1">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
-                    <span>复制清单</span>
+                    <span>{t('cart.copyList').replace('📋 ', '')}</span>
                   </div>
                 )}
               </button>
@@ -141,7 +143,7 @@ export function CartDisplay() {
                 onClick={clearCart}
                 className="px-3 py-2.5 text-sm font-medium bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
               >
-                清空
+                {t('cart.clear')}
               </button>
             </div>
           </div>

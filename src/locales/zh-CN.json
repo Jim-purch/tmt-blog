@@ -1,0 +1,131 @@
+{
+  "cart": {
+    "title": "TMT工业自动化配件清单",
+    "generatedAt": "生成时间",
+    "headers": {
+      "index": "序号",
+      "productName": "产品名称",
+      "partNumber": "零件号",
+      "brand": "品牌",
+      "category": "分类",
+      "quantity": "数量"
+    },
+    "totalItems": "总计商品数量",
+    "items": "件",
+    "note": "注：价格仅供参考，实际价格请联系确认。",
+    "contact": {
+      "email": "联系邮箱: contact@tmtparts.com",
+      "phone": "联系电话: +86 400-123-4567"
+    },
+    "copyList": "📋 复制清单",
+    "copySuccess": "已复制",
+    "clear": "清空",
+    "cartTitle": "购物车",
+    "itemsCount": "项",
+    "tooltip": "购物车 ({count} 件商品)",
+    "moreItems": "还有 {count} 件商品...",
+    "total": "总计:"
+  },
+  "product": {
+    "notFound": "产品未找到",
+    "imageNotAvailable": "产品图片暂不可用",
+    "imageServiceClosed": "图片服务暂时关闭",
+    "specifications": "产品规格",
+    "weight": "重量:",
+    "brand": "品牌:",
+    "partNumber": "零件号:",
+    "category": "分类:",
+    "contactNow": "立即联系",
+    "adding": "添加中...",
+    "inCart": "已在购物车 ({quantity})",
+    "addToCart": "加入购物车",
+    "addSuccess": "商品已成功添加到购物车！",
+    "relatedProducts": "相关产品",
+    "model": "型号:",
+    "quantity": "数量:",
+    "noProducts": "暂无产品",
+    "viewMore": "查看更多产品 ({count}+)"
+  },
+  "search": {
+    "placeholder": "搜索产品名称...",
+    "partNumberPlaceholder": "搜索零件号",
+    "quickSearch": "快速搜索产品",
+    "quickSearchDesc": "输入产品名称快速找到您需要的零配件",
+    "found": "找到 {count} 个产品",
+    "foundRelated": "找到 {count} 个相关产品",
+    "noResults": "未找到相关产品",
+    "tryOtherKeywords": "请尝试其他关键词",
+    "viewAllResults": "查看所有搜索结果 →",
+    "searchFailed": "搜索请求失败",
+    "searchError": "搜索产品时出错:"
+  },
+  "filter": {
+    "title": "筛选产品",
+    "search": "搜索",
+    "category": "分类",
+    "allCategories": "所有分类",
+    "brand": "品牌",
+    "allBrands": "所有品牌",
+    "clear": "清除筛选"
+  },
+  "page": {
+    "productsTitle": "产品中心",
+    "productsDesc": "浏览我们的全部产品，找到您需要的零配件",
+    "foundProducts": "共找到 {count} 个产品",
+    "categoryFilter": "分类:",
+    "brandFilter": "品牌:",
+    "featuredProducts": "精选产品",
+    "featuredProductsDesc": "为您精心挑选的优质零配件产品",
+    "productCategories": "产品分类",
+    "productCategoriesDesc": "按分类浏览我们的产品",
+    "viewAllCategory": "查看所有{category}产品"
+  },
+  "home": {
+    "featuredProducts": "精选产品",
+    "featuredProductsDesc": "为您精心挑选的优质零配件产品",
+    "productCategories": "产品分类",
+    "productCategoriesDesc": "按分类浏览我们的产品",
+    "viewAllProducts": "查看所有{category}产品",
+    "categories": {
+      "brakeSystem": "刹车系统",
+      "engineSystem": "发动机系统",
+      "suspensionSystem": "悬挂系统",
+      "tireSystem": "轮胎系统",
+      "lightingSystem": "照明系统",
+      "exteriorAccessories": "外观配件"
+    }
+  },
+  "footer": {
+    "companyInfo": "公司信息",
+    "contactUs": "联系我们",
+    "phone": "电话",
+    "email": "邮箱",
+    "workingHours": "工作时间",
+    "quickLinks": "快速链接",
+    "home": "首页",
+    "products": "产品中心",
+    "about": "关于我们",
+    "copyright": "© 2024 TMT Parts Sale. 保留所有权利。"
+  },
+  "theme": {
+    "light": "浅色模式",
+    "dark": "深色模式",
+    "system": "跟随系统"
+  },
+  "language": {
+    "switch": "切换语言",
+    "zh-CN": "简体中文",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "common": {
+    "loading": "加载中...",
+    "search": "搜索",
+    "filter": "筛选",
+    "clear": "清除",
+    "home": "首页",
+    "products": "产品中心",
+    "about": "关于我们",
+    "contact": "联系我们"
+  }
+}

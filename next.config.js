@@ -16,6 +16,11 @@ const nextConfig = {
       },
     ],
   },
+  i18n: {
+    locales: ['zh-CN', 'en', 'ru'],
+    defaultLocale: 'zh-CN',
+    localeDetection: false,
+  },
 }
 
 module.exports = nextConfig

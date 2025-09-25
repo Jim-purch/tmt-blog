@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import cn from "classnames";
 import { ThemeSwitcher } from "./_components/theme-switcher";
+import { LanguageSwitcher } from "./_components/language-switcher";
 import { CartDisplay } from "./_components/cart-display";
 import { Footer } from "./_components/footer";
 import { SITE_CONFIG } from "@/lib/constants";
@@ -107,7 +108,10 @@ export default function RootLayout({
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
-        <ThemeSwitcher />
+        <div className="fixed left-2 sm:left-5 top-20 z-40 flex flex-col gap-3">
+          <LanguageSwitcher />
+          <ThemeSwitcher />
+        </div>
         <CartDisplay />
         <div className="min-h-screen flex flex-col">
           <main className="flex-grow">{children}</main>

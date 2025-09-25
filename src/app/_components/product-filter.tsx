@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { useTranslation } from "@/lib/i18n";
 
 type Props = {
   categories: string[];
@@ -9,6 +10,7 @@ type Props = {
 };
 
 export function ProductFilter({ categories, brands, onFilterChange }: Props) {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("");
   const [selectedBrand, setSelectedBrand] = useState("");
   const [searchTerm, setSearchTerm] = useState("");
@@ -37,21 +39,21 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 mb-8">
       <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-        筛选产品
+        {t('filter.title')}
       </h3>
       
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {/* 搜索框 */}
         <div>
           <label htmlFor="search" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            搜索
+            {t('filter.search')}
           </label>
           <input
             type="text"
             id="search"
             value={searchTerm}
             onChange={(e) => handleFilterChange({ search: e.target.value })}
-            placeholder="搜索产品..."
+            placeholder={t('filter.searchPlaceholder')}
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
           />
         </div>
@@ -59,7 +61,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
         {/* 分类筛选 */}
         <div>
           <label htmlFor="category" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            分类
+            {t('filter.category')}
           </label>
           <select
             id="category"
@@ -67,7 +69,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
             onChange={(e) => handleFilterChange({ category: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
           >
-            <option value="">所有分类</option>
+            <option value="">{t('filter.allCategories')}</option>
             {categories.map((category) => (
               <option key={category} value={category}>
                 {category}
@@ -79,7 +81,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
         {/* 品牌筛选 */}
         <div>
           <label htmlFor="brand" className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
-            品牌
+            {t('filter.brand')}
           </label>
           <select
             id="brand"
@@ -87,7 +89,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
             onChange={(e) => handleFilterChange({ brand: e.target.value })}
             className="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:text-white"
           >
-            <option value="">所有品牌</option>
+            <option value="">{t('filter.allBrands')}</option>
             {brands.map((brand) => (
               <option key={brand} value={brand}>
                 {brand}
@@ -102,7 +104,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
             onClick={clearFilters}
             className="w-full px-4 py-2 bg-gray-500 hover:bg-gray-600 text-white font-medium rounded-md transition-colors duration-200"
           >
-            清除筛选
+            {t('filter.clearFilters')}
           </button>
         </div>
       </div>

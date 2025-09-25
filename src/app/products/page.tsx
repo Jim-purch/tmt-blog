@@ -8,13 +8,16 @@ import TopSearch from "@/app/_components/top-search";
 import { Product } from "@/interfaces/product";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+import { useTranslation } from "@/lib/i18n";
 
 export default function ProductsPage() {
+  const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
   const [brands, setBrands] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
@@ -97,7 +100,7 @@ export default function ProductsPage() {
           <div className="flex justify-center items-center min-h-screen">
             <div className="text-center">
               <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
-              <p className="text-gray-600 dark:text-gray-400">加载中...</p>
+              <p className="text-gray-600 dark:text-gray-400">{t('common.loading')}</p>
             </div>
           </div>
         </Container>
@@ -111,16 +114,16 @@ export default function ProductsPage() {
         <div className="py-8">
           <div className="text-center mb-8">
             <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
-              产品中心
+              {t('page.productsTitle')}
             </h1>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              浏览我们的全部产品，找到您需要的零配件
+              {t('page.productsDesc')}
             </p>
           </div>
 
           {/* 顶部搜索区域 */}
           <div className="mb-8 py-6 bg-white dark:bg-gray-800 -mx-4 px-4 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700">
-            <TopSearch placeholder="搜索产品名称..." />
+            <TopSearch placeholder={t('search.placeholder')} />
           </div>
 
           <ProductFilter
@@ -131,15 +134,15 @@ export default function ProductsPage() {
 
           <div className="mb-4">
             <p className="text-gray-600 dark:text-gray-400">
-              共找到 <span className="font-semibold text-blue-600">{filteredProducts.length}</span> 个产品
+              {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
               {categoryParam && (
                 <span className="ml-2">
-                  - 分类: <span className="font-semibold">{categoryParam}</span>
+                  - {t('page.categoryFilter')} <span className="font-semibold">{categoryParam}</span>
                 </span>
               )}
               {brandParam && (
                 <span className="ml-2">
-                  - 品牌: <span className="font-semibold">{brandParam}</span>
+                  - {t('page.brandFilter')} <span className="font-semibold">{brandParam}</span>
                 </span>
               )}
             </p>
