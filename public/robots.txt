@@ -1,18 +1,34 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
 # 允许所有搜索引擎访问
-Allow: /products
-Allow: /posts
-Allow: /api/products
+User-agent: Googlebot
+Allow: /
 
-# 禁止访问敏感目录
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+# 禁止访问的目录
 Disallow: /api/
 Disallow: /_next/
 Disallow: /admin/
+Disallow: /private/
 
-# 网站地图位置
+# 站点地图
 Sitemap: https://your-domain.com/sitemap.xml
 
-# 爬取延迟（可选，避免服务器过载）
+# 爬取延迟（毫秒）
 Crawl-delay: 1

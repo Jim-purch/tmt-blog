@@ -2,11 +2,21 @@ import { useState, useEffect } from 'react';
 import zhCN from '@/locales/zh-CN.json';
 import en from '@/locales/en.json';
 import ru from '@/locales/ru.json';
+import ja from '@/locales/ja.json';
+import de from '@/locales/de.json';
+import fr from '@/locales/fr.json';
+import es from '@/locales/es.json';
+import pt from '@/locales/pt.json';
 
 const translations = {
   'zh-CN': zhCN,
   'en': en,
   'ru': ru,
+  'ja': ja,
+  'de': de,
+  'fr': fr,
+  'es': es,
+  'pt': pt,
 };
 
 export type Locale = keyof typeof translations;
@@ -62,4 +72,9 @@ export const supportedLocales: { code: Locale; name: string; flag: string }[] = 
   { code: 'zh-CN', name: '简体中文', flag: '🇨🇳' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
 ];
