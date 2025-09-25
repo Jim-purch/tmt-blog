@@ -69,7 +69,7 @@ export function HomeContent({ featuredProducts }: HomeContentProps) {
             return (
               <a
                 key={categoryKey}
-                href={`/products?category=${encodeURIComponent(categoryName)}`}
+                href={`/products?category=${encodeURIComponent(categoryKey)}`}
                 className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-all duration-300 p-6 text-center border-2 border-transparent hover:border-blue-500"
               >
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">

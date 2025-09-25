@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useTranslation } from "@/lib/i18n";
+import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 
 type Props = {
   categories: string[];
@@ -72,7 +73,7 @@ export function ProductFilter({ categories, brands, onFilterChange }: Props) {
             <option value="">{t('filter.allCategories')}</option>
             {categories.map((category) => (
               <option key={category} value={category}>
-                {category}
+                {t(getCategoryTranslationKey(category))}
               </option>
             ))}
           </select>

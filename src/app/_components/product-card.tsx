@@ -2,6 +2,7 @@
 
 import { Product } from "@/interfaces/product";
 import { IMAGE_CONFIG } from "@/lib/constants";
+import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
@@ -50,7 +51,7 @@ export function ProductCard({ product }: Props) {
           
           <div className="flex flex-wrap gap-2 mb-3">
             <span className="inline-block bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-2 py-1 rounded text-xs">
-              {product.category}
+              {t(getCategoryTranslationKey(product.category))}
             </span>
             <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-2 py-1 rounded text-xs">
               {product.brand}

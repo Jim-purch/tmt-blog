@@ -4,11 +4,11 @@ import Container from "@/app/_components/container";
 import { ProductFilter } from "@/app/_components/product-filter";
 import { ProductGrid } from "@/app/_components/product-grid";
 import TopSearch from "@/app/_components/top-search";
-// 移除直接导入，改用API调用
+import { useTranslation } from "@/lib/i18n";
 import { Product } from "@/interfaces/product";
+import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
-import { useTranslation } from "@/lib/i18n";
 
 export default function ProductsPage() {
   const { t } = useTranslation();
@@ -137,7 +137,7 @@ export default function ProductsPage() {
               {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
               {categoryParam && (
                 <span className="ml-2">
-                  - {t('page.categoryFilter')} <span className="font-semibold">{categoryParam}</span>
+                  - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(categoryParam))}</span>
                 </span>
               )}
               {brandParam && (

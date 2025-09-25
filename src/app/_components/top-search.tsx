@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import type { Product } from '@/interfaces/product'
+import { getCategoryTranslationKey } from '@/lib/categoryUtils'
 import { useTranslation } from '@/lib/i18n'
 
 interface TopSearchProps {
@@ -151,7 +152,7 @@ export default function TopSearch({
                       {product.title}
                     </p>
                     <p className="text-sm text-gray-500 truncate">
-                      {product.category} • {product.brand}
+                      {t(getCategoryTranslationKey(product.category))} • {product.brand}
                     </p>
                     <p className="text-sm font-semibold text-blue-600">
                       ¥{product.price}

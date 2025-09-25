@@ -5,6 +5,8 @@ import { IMAGE_CONFIG } from "@/lib/constants";
 import { openEmailClient } from "@/lib/emailUtils";
 import { useCart } from "@/hooks/useCart";
 import { Product } from "@/interfaces/product";
+import { getCategoryTranslationKey } from "@/lib/categoryUtils";
+import { useTranslation } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -15,6 +17,7 @@ interface ProductPageClientProps {
 }
 
 export function ProductPageClient({ product, relatedProducts }: ProductPageClientProps) {
+  const { t } = useTranslation();
   const { addItem, isInCart, getItemQuantity } = useCart();
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
@@ -57,7 +60,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
           href={`/products?category=${encodeURIComponent(product.category)}`}
           className="text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300"
         >
-          {product.category}
+          {t(getCategoryTranslationKey(product.category))}
         </Link>
         <span className="mx-2 text-gray-500">/</span>
         <span className="text-gray-700 dark:text-gray-300">{product.title}</span>
@@ -98,7 +101,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
             </h1>
             <div className="flex flex-wrap gap-2 mb-4">
               <span className="inline-block bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 px-3 py-1 rounded-full text-sm font-medium">
-                {product.category}
+                {t(getCategoryTranslationKey(product.category))}
               </span>
               <span className="inline-block bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 px-3 py-1 rounded-full text-sm font-medium">
                 {product.brand}
@@ -136,7 +139,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600 dark:text-gray-400">分类:</span>
-                <span className="font-medium text-gray-900 dark:text-white">{product.category}</span>
+                <span className="font-medium text-gray-900 dark:text-white">{t(getCategoryTranslationKey(product.category))}</span>
               </div>
             </div>
           </div>
