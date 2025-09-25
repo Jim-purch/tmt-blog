@@ -1,6 +1,6 @@
 "use client";
 
-import { CONTACT_CONFIG } from "@/lib/constants";
+import { CONTACT_CONFIG, QUICK_LINKS_CONFIG } from "@/lib/constants";
 import { useTranslation } from "@/lib/i18n";
 
 export function Footer() {
@@ -65,19 +65,19 @@ export function Footer() {
             </h3>
             <div className="space-y-2">
               <a
-                href="/"
+                href={QUICK_LINKS_CONFIG.home}
                 className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               >
                 {t('footer.home')}
               </a>
               <a
-                href="/products"
+                href={QUICK_LINKS_CONFIG.products}
                 className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               >
                 {t('footer.products')}
               </a>
               <a
-                href="/about"
+                href={QUICK_LINKS_CONFIG.about}
                 className="block text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 transition-colors"
               >
                 {t('footer.about')}

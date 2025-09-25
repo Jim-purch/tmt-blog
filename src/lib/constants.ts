@@ -37,3 +37,10 @@ export const PRODUCT_CONFIG = {
   titleSeparator: "-", // 标题分隔符
   seoSeparator: "-", // SEO分隔符
 };
+
+// 快速链接配置
+export const QUICK_LINKS_CONFIG = {
+  home: "/",
+  products: "/products",
+  about: "https://www.toomotoo.com/", // 关于我们页面链接，可在此处修改
+};
