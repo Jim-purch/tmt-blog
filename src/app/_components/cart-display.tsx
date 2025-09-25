@@ -62,8 +62,23 @@ export function CartDisplay() {
           className="p-3 flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors rounded-lg relative"
         >
           <div className="relative">
-            <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
+            {/* 叉车图标 */}
+            <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="currentColor" viewBox="0 0 24 24">
+              {/* 叉车主体 */}
+              <rect x="2" y="14" width="8" height="4" rx="0.5" />
+              {/* 叉车驾驶室 */}
+              <rect x="8" y="10" width="4" height="8" rx="0.5" />
+              {/* 叉车叉子 */}
+              <rect x="12" y="8" width="8" height="1" rx="0.5" />
+              <rect x="12" y="11" width="8" height="1" rx="0.5" />
+              {/* 叉车立柱 */}
+              <rect x="12" y="6" width="1" height="8" rx="0.5" />
+              {/* 前轮 */}
+              <circle cx="4" cy="19" r="1.5" fill="none" stroke="currentColor" strokeWidth="1" />
+              {/* 后轮 */}
+              <circle cx="8" cy="19" r="1.5" fill="none" stroke="currentColor" strokeWidth="1" />
+              {/* 货物 */}
+              <rect x="14" y="6" width="4" height="2" rx="0.3" opacity="0.7" />
             </svg>
             {/* 数量徽章 */}
             {totalItems > 0 && (
@@ -89,8 +104,21 @@ export function CartDisplay() {
           <div className="max-h-64 overflow-y-auto">
             {totalItems === 0 ? (
               <div className="p-6 text-center text-gray-500 dark:text-gray-400">
-                <svg className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5 6m0 0h9M17 13v6a2 2 0 01-2 2H9a2 2 0 01-2-2v-6" />
+                {/* 空状态叉车图标 */}
+                <svg className="w-12 h-12 mx-auto mb-3 text-gray-300 dark:text-gray-600" fill="currentColor" viewBox="0 0 24 24">
+                  {/* 叉车主体 */}
+                  <rect x="2" y="14" width="8" height="4" rx="0.5" />
+                  {/* 叉车驾驶室 */}
+                  <rect x="8" y="10" width="4" height="8" rx="0.5" />
+                  {/* 叉车叉子 */}
+                  <rect x="12" y="8" width="8" height="1" rx="0.5" />
+                  <rect x="12" y="11" width="8" height="1" rx="0.5" />
+                  {/* 叉车立柱 */}
+                  <rect x="12" y="6" width="1" height="8" rx="0.5" />
+                  {/* 前轮 */}
+                  <circle cx="4" cy="19" r="1.5" fill="none" stroke="currentColor" strokeWidth="1" />
+                  {/* 后轮 */}
+                  <circle cx="8" cy="19" r="1.5" fill="none" stroke="currentColor" strokeWidth="1" />
                 </svg>
                 <p className="text-sm">{t('cart.empty')}</p>
               </div>
