@@ -3,7 +3,7 @@
 import { ProductGrid } from "@/app/_components/product-grid";
 import { IMAGE_CONFIG } from "@/lib/constants";
 import { openEmailClient } from "@/lib/emailUtils";
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
@@ -41,6 +41,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
     }
   };
 
+  // 在渲染时动态计算购物车状态，确保实时更新
   const itemQuantity = getItemQuantity(product.slug);
   const isProductInCart = isInCart(product.slug);
 

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { Cart, CartItem } from '@/interfaces/cart';
 import { Product } from '@/interfaces/product';
 import {
@@ -8,11 +8,28 @@ import {
   addToCart as addToCartStorage,
   removeFromCart as removeFromCartStorage,
   updateCartItemQuantity as updateCartItemQuantityStorage,
-  clearCart as clearCartStorage,
-  getCartItem as getCartItemStorage
+  clearCart as clearCartStorage
 } from '@/lib/cartStorage';
 
-export function useCart() {
+interface CartContextType {
+  cart: Cart;
+  isLoading: boolean;
+  addItem: (product: Product, quantity?: number) => void;
+  removeItem: (productSlug: string) => void;
+  updateQuantity: (productSlug: string, quantity: number) => void;
+  clearCart: () => void;
+  getItem: (productSlug: string) => CartItem | undefined;
+  isInCart: (productSlug: string) => boolean;
+  getItemQuantity: (productSlug: string) => number;
+}
+
+const CartContext = createContext<CartContextType | undefined>(undefined);
+
+interface CartProviderProps {
+  children: ReactNode;
+}
+
+export function CartProvider({ children }: CartProviderProps) {
   const [cart, setCart] = useState<Cart>({
     items: [],
     totalItems: 0,
@@ -51,36 +68,50 @@ export function useCart() {
   }, []);
 
   // 清空购物车
-  const clearCart = useCallback(() => {
+  const clearCartHandler = useCallback(() => {
     const updatedCart = clearCartStorage();
     setCart(updatedCart);
   }, []);
 
   // 获取特定商品在购物车中的信息
   const getItem = useCallback((productSlug: string): CartItem | undefined => {
-    return getCartItemStorage(productSlug);
-  }, []);
+    return cart.items.find(item => item.product.slug === productSlug);
+  }, [cart]);
 
   // 检查商品是否在购物车中
   const isInCart = useCallback((productSlug: string): boolean => {
     return cart.items.some(item => item.product.slug === productSlug);
-  }, [cart.items]);
+  }, [cart]);
 
   // 获取商品在购物车中的数量
   const getItemQuantity = useCallback((productSlug: string): number => {
     const item = cart.items.find(item => item.product.slug === productSlug);
     return item ? item.quantity : 0;
-  }, [cart.items]);
+  }, [cart]);
 
-  return {
+  const value: CartContextType = {
     cart,
     isLoading,
     addItem,
     removeItem,
     updateQuantity,
-    clearCart,
+    clearCart: clearCartHandler,
     getItem,
     isInCart,
     getItemQuantity
   };
+
+  return (
+    <CartContext.Provider value={value}>
+      {children}
+    </CartContext.Provider>
+  );
+}
+
+export function useCart(): CartContextType {
+  const context = useContext(CartContext);
+  if (context === undefined) {
+    throw new Error('useCart must be used within a CartProvider');
+  }
+  return context;
 }

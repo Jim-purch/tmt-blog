@@ -24,7 +24,8 @@
     "itemsCount": "items",
     "tooltip": "Cart ({count} items)",
     "moreItems": "{count} more items...",
-    "total": "Total:"
+    "total": "Total:",
+    "remove": "Remove"
   },
   "product": {
     "notFound": "Product Not Found",

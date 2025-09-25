@@ -1,6 +1,6 @@
 'use client';
 
-import { useCart } from "@/hooks/useCart";
+import { useCart } from "@/contexts/CartContext";
 import { useTranslation } from "@/lib/i18n";
 import { useState } from "react";
 

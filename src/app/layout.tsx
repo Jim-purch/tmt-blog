@@ -5,6 +5,7 @@ import { ThemeSwitcher } from "./_components/theme-switcher";
 import { LanguageSwitcher } from "./_components/language-switcher";
 import { CartDisplay } from "./_components/cart-display";
 import { Footer } from "./_components/footer";
+import { CartProvider } from "@/contexts/CartContext";
 import { SITE_CONFIG } from "@/lib/constants";
 
 import "./globals.css";
@@ -108,15 +109,17 @@ export default function RootLayout({
         className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
-        <div className="absolute right-4 top-4 z-40 flex items-center gap-3">
-          <LanguageSwitcher />
-          <ThemeSwitcher />
-        </div>
-        <CartDisplay />
-        <div className="min-h-screen flex flex-col">
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <CartProvider>
+          <div className="absolute right-4 top-4 z-40 flex items-center gap-3">
+            <LanguageSwitcher />
+            <ThemeSwitcher />
+          </div>
+          <CartDisplay />
+          <div className="min-h-screen flex flex-col">
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </CartProvider>
       </body>
     </html>
   );
