@@ -8,9 +8,9 @@ import { notFound } from "next/navigation";
 import { ProductPageClient } from "./product-page-client";
 
 type Params = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
 export default async function ProductPage({ params }: Params) {

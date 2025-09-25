@@ -8,10 +8,10 @@ import StickySearchBar from "@/app/_components/sticky-search-bar";
 import { useTranslation } from "@/lib/i18n";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useSearchParams } from "next/navigation";
 
-export default function ProductsPage() {
+function ProductsPageContent() {
   const { t } = useTranslation();
   const [products, setProducts] = useState<Product[]>([]);
   const [filteredProducts, setFilteredProducts] = useState<Product[]>([]);
@@ -169,5 +169,24 @@ export default function ProductsPage() {
       </Container>
     </main>
     </>
+  );
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense fallback={
+      <main>
+        <Container>
+          <div className="flex justify-center items-center min-h-screen">
+            <div className="text-center">
+              <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600 mx-auto mb-4"></div>
+              <p className="text-gray-600 dark:text-gray-400">加载中...</p>
+            </div>
+          </div>
+        </Container>
+      </main>
+    }>
+      <ProductsPageContent />
+    </Suspense>
   );
 }

@@ -13,6 +13,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'),
   title: {
     default: SITE_CONFIG.title,
     template: `%s | ${SITE_CONFIG.title}`,
