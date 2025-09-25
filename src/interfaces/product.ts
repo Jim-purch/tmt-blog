@@ -29,9 +29,9 @@ export function generateProductTitle(brand: string, partNumber: string, descript
   return `${PRODUCT_CONFIG.titlePrefix}${PRODUCT_CONFIG.titleSeparator}${productTitle}`;
 }
 
-// 生成产品的基础slug（不包含前缀）
+// 生成产品的基础slug（不包含前缀）- 仅使用brand-partNumber格式
 export function generateProductSlug(brand: string, partNumber: string, description: string): string {
-  const baseSlug = `${brand}-${partNumber}-${description}`;
+  const baseSlug = `${brand}-${partNumber}`;
   
   // 转换为URL友好的格式
   return baseSlug
@@ -42,7 +42,7 @@ export function generateProductSlug(brand: string, partNumber: string, descripti
     .replace(/^-|-$/g, ''); // 移除开头和结尾的连字符
 }
 
-// 生成完整的SEO路径（包含业务前缀）
+// 生成完整的SEO路径（包含业务前缀）- 仅使用brand-partNumber格式
 export function generateProductSeo(brand: string, partNumber: string, description: string): string {
   const slug = generateProductSlug(brand, partNumber, description);
   return `${PRODUCT_CONFIG.seoPrefix}${PRODUCT_CONFIG.seoSeparator}${slug}`;
