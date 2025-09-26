@@ -6,6 +6,7 @@ import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 type Props = {
   product: Product;
@@ -13,11 +14,12 @@ type Props = {
 
 export function ProductCard({ product }: Props) {
   const { t } = useTranslation();
+  const [showTooltip, setShowTooltip] = useState(false);
   
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden">
-      <Link href={`/products/${product.seo}`} className="block">
-        <div className="relative aspect-square overflow-hidden bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+    <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-[450px] flex flex-col">
+      <Link href={`/products/${product.seo}`} className="block flex-1 flex flex-col">
+        <div className="relative aspect-square overflow-hidden bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0">
           {IMAGE_CONFIG.enabled ? (
             <Image
               src={product.thumbnailUrl}
@@ -40,12 +42,27 @@ export function ProductCard({ product }: Props) {
           </div>
         </div>
         
-        <div className="p-4">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-            {product.title}
-          </h3>
+        <div className="p-4 flex-1 flex flex-col">
+          <div className="relative mb-2">
+            <h3 
+              className="text-lg font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors line-clamp-2 leading-6 h-12"
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+              title={product.title}
+            >
+              {product.title}
+            </h3>
+            
+            {/* Tooltip for full title */}
+            {showTooltip && product.title.length > 40 && (
+              <div className="absolute z-10 top-full left-0 right-0 mt-1 p-2 bg-gray-900 dark:bg-gray-700 text-white text-sm rounded shadow-lg opacity-95 pointer-events-none">
+                {product.title}
+                <div className="absolute -top-1 left-4 w-2 h-2 bg-gray-900 dark:bg-gray-700 rotate-45"></div>
+              </div>
+            )}
+          </div>
           
-          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2">
+          <p className="text-gray-600 dark:text-gray-300 text-sm mb-3 line-clamp-2 flex-1">
             {product.description}
           </p>
           
@@ -58,7 +75,7 @@ export function ProductCard({ product }: Props) {
             </span>
           </div>
           
-          <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400 mt-auto">
             <span>{t('product.weight')} {product.weight}</span>
             <span>{t('product.partNumber')} {product.partNumber}</span>
           </div>

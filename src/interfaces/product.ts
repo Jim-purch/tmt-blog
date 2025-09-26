@@ -25,8 +25,8 @@ import { PRODUCT_CONFIG } from "@/lib/constants";
 
 // 辅助函数：根据brand、partNumber和description生成title和seo
 export function generateProductTitle(brand: string, partNumber: string, description: string): string {
-  const productTitle = `${brand}-${partNumber}-${description}`;
-  return `${PRODUCT_CONFIG.titlePrefix}${PRODUCT_CONFIG.titleSeparator}${productTitle}`;
+  const productTitle = `${partNumber}-${brand}-${description}`;
+  return `${productTitle}${PRODUCT_CONFIG.titleSeparator}${PRODUCT_CONFIG.titlePrefix}`;
 }
 
 // 生成产品的基础slug（不包含前缀）- 仅使用brand-partNumber格式
