@@ -93,20 +93,16 @@
     "productCategoriesDesc": "Durchsuchen Sie unsere Produkte nach Kategorien",
     "viewAllProducts": "Alle {category} Produkte anzeigen",
     "categories": {
+      "engineSystem": "Motorsystem",
       "brakeSystem": "Bremssystem",
       "coolingSystem": "Kühlsystem",
-      "durability": "Haltbarkeitsteile",
       "electricalSystem": "Elektrisches System",
-      "engineSystem": "Motorsystem",
       "exhaustSystem": "Abgasanlage",
+      "transmissionSystem": "Getriebe",
       "exteriorAccessories": "Außenzubehör",
-      "fuelSystem": "Kraftstoffsystem",
-      "interiorAccessories": "Innenzubehör",
-      "lightingSystem": "Beleuchtungssystem",
-      "specifications": "Spezifikationen",
-      "suspensionSystem": "Federungssystem",
       "tireSystem": "Reifensystem",
-      "transmissionSystem": "Getriebe"
+      "durability": "Haltbarkeitsteile",
+      "otherAccessories": "Sonstiges Zubehör"
     }
   },
   "footer": {

@@ -90,20 +90,16 @@
     "productCategoriesDesc": "Просматривайте наши товары по категориям",
     "viewAllProducts": "Посмотреть все товары {category}",
     "categories": {
+      "engineSystem": "Система двигателя",
       "brakeSystem": "Тормозная система",
       "coolingSystem": "Система охлаждения",
-      "durability": "Детали прочности",
       "electricalSystem": "Электрическая система",
-      "engineSystem": "Система двигателя",
       "exhaustSystem": "Выхлопная система",
+      "transmissionSystem": "Трансмиссия",
       "exteriorAccessories": "Внешние аксессуары",
-      "fuelSystem": "Топливная система",
-      "interiorAccessories": "Внутренние аксессуары",
-      "lightingSystem": "Система освещения",
-      "specifications": "Технические характеристики",
-      "suspensionSystem": "Система подвески",
       "tireSystem": "Система шин",
-      "transmissionSystem": "Трансмиссия"
+      "durability": "Детали долговечности",
+      "otherAccessories": "Прочие аксессуары"
     }
   },
   "footer": {

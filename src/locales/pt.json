@@ -93,20 +93,16 @@
     "productCategoriesDesc": "Navegue pelos produtos por categoria",
     "viewAllProducts": "Ver Todos os Produtos de {category}",
     "categories": {
+      "engineSystem": "Sistema do Motor",
       "brakeSystem": "Sistema de Freios",
       "coolingSystem": "Sistema de Refrigeração",
-      "durability": "Peças de Durabilidade",
       "electricalSystem": "Sistema Elétrico",
-      "engineSystem": "Sistema do Motor",
       "exhaustSystem": "Sistema de Escape",
+      "transmissionSystem": "Sistema de Transmissão",
       "exteriorAccessories": "Acessórios Externos",
-      "fuelSystem": "Sistema de Combustível",
-      "interiorAccessories": "Acessórios Internos",
-      "lightingSystem": "Sistema de Iluminação",
-      "specifications": "Especificações",
-      "suspensionSystem": "Sistema de Suspensão",
       "tireSystem": "Sistema de Pneus",
-      "transmissionSystem": "Sistema de Transmissão"
+      "durability": "Peças de Durabilidade",
+      "otherAccessories": "Outros Acessórios"
     }
   },
   "footer": {

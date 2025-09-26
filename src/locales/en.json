@@ -99,20 +99,16 @@
     "productCategoriesDesc": "Browse our products by category",
     "viewAllProducts": "View all {category} products",
     "categories": {
+      "engineSystem": "Engine System",
       "brakeSystem": "Brake System",
       "coolingSystem": "Cooling System",
-      "durability": "Durability Parts",
       "electricalSystem": "Electrical System",
-      "engineSystem": "Engine System",
       "exhaustSystem": "Exhaust System",
+      "transmissionSystem": "Transmission System",
       "exteriorAccessories": "Exterior Accessories",
-      "fuelSystem": "Fuel System",
-      "interiorAccessories": "Interior Accessories",
-      "lightingSystem": "Lighting System",
-      "specifications": "Specifications",
-      "suspensionSystem": "Suspension System",
       "tireSystem": "Tire System",
-      "transmissionSystem": "Transmission System"
+      "durability": "Durability Parts",
+      "otherAccessories": "Other Accessories"
     }
   },
   "footer": {

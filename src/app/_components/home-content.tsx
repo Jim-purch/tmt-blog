@@ -58,20 +58,16 @@ export function HomeContent({ featuredProducts }: HomeContentProps) {
         
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {[
+            'engineSystem',
             'brakeSystem',
             'coolingSystem',
-            'durability',
             'electricalSystem',
-            'engineSystem',
             'exhaustSystem',
+            'transmissionSystem',
             'exteriorAccessories',
-            'fuelSystem',
-            'interiorAccessories',
-            'lightingSystem',
-            'specifications',
-            'suspensionSystem',
             'tireSystem',
-            'transmissionSystem'
+            'durability',
+            'otherAccessories'
           ].map((categoryKey) => {
             const categoryName = t(`home.categories.${categoryKey}`);
             return (

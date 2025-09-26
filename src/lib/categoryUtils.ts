@@ -13,20 +13,16 @@ export function getCategoryTranslationKey(categoryKey: string): string {
  * 分类键名映射，用于验证和转换
  */
 export const CATEGORY_KEYS = {
+  engineSystem: 'engineSystem',
   brakeSystem: 'brakeSystem',
   coolingSystem: 'coolingSystem',
-  durability: 'durability',
   electricalSystem: 'electricalSystem',
-  engineSystem: 'engineSystem',
   exhaustSystem: 'exhaustSystem',
+  transmissionSystem: 'transmissionSystem',
   exteriorAccessories: 'exteriorAccessories',
-  fuelSystem: 'fuelSystem',
-  interiorAccessories: 'interiorAccessories',
-  lightingSystem: 'lightingSystem',
-  specifications: 'specifications',
-  suspensionSystem: 'suspensionSystem',
   tireSystem: 'tireSystem',
-  transmissionSystem: 'transmissionSystem'
+  durability: 'durability',
+  otherAccessories: 'otherAccessories'
 } as const;
 
 /**

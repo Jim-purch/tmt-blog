@@ -99,20 +99,16 @@
     "productCategoriesDesc": "按分类浏览我们的产品",
     "viewAllProducts": "查看所有{category}产品",
     "categories": {
+      "engineSystem": "发动机系统",
       "brakeSystem": "刹车系统",
       "coolingSystem": "冷却系统",
-      "durability": "耐用性配件",
       "electricalSystem": "电气系统",
-      "engineSystem": "发动机系统",
       "exhaustSystem": "排气系统",
+      "transmissionSystem": "传动系统",
       "exteriorAccessories": "外观配件",
-      "fuelSystem": "燃油系统",
-      "interiorAccessories": "内饰配件",
-      "lightingSystem": "照明系统",
-      "specifications": "规格参数",
-      "suspensionSystem": "悬挂系统",
       "tireSystem": "轮胎系统",
-      "transmissionSystem": "传动系统"
+      "durability": "耐用性配件",
+      "otherAccessories": "其他配件"
     }
   },
   "footer": {

@@ -93,20 +93,16 @@
     "productCategoriesDesc": "カテゴリ別に製品を閲覧",
     "viewAllProducts": "すべての{category}製品を表示",
     "categories": {
+      "engineSystem": "エンジンシステム",
       "brakeSystem": "ブレーキシステム",
       "coolingSystem": "冷却システム",
-      "durability": "耐久性部品",
       "electricalSystem": "電気システム",
-      "engineSystem": "エンジンシステム",
       "exhaustSystem": "排気システム",
+      "transmissionSystem": "トランスミッションシステム",
       "exteriorAccessories": "外装アクセサリー",
-      "fuelSystem": "燃料システム",
-      "interiorAccessories": "内装アクセサリー",
-      "lightingSystem": "照明システム",
-      "specifications": "仕様",
-      "suspensionSystem": "サスペンションシステム",
       "tireSystem": "タイヤシステム",
-      "transmissionSystem": "トランスミッションシステム"
+      "durability": "耐久性部品",
+      "otherAccessories": "その他のアクセサリー"
     }
   },
   "footer": {

@@ -17,10 +17,9 @@ class PerformanceTestDataGenerator:
     def __init__(self):
         # 汽车零件类别
         self.categories = [
-            'brakeSystem', 'engineSystem', 'suspensionSystem', 
-            'tireSystem', 'lightingSystem', 'exteriorAccessories',
-            'interiorAccessories', 'transmissionSystem', 'coolingSystem',
-            'fuelSystem', 'exhaustSystem', 'electricalSystem'
+            'engineSystem', 'brakeSystem', 'coolingSystem',
+            'electricalSystem', 'exhaustSystem', 'transmissionSystem',
+            'exteriorAccessories', 'tireSystem', 'durability', 'otherAccessories'
         ]
         
         # 品牌列表（包含各种长度的品牌名，测试渲染性能）
