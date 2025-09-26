@@ -20,6 +20,13 @@ function ProductsPageContent() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   
+  // 当前筛选条件状态
+  const [currentFilters, setCurrentFilters] = useState({
+    category: "",
+    brand: "",
+    search: ""
+  });
+  
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
   const brandParam = searchParams.get('brand');
@@ -29,6 +36,8 @@ function ProductsPageContent() {
     // 加载数据
     const loadData = async () => {
       try {
+        setLoading(true);
+        
         // 并行加载所有数据
         const [productsRes, categoriesRes, brandsRes] = await Promise.all([
           fetch('/api/products?action=all'),
@@ -37,16 +46,26 @@ function ProductsPageContent() {
         ]);
 
         if (!productsRes.ok || !categoriesRes.ok || !brandsRes.ok) {
-          throw new Error('加载数据失败');
+          throw new Error('获取数据失败');
         }
 
-        const allProducts: Product[] = await productsRes.json();
-        const allCategories: string[] = await categoriesRes.json();
-        const allBrands: string[] = await brandsRes.json();
+        const [allProducts, allCategories, allBrands] = await Promise.all([
+          productsRes.json(),
+          categoriesRes.json(),
+          brandsRes.json()
+        ]);
         
         setProducts(allProducts);
         setCategories(allCategories);
         setBrands(allBrands);
+        
+        // 初始化当前筛选条件
+        const initialFilters = {
+          category: categoryParam || "",
+          brand: brandParam || "",
+          search: searchParam || ""
+        };
+        setCurrentFilters(initialFilters);
         
         // 根据URL参数过滤产品
         let filtered = allProducts;
@@ -65,17 +84,17 @@ function ProductsPageContent() {
         
         // 处理分类参数
         if (categoryParam) {
-          filtered = filtered.filter(product => product.category === categoryParam);
+          filtered = filtered.filter((product: Product) => product.category === categoryParam);
         }
         
         // 处理品牌参数
         if (brandParam) {
-          filtered = filtered.filter(product => product.brand === brandParam);
+          filtered = filtered.filter((product: Product) => product.brand === brandParam);
         }
         
         setFilteredProducts(filtered);
-      } catch (error) {
-        console.error('加载数据时出错:', error);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : '未知错误');
       } finally {
         setLoading(false);
       }
@@ -85,6 +104,9 @@ function ProductsPageContent() {
   }, [categoryParam, brandParam, searchParam]);
 
   const handleFilterChange = async (filters: { category: string; brand: string; search: string }) => {
+    // 更新当前筛选条件状态
+    setCurrentFilters(filters);
+    
     let filtered = products;
 
     // 应用搜索过滤
@@ -101,12 +123,12 @@ function ProductsPageContent() {
 
     // 应用分类过滤
     if (filters.category) {
-      filtered = filtered.filter(product => product.category === filters.category);
+      filtered = filtered.filter((product: Product) => product.category === filters.category);
     }
 
     // 应用品牌过滤
     if (filters.brand) {
-      filtered = filtered.filter(product => product.brand === filters.brand);
+      filtered = filtered.filter((product: Product) => product.brand === filters.brand);
     }
 
     setFilteredProducts(filtered);
@@ -169,19 +191,19 @@ function ProductsPageContent() {
           <div className="mb-4">
             <p className="text-gray-600 dark:text-gray-400">
               {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
-              {searchParam && (
+              {currentFilters.search && (
                 <span className="ml-2">
-                  - {t('search.searchFor')} <span className="font-semibold">"{searchParam}"</span>
+                  - {t('search.searchFor')} <span className="font-semibold">"{currentFilters.search}"</span>
                 </span>
               )}
-              {categoryParam && (
+              {currentFilters.category && (
                 <span className="ml-2">
-                  - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(categoryParam))}</span>
+                  - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(currentFilters.category))}</span>
                 </span>
               )}
-              {brandParam && (
+              {currentFilters.brand && (
                 <span className="ml-2">
-                  - {t('page.brandFilter')} <span className="font-semibold">{brandParam}</span>
+                  - {t('page.brandFilter')} <span className="font-semibold">{currentFilters.brand}</span>
                 </span>
               )}
             </p>
