@@ -76,6 +76,7 @@
     "productsTitle": "Product Center",
     "productsDesc": "Browse all our products and find the parts you need",
     "foundProducts": "Found {count} products",
+    "showingProducts": "Showing {start} - {end} of {total} items",
     "categoryFilter": "Category:",
     "brandFilter": "Brand:",
     "featuredProducts": "Featured Products",
@@ -83,6 +84,13 @@
     "productCategories": "Product Categories",
     "productCategoriesDesc": "Browse our products by category",
     "viewAllCategory": "View all {category} products"
+  },
+  "pagination": {
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page}",
+    "pageSize": "Items per page",
+    "items": "items"
   },
   "home": {
     "featuredProducts": "Featured Products",

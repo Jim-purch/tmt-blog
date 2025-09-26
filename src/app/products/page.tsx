@@ -3,6 +3,7 @@
 import Container from "@/app/_components/container";
 import { ProductFilter } from "@/app/_components/product-filter";
 import { ProductGrid } from "@/app/_components/product-grid";
+import { Pagination, PageSizeSelector } from "@/app/_components/pagination";
 import TopSearch from "@/app/_components/top-search";
 import StickySearchBar from "@/app/_components/sticky-search-bar";
 import { useTranslation } from "@/lib/i18n";
@@ -26,6 +27,11 @@ function ProductsPageContent() {
     brand: "",
     search: ""
   });
+  
+  // 分页相关状态
+  const [currentPage, setCurrentPage] = useState(1);
+  const [pageSize, setPageSize] = useState(12);
+  const [paginatedProducts, setPaginatedProducts] = useState<Product[]>([]);
   
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
@@ -132,7 +138,33 @@ function ProductsPageContent() {
     }
 
     setFilteredProducts(filtered);
+    // 重置到第一页
+    setCurrentPage(1);
   };
+
+  // 分页逻辑 - 当筛选结果或分页设置改变时更新分页产品
+  useEffect(() => {
+    const startIndex = (currentPage - 1) * pageSize;
+    const endIndex = startIndex + pageSize;
+    const paginated = filteredProducts.slice(startIndex, endIndex);
+    setPaginatedProducts(paginated);
+  }, [filteredProducts, currentPage, pageSize]);
+
+  // 处理页码变更
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // 滚动到页面顶部
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // 处理每页显示数量变更
+  const handlePageSizeChange = (size: number) => {
+    setPageSize(size);
+    setCurrentPage(1); // 重置到第一页
+  };
+
+  // 计算总页数
+  const totalPages = Math.ceil(filteredProducts.length / pageSize);
 
   if (loading) {
     return (
@@ -188,31 +220,59 @@ function ProductsPageContent() {
             initialSearch={searchParam || ""}
           />
 
-          <div className="mb-4">
-            <p className="text-gray-600 dark:text-gray-400">
-              {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
-              {currentFilters.search && (
-                <span className="ml-2">
-                  - {t('search.searchFor')} <span className="font-semibold">"{currentFilters.search}"</span>
-                </span>
+          <div className="mb-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+            <div>
+              <p className="text-gray-600 dark:text-gray-400">
+                {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
+                {currentFilters.search && (
+                  <span className="ml-2">
+                    - {t('search.searchFor')} <span className="font-semibold">"{currentFilters.search}"</span>
+                  </span>
+                )}
+                {currentFilters.category && (
+                  <span className="ml-2">
+                    - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(currentFilters.category))}</span>
+                  </span>
+                )}
+                {currentFilters.brand && (
+                  <span className="ml-2">
+                    - {t('page.brandFilter')} <span className="font-semibold">{currentFilters.brand}</span>
+                  </span>
+                )}
+              </p>
+              {filteredProducts.length > 0 && (
+                <p className="text-sm text-gray-500 dark:text-gray-500 mt-1">
+                  {t('page.showingProducts')
+                    .replace('{start}', ((currentPage - 1) * pageSize + 1).toString())
+                    .replace('{end}', Math.min(currentPage * pageSize, filteredProducts.length).toString())
+                    .replace('{total}', filteredProducts.length.toString())}
+                </p>
               )}
-              {currentFilters.category && (
-                <span className="ml-2">
-                  - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(currentFilters.category))}</span>
-                </span>
-              )}
-              {currentFilters.brand && (
-                <span className="ml-2">
-                  - {t('page.brandFilter')} <span className="font-semibold">{currentFilters.brand}</span>
-                </span>
-              )}
-            </p>
+            </div>
+            
+            {filteredProducts.length > 0 && (
+              <PageSizeSelector
+                pageSize={pageSize}
+                onPageSizeChange={handlePageSizeChange}
+              />
+            )}
           </div>
 
           <ProductGrid
-            products={filteredProducts}
+            products={paginatedProducts}
             showAll={true}
           />
+
+          {/* 分页导航 */}
+          {filteredProducts.length > pageSize && (
+            <div className="mt-8 flex justify-center">
+              <Pagination
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+              />
+            </div>
+          )}
         </div>
       </Container>
     </main>
