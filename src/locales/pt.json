@@ -18,8 +18,9 @@
       "phoneLabel": "Telefone de contato"
     },
     "copyList": "📋 Copiar Lista",
-    "copySuccess": "Copiado com sucesso",
+    "copySuccess": "Copiado",
     "clear": "Limpar",
+    "contactNow": "Entre em Contato Agora",
     "cartTitle": "Carrinho",
     "itemsCount": "itens",
     "tooltip": "Carrinho ({count} itens)",

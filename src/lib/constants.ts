@@ -33,9 +33,9 @@ export const IMAGE_CONFIG = {
 // 产品标题和SEO配置
 export const PRODUCT_CONFIG = {
   titlePrefix: "OEM&ALT", // 可自定义的标题前缀
-  seoPrefix: "oem-alt", // 可自定义的SEO前缀
+  seoPrefix: "", // 可自定义的SEO前缀
   titleSeparator: "-", // 标题分隔符
-  seoSeparator: "-", // SEO分隔符
+  seoSeparator: "", // SEO分隔符
 };
 
 // 快速链接配置

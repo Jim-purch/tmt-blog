@@ -182,36 +182,68 @@ export function CartDisplay() {
           {totalItems > 0 && (
             <div className="p-4 bg-gray-50 dark:bg-gray-700 rounded-b-lg space-y-3">
               <div className="flex space-x-2">
+              {/* 立即联系按钮 */}
+              <button
+                onClick={() => {
+                  const footer = document.getElementById('contact-footer');
+                  if (footer) {
+                    footer.scrollIntoView({ behavior: 'smooth' });
+                    // 添加突出显示效果
+                    const contactSection = footer.querySelector('.contact-section');
+                    if (contactSection) {
+                      contactSection.classList.add('highlight-contact');
+                      setTimeout(() => {
+                        contactSection.classList.remove('highlight-contact');
+                      }, 3000);
+                    }
+                  }
+                }}
+                title={t('cart.contactNow')}
+                className="w-24 h-10 px-2 py-2.5 font-medium bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
+                style={{ fontSize: 'clamp(0.625rem, 2.5vw, 0.875rem)' }}
+              >
+                <div className="flex items-center justify-center space-x-1 h-full">
+                  <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  <span className="whitespace-nowrap overflow-hidden text-ellipsis min-w-0">{t('cart.contactNow')}</span>
+                </div>
+              </button>
+              
               <button
                 onClick={copyToClipboard}
-                className={`flex-1 px-3 py-2.5 text-sm font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 ${
+                title={copySuccess ? t('cart.copySuccess') : t('cart.copyList').replace('📋 ', '')}
+                className={`w-28 h-10 px-2 py-2.5 font-medium rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95 ${
                   copySuccess 
                     ? 'bg-gradient-to-r from-green-600 to-green-700 text-white' 
                     : 'bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white'
                 }`}
+                style={{ fontSize: 'clamp(0.625rem, 2.5vw, 0.875rem)' }}
               >
                 {copySuccess ? (
-                  <div className="flex items-center justify-center space-x-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center justify-center space-x-1 h-full">
+                    <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <span>{t('cart.copySuccess')}</span>
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis min-w-0">{t('cart.copySuccess')}</span>
                   </div>
                 ) : (
-                  <div className="flex items-center justify-center space-x-1">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="flex items-center justify-center space-x-1 h-full">
+                    <svg className="w-3 h-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
                     </svg>
-                    <span>{t('cart.copyList').replace('📋 ', '')}</span>
+                    <span className="whitespace-nowrap overflow-hidden text-ellipsis min-w-0">{t('cart.copyList').replace('📋 ', '')}</span>
                   </div>
                 )}
               </button>
               
               <button
                 onClick={clearCart}
-                className="px-3 py-2.5 text-sm font-medium bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
+                title={t('cart.clear')}
+                className="w-16 h-10 px-2 py-2.5 font-medium bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white rounded-lg transition-all duration-200 shadow-sm hover:shadow-md active:scale-95"
+                style={{ fontSize: 'clamp(0.625rem, 2.5vw, 0.875rem)' }}
               >
-                {t('cart.clear')}
+                <span className="whitespace-nowrap overflow-hidden text-ellipsis block">{t('cart.clear')}</span>
               </button>
               </div>
             </div>
