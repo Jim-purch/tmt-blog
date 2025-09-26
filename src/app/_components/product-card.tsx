@@ -5,6 +5,7 @@ import { IMAGE_CONFIG } from "@/lib/constants";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import { useCart } from "@/contexts/CartContext";
+import { formatPrice } from "@/lib/priceUtils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -93,9 +94,11 @@ export function ProductCard({ product }: Props) {
               }
             }}
           />
-          <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
-            ¥{product.price}
-          </div>
+          {formatPrice(product.price) && (
+            <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
+              {formatPrice(product.price)}
+            </div>
+          )}
         </div>
         
         <div className="p-4 flex-1 flex flex-col">

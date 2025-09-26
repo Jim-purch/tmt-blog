@@ -2,6 +2,7 @@
 
 import { useCart } from "@/contexts/CartContext";
 import { useTranslation } from "@/lib/i18n";
+import { formatPrice, isValidPrice } from "@/lib/priceUtils";
 import { useState } from "react";
 
 export function CartIcon() {
@@ -43,9 +44,11 @@ export function CartIcon() {
                 <span className="text-gray-500 dark:text-gray-400">
                   x{item.quantity}
                 </span>
-                <span className="text-blue-600 dark:text-blue-400 font-medium">
-                  ¥{(parseFloat(item.product.price) * item.quantity).toFixed(2)}
-                </span>
+                {isValidPrice(item.product.price) && (
+                  <span className="text-blue-600 dark:text-blue-400 font-medium">
+                    ¥{(parseFloat(item.product.price) * item.quantity).toFixed(2)}
+                  </span>
+                )}
               </div>
             ))}
             {cart.items.length > 3 && (

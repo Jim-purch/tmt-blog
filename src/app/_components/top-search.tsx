@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import type { Product } from '@/interfaces/product'
 import { getCategoryTranslationKey } from '@/lib/categoryUtils'
 import { useTranslation } from '@/lib/i18n'
+import { formatPrice } from '@/lib/priceUtils'
 
 interface TopSearchProps {
   placeholder?: string
@@ -154,9 +155,11 @@ export default function TopSearch({
                     <p className="text-sm text-gray-500 truncate">
                       {t(getCategoryTranslationKey(product.category))} • {product.brand}
                     </p>
-                    <p className="text-sm font-semibold text-blue-600">
-                      ¥{product.price}
-                    </p>
+                    {formatPrice(product.price) && (
+                      <p className="text-sm font-semibold text-blue-600">
+                        {formatPrice(product.price)}
+                      </p>
+                    )}
                   </div>
                 </div>
               </button>

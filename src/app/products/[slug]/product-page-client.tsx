@@ -7,6 +7,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
+import { formatPrice } from "@/lib/priceUtils";
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -105,9 +106,11 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
             </div>
           </div>
 
-          <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
-            ¥{product.price}
-          </div>
+          {formatPrice(product.price) && (
+            <div className="text-3xl font-bold text-blue-600 dark:text-blue-400">
+              {formatPrice(product.price)}
+            </div>
+          )}
 
           <div className="prose dark:prose-invert max-w-none">
             <p className="text-gray-600 dark:text-gray-300 text-lg leading-relaxed">

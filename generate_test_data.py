@@ -15,7 +15,7 @@ class PerformanceTestDataGenerator:
     """性能测试数据生成器"""
     
     def __init__(self):
-        # 汽车零件类别
+        # 叉车零件类别
         self.categories = [
             'engineSystem', 'brakeSystem', 'coolingSystem',
             'electricalSystem', 'exhaustSystem', 'transmissionSystem',

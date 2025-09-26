@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import cn from "classnames";
 import { ThemeSwitcher } from "./_components/theme-switcher";
 import { LanguageSwitcher } from "./_components/language-switcher";
@@ -10,7 +9,8 @@ import { SITE_CONFIG } from "@/lib/constants";
 
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+// 使用系统字体栈替代 Google Fonts，避免网络连接问题
+const systemFontClass = "font-sans";
 
 export const metadata: Metadata = {
   metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'),
@@ -132,7 +132,7 @@ export default function RootLayout({
         <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
       </head>
       <body
-        className={cn(inter.className, "dark:bg-slate-900 dark:text-slate-400")}
+        className={cn(systemFontClass, "dark:bg-slate-900 dark:text-slate-400")}
         suppressHydrationWarning
       >
         <CartProvider>
