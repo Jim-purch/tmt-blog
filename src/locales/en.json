@@ -26,7 +26,8 @@
     "tooltip": "Cart ({count} items)",
     "moreItems": "{count} more items...",
     "total": "Total:",
-    "remove": "Remove"
+    "remove": "Remove",
+    "empty": "Your cart is empty. Start adding some industrial parts!"
   },
   "product": {
     "notFound": "Product Not Found",

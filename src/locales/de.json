@@ -26,7 +26,8 @@
     "tooltip": "Warenkorb ({count} Artikel)",
     "moreItems": "{count} weitere Artikel...",
     "total": "Gesamt:",
-    "remove": "Entfernen"
+    "remove": "Entfernen",
+    "empty": "Ihr Warenkorb ist leer. Fügen Sie einige Industrieteile hinzu!"
   },
   "product": {
     "notFound": "Produkt nicht gefunden",

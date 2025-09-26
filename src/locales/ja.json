@@ -26,7 +26,8 @@
     "tooltip": "カート（{count}アイテム）",
     "moreItems": "他{count}アイテム...",
     "total": "合計：",
-    "remove": "削除"
+    "remove": "削除",
+    "empty": "カートは空です。工業部品を追加してください！"
   },
   "product": {
     "notFound": "製品が見つかりません",

@@ -26,7 +26,8 @@
     "tooltip": "Carrinho ({count} itens)",
     "moreItems": "Mais {count} itens...",
     "total": "Total:",
-    "remove": "Remover"
+    "remove": "Remover",
+    "empty": "Seu carrinho está vazio. Comece a adicionar algumas peças industriais!"
   },
   "product": {
     "notFound": "Produto não encontrado",

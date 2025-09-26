@@ -26,7 +26,8 @@
     "tooltip": "Panier ({count} articles)",
     "moreItems": "{count} articles de plus...",
     "total": "Total :",
-    "remove": "Supprimer"
+    "remove": "Supprimer",
+    "empty": "Votre panier est vide. Commencez à ajouter des pièces industrielles !"
   },
   "product": {
     "notFound": "Produit Non Trouvé",

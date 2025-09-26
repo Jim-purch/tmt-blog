@@ -26,7 +26,8 @@
     "tooltip": "购物车 ({count} 件商品)",
     "moreItems": "还有 {count} 件商品...",
     "total": "总计:",
-    "remove": "删除"
+    "remove": "删除",
+    "empty": "购物车为空，快去添加一些工业配件吧！"
   },
   "product": {
     "notFound": "产品未找到",
