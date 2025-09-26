@@ -67,7 +67,7 @@ export function ProductCard({ product }: Props) {
   const isProductInCart = isInCart(product.slug);
 
   return (
-    <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-[450px] flex flex-col">
+    <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-[480px] flex flex-col">
       <Link href={`/products/${product.seo}`} className="block flex-1 flex flex-col">
         <div 
           className="relative aspect-square overflow-hidden bg-gray-200 dark:bg-gray-700 flex items-center justify-center flex-shrink-0 cursor-pointer"

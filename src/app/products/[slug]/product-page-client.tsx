@@ -118,11 +118,11 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
           {/* 产品规格 */}
           <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">
-              产品规格
+              {t('product.specifications')}
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">重量:</span>
+                <span className="text-gray-600 dark:text-gray-400">{t('product.weight')}</span>
                 <span className="font-medium text-gray-900 dark:text-white">{product.weight}</span>
               </div>
               <div className="flex justify-between">
@@ -134,7 +134,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
                 <span className="font-medium text-gray-900 dark:text-white">{product.partNumber}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-gray-600 dark:text-gray-400">分类:</span>
+                <span className="text-gray-600 dark:text-gray-400">{t('product.category')}</span>
                 <span className="font-medium text-gray-900 dark:text-white">{t(getCategoryTranslationKey(product.category))}</span>
               </div>
             </div>
@@ -149,7 +149,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
-              立即联系
+              {t('product.contactNow')}
             </button>
             <button 
               onClick={handleAddToCart}
@@ -202,7 +202,7 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
         <div>
           <ProductGrid
             products={relatedProducts}
-            title="相关产品"
+            title={t('product.relatedProducts')}
             showAll={true}
           />
         </div>
