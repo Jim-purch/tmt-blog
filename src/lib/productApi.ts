@@ -1,4 +1,4 @@
-import { Product, ProductCSVRow, generateProductTitle, generateProductSeo, generateProductSlug } from "@/interfaces/product";
+import { Product, ProductCSVRow, generateProductTitle, generateProductSeo, generateProductSlug, generateImageSlug } from "@/interfaces/product";
 import { IMAGE_CONFIG } from "@/lib/constants";
 import fs from "fs";
 import { join } from "path";
@@ -90,8 +90,9 @@ function parseCSVRecord(lines: string[], startIndex: number): { values: string[]
 // 注意：现在直接使用seo字段作为slug，因为它已经是URL友好的格式
 
 // 生成图片URL
-function generateImageUrls(seo: string) {
-  const filename = `${seo}.jpg`;
+function generateImageUrls(brand: string, partNumber: string) {
+  const imageSlug = generateImageSlug(brand, partNumber);
+  const filename = `${imageSlug}.jpg`;
   return {
     imageUrl: `${IMAGE_CONFIG.baseUrl}/${filename}`,
     thumbnailUrl: `${IMAGE_CONFIG.thumbnailBaseUrl}/${filename}`,
@@ -103,7 +104,7 @@ function csvRowToProduct(row: ProductCSVRow): Product {
   const title = generateProductTitle(row.brand, row.partNumber, row.description);
   const slug = generateProductSlug(row.brand, row.partNumber, row.description); // 基础slug，不含前缀
   const seo = generateProductSeo(row.brand, row.partNumber, row.description); // 完整SEO路径，含前缀
-  const { imageUrl, thumbnailUrl } = generateImageUrls(slug); // 图片使用基础slug
+  const { imageUrl, thumbnailUrl } = generateImageUrls(row.brand, row.partNumber); // 图片使用partNumber-brand格式
   
   return {
     slug,

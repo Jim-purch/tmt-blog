@@ -33,7 +33,7 @@ export default function SEOHead({
   const router = useRouter()
   const { locale, asPath } = router
   
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://your-domain.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
   const currentUrl = canonicalUrl || `${baseUrl}${asPath}`
   
   // 生成hreflang链接

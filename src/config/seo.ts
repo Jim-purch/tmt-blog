@@ -165,7 +165,7 @@ export function generateStructuredData(locale: string, pageType: 'website' | 'pr
       "dateModified": data.modifiedDate || data.publishedDate,
       "publisher": {
         "@type": "Organization",
-        "name": "TMT汽车配件",
+        "name": "TMT叉车配件",
         "logo": {
           "@type": "ImageObject",
           "url": `${baseUrl}/assets/logo.png`
