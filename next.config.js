@@ -22,21 +22,6 @@ const nextConfig = {
       },
     ],
   },
-  i18n: {
-    locales: ['zh-Hans', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt'],
-    defaultLocale: 'zh-Hans',
-    localeDetection: false,
-    domains: [
-      {
-        domain: 'tmtparts.com',
-        defaultLocale: 'zh-Hans',
-      },
-      {
-        domain: 'en.tmtparts.com',
-        defaultLocale: 'en',
-      },
-    ],
-  },
 }
 
 module.exports = nextConfig
