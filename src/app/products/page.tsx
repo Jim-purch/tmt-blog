@@ -23,6 +23,7 @@ function ProductsPageContent() {
   const searchParams = useSearchParams();
   const categoryParam = searchParams.get('category');
   const brandParam = searchParams.get('brand');
+  const searchParam = searchParams.get('search');
 
   useEffect(() => {
     // 加载数据
@@ -49,10 +50,27 @@ function ProductsPageContent() {
         
         // 根据URL参数过滤产品
         let filtered = allProducts;
+        
+        // 处理搜索参数
+        if (searchParam) {
+          try {
+            const searchResponse = await fetch(`/api/products?action=search&q=${encodeURIComponent(searchParam)}`);
+            if (searchResponse.ok) {
+              filtered = await searchResponse.json();
+            }
+          } catch (error) {
+            console.error('搜索时出错:', error);
+          }
+        }
+        
+        // 处理分类参数
         if (categoryParam) {
-          filtered = allProducts.filter(product => product.category === categoryParam);
-        } else if (brandParam) {
-          filtered = allProducts.filter(product => product.brand === brandParam);
+          filtered = filtered.filter(product => product.category === categoryParam);
+        }
+        
+        // 处理品牌参数
+        if (brandParam) {
+          filtered = filtered.filter(product => product.brand === brandParam);
         }
         
         setFilteredProducts(filtered);
@@ -64,7 +82,7 @@ function ProductsPageContent() {
     };
 
     loadData();
-  }, [categoryParam, brandParam]);
+  }, [categoryParam, brandParam, searchParam]);
 
   const handleFilterChange = async (filters: { category: string; brand: string; search: string }) => {
     let filtered = products;
@@ -143,11 +161,19 @@ function ProductsPageContent() {
             categories={categories}
             brands={brands}
             onFilterChange={handleFilterChange}
+            initialCategory={categoryParam || ""}
+            initialBrand={brandParam || ""}
+            initialSearch={searchParam || ""}
           />
 
           <div className="mb-4">
             <p className="text-gray-600 dark:text-gray-400">
               {t('page.foundProducts').replace('{count}', filteredProducts.length.toString())}
+              {searchParam && (
+                <span className="ml-2">
+                  - {t('search.searchFor')} <span className="font-semibold">"{searchParam}"</span>
+                </span>
+              )}
               {categoryParam && (
                 <span className="ml-2">
                   - {t('page.categoryFilter')} <span className="font-semibold">{t(getCategoryTranslationKey(categoryParam))}</span>

@@ -8,18 +8,83 @@ const csvFilePath = join(process.cwd(), "public/data/products.csv");
 // 解析CSV文件
 function parseCSV(csvContent: string): ProductCSVRow[] {
   const lines = csvContent.trim().split('\n');
-  const headers = lines[0].split(',');
+  const headers = parseCSVLine(lines[0]);
   
-  return lines.slice(1).map(line => {
-    const values = line.split(',');
-    const row: any = {};
+  const rows: ProductCSVRow[] = [];
+  let i = 1;
+  
+  while (i < lines.length) {
+    const { values, nextIndex } = parseCSVRecord(lines, i);
+    if (values.length > 0) {
+      const row: any = {};
+      headers.forEach((header, index) => {
+        row[header.trim()] = values[index]?.trim() || '';
+      });
+      rows.push(row as ProductCSVRow);
+    }
+    i = nextIndex;
+  }
+  
+  return rows;
+}
+
+// 解析单行CSV，正确处理引号
+function parseCSVLine(line: string): string[] {
+  const result: string[] = [];
+  let current = '';
+  let inQuotes = false;
+  let i = 0;
+  
+  while (i < line.length) {
+    const char = line[i];
     
-    headers.forEach((header, index) => {
-      row[header.trim()] = values[index]?.trim() || '';
-    });
+    if (char === '"') {
+      if (inQuotes && line[i + 1] === '"') {
+        // 转义的引号
+        current += '"';
+        i += 2;
+      } else {
+        // 开始或结束引号
+        inQuotes = !inQuotes;
+        i++;
+      }
+    } else if (char === ',' && !inQuotes) {
+      // 字段分隔符
+      result.push(current);
+      current = '';
+      i++;
+    } else {
+      current += char;
+      i++;
+    }
+  }
+  
+  result.push(current);
+  return result;
+}
+
+// 解析CSV记录，可能跨多行
+function parseCSVRecord(lines: string[], startIndex: number): { values: string[], nextIndex: number } {
+  let currentLine = lines[startIndex];
+  let lineIndex = startIndex;
+  
+  // 检查是否有未闭合的引号
+  while (lineIndex < lines.length) {
+    const quoteCount = (currentLine.match(/"/g) || []).length;
+    if (quoteCount % 2 === 0) {
+      // 引号已配对，记录完整
+      break;
+    }
     
-    return row as ProductCSVRow;
-  });
+    // 引号未配对，需要继续下一行
+    lineIndex++;
+    if (lineIndex < lines.length) {
+      currentLine += '\n' + lines[lineIndex];
+    }
+  }
+  
+  const values = parseCSVLine(currentLine);
+  return { values, nextIndex: lineIndex + 1 };
 }
 
 // 注意：现在直接使用seo字段作为slug，因为它已经是URL友好的格式

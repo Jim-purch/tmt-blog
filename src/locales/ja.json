@@ -58,7 +58,8 @@
     "tryOtherKeywords": "他のキーワードをお試しください",
     "viewAllResults": "すべての検索結果を表示 →",
     "searchFailed": "検索リクエストが失敗しました",
-    "searchError": "製品検索エラー："
+    "searchError": "製品検索エラー：",
+    "searchFor": "検索"
   },
   "filter": {
     "title": "製品をフィルター",
@@ -93,11 +94,19 @@
     "viewAllProducts": "すべての{category}製品を表示",
     "categories": {
       "brakeSystem": "ブレーキシステム",
+      "coolingSystem": "冷却システム",
+      "durability": "耐久性部品",
+      "electricalSystem": "電気システム",
       "engineSystem": "エンジンシステム",
+      "exhaustSystem": "排気システム",
+      "exteriorAccessories": "外装アクセサリー",
+      "fuelSystem": "燃料システム",
+      "interiorAccessories": "内装アクセサリー",
+      "lightingSystem": "照明システム",
+      "specifications": "仕様",
       "suspensionSystem": "サスペンションシステム",
       "tireSystem": "タイヤシステム",
-      "lightingSystem": "照明システム",
-      "exteriorAccessories": "外装アクセサリー"
+      "transmissionSystem": "トランスミッションシステム"
     }
   },
   "footer": {

@@ -56,14 +56,22 @@ export function HomeContent({ featuredProducts }: HomeContentProps) {
           </p>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {[
             'brakeSystem',
-            'engineSystem', 
+            'coolingSystem',
+            'durability',
+            'electricalSystem',
+            'engineSystem',
+            'exhaustSystem',
+            'exteriorAccessories',
+            'fuelSystem',
+            'interiorAccessories',
+            'lightingSystem',
+            'specifications',
             'suspensionSystem',
             'tireSystem',
-            'lightingSystem',
-            'exteriorAccessories'
+            'transmissionSystem'
           ].map((categoryKey) => {
             const categoryName = t(`home.categories.${categoryKey}`);
             return (

@@ -58,7 +58,8 @@
     "tryOtherKeywords": "Veuillez essayer d'autres mots-clés",
     "viewAllResults": "Voir tous les résultats de recherche →",
     "searchFailed": "Échec de la demande de recherche",
-    "searchError": "Erreur lors de la recherche de produits :"
+    "searchError": "Erreur lors de la recherche de produits:",
+    "searchFor": "Rechercher"
   },
   "filter": {
     "title": "Filtrer les Produits",
@@ -93,11 +94,19 @@
     "viewAllProducts": "Voir tous les produits {category}",
     "categories": {
       "brakeSystem": "Système de Freinage",
+      "coolingSystem": "Système de Refroidissement",
+      "durability": "Pièces de Durabilité",
+      "electricalSystem": "Système Électrique",
       "engineSystem": "Système Moteur",
+      "exhaustSystem": "Système d'Échappement",
+      "exteriorAccessories": "Accessoires Extérieurs",
+      "fuelSystem": "Système de Carburant",
+      "interiorAccessories": "Accessoires Intérieurs",
+      "lightingSystem": "Système d'Éclairage",
+      "specifications": "Spécifications",
       "suspensionSystem": "Système de Suspension",
       "tireSystem": "Système de Pneus",
-      "lightingSystem": "Système d'Éclairage",
-      "exteriorAccessories": "Accessoires Extérieurs"
+      "transmissionSystem": "Système de Transmission"
     }
   },
   "footer": {

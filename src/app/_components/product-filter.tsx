@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useTranslation } from "@/lib/i18n";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 
@@ -8,13 +8,30 @@ type Props = {
   categories: string[];
   brands: string[];
   onFilterChange: (filters: { category: string; brand: string; search: string }) => void;
+  initialCategory?: string;
+  initialBrand?: string;
+  initialSearch?: string;
 };
 
-export function ProductFilter({ categories, brands, onFilterChange }: Props) {
+export function ProductFilter({ 
+  categories, 
+  brands, 
+  onFilterChange, 
+  initialCategory = "", 
+  initialBrand = "", 
+  initialSearch = "" 
+}: Props) {
   const { t } = useTranslation();
-  const [selectedCategory, setSelectedCategory] = useState("");
-  const [selectedBrand, setSelectedBrand] = useState("");
-  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
+  const [selectedBrand, setSelectedBrand] = useState(initialBrand);
+  const [searchTerm, setSearchTerm] = useState(initialSearch);
+
+  // 当初始值改变时更新状态
+  useEffect(() => {
+    setSelectedCategory(initialCategory);
+    setSelectedBrand(initialBrand);
+    setSearchTerm(initialSearch);
+  }, [initialCategory, initialBrand, initialSearch]);
 
   const handleFilterChange = (newFilters: Partial<{ category: string; brand: string; search: string }>) => {
     const updatedFilters = {

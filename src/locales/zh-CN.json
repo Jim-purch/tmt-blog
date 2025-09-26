@@ -58,7 +58,8 @@
     "tryOtherKeywords": "请尝试其他关键词",
     "viewAllResults": "查看所有搜索结果 →",
     "searchFailed": "搜索请求失败",
-    "searchError": "搜索产品时出错:"
+    "searchError": "搜索产品时出错:",
+    "searchFor": "搜索"
   },
   "filter": {
     "title": "筛选产品",
@@ -91,11 +92,19 @@
     "viewAllProducts": "查看所有{category}产品",
     "categories": {
       "brakeSystem": "刹车系统",
+      "coolingSystem": "冷却系统",
+      "durability": "耐用性配件",
+      "electricalSystem": "电气系统",
       "engineSystem": "发动机系统",
+      "exhaustSystem": "排气系统",
+      "exteriorAccessories": "外观配件",
+      "fuelSystem": "燃油系统",
+      "interiorAccessories": "内饰配件",
+      "lightingSystem": "照明系统",
+      "specifications": "规格参数",
       "suspensionSystem": "悬挂系统",
       "tireSystem": "轮胎系统",
-      "lightingSystem": "照明系统",
-      "exteriorAccessories": "外观配件"
+      "transmissionSystem": "传动系统"
     }
   },
   "footer": {

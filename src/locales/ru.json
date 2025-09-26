@@ -57,7 +57,8 @@
     "tryOtherKeywords": "Попробуйте другие ключевые слова",
     "viewAllResults": "Посмотреть все результаты поиска →",
     "searchFailed": "Запрос поиска не удался",
-    "searchError": "Ошибка поиска товаров:"
+    "searchError": "Ошибка поиска товаров:",
+    "searchFor": "Поиск"
   },
   "filter": {
     "title": "Фильтр товаров",
@@ -90,11 +91,19 @@
     "viewAllProducts": "Посмотреть все товары {category}",
     "categories": {
       "brakeSystem": "Тормозная система",
+      "coolingSystem": "Система охлаждения",
+      "durability": "Детали прочности",
+      "electricalSystem": "Электрическая система",
       "engineSystem": "Система двигателя",
+      "exhaustSystem": "Выхлопная система",
+      "exteriorAccessories": "Внешние аксессуары",
+      "fuelSystem": "Топливная система",
+      "interiorAccessories": "Внутренние аксессуары",
+      "lightingSystem": "Система освещения",
+      "specifications": "Технические характеристики",
       "suspensionSystem": "Система подвески",
       "tireSystem": "Система шин",
-      "lightingSystem": "Система освещения",
-      "exteriorAccessories": "Внешние аксессуары"
+      "transmissionSystem": "Трансмиссия"
     }
   },
   "footer": {

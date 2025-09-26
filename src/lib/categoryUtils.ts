@@ -14,11 +14,19 @@ export function getCategoryTranslationKey(categoryKey: string): string {
  */
 export const CATEGORY_KEYS = {
   brakeSystem: 'brakeSystem',
-  engineSystem: 'engineSystem', 
+  coolingSystem: 'coolingSystem',
+  durability: 'durability',
+  electricalSystem: 'electricalSystem',
+  engineSystem: 'engineSystem',
+  exhaustSystem: 'exhaustSystem',
+  exteriorAccessories: 'exteriorAccessories',
+  fuelSystem: 'fuelSystem',
+  interiorAccessories: 'interiorAccessories',
+  lightingSystem: 'lightingSystem',
+  specifications: 'specifications',
   suspensionSystem: 'suspensionSystem',
   tireSystem: 'tireSystem',
-  lightingSystem: 'lightingSystem',
-  exteriorAccessories: 'exteriorAccessories'
+  transmissionSystem: 'transmissionSystem'
 } as const;
 
 /**

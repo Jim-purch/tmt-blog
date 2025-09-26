@@ -58,7 +58,8 @@
     "tryOtherKeywords": "Bitte versuchen Sie andere Suchbegriffe",
     "viewAllResults": "Alle Suchergebnisse anzeigen →",
     "searchFailed": "Suchanfrage fehlgeschlagen",
-    "searchError": "Fehler beim Suchen von Produkten:"
+    "searchError": "Fehler beim Suchen von Produkten:",
+    "searchFor": "Suchen nach"
   },
   "filter": {
     "title": "Produkte filtern",
@@ -93,11 +94,19 @@
     "viewAllProducts": "Alle {category} Produkte anzeigen",
     "categories": {
       "brakeSystem": "Bremssystem",
+      "coolingSystem": "Kühlsystem",
+      "durability": "Haltbarkeitsteile",
+      "electricalSystem": "Elektrisches System",
       "engineSystem": "Motorsystem",
+      "exhaustSystem": "Abgasanlage",
+      "exteriorAccessories": "Außenzubehör",
+      "fuelSystem": "Kraftstoffsystem",
+      "interiorAccessories": "Innenzubehör",
+      "lightingSystem": "Beleuchtungssystem",
+      "specifications": "Spezifikationen",
       "suspensionSystem": "Federungssystem",
       "tireSystem": "Reifensystem",
-      "lightingSystem": "Beleuchtungssystem",
-      "exteriorAccessories": "Außenzubehör"
+      "transmissionSystem": "Getriebe"
     }
   },
   "footer": {

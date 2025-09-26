@@ -58,7 +58,8 @@
     "tryOtherKeywords": "Please try other keywords",
     "viewAllResults": "View all search results →",
     "searchFailed": "Search request failed",
-    "searchError": "Error searching products:"
+    "searchError": "Error searching products:",
+    "searchFor": "Search for"
   },
   "filter": {
     "title": "Filter Products",
@@ -91,11 +92,19 @@
     "viewAllProducts": "View all {category} products",
     "categories": {
       "brakeSystem": "Brake System",
+      "coolingSystem": "Cooling System",
+      "durability": "Durability Parts",
+      "electricalSystem": "Electrical System",
       "engineSystem": "Engine System",
+      "exhaustSystem": "Exhaust System",
+      "exteriorAccessories": "Exterior Accessories",
+      "fuelSystem": "Fuel System",
+      "interiorAccessories": "Interior Accessories",
+      "lightingSystem": "Lighting System",
+      "specifications": "Specifications",
       "suspensionSystem": "Suspension System",
       "tireSystem": "Tire System",
-      "lightingSystem": "Lighting System",
-      "exteriorAccessories": "Exterior Accessories"
+      "transmissionSystem": "Transmission System"
     }
   },
   "footer": {
