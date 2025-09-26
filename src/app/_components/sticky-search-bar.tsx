@@ -72,12 +72,25 @@ export default function StickySearchBar({
             >
               {t('nav.products')}
             </a>
-            <a 
-              href="/about" 
-              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+            <button 
+              onClick={() => {
+                const footer = document.getElementById('contact-footer');
+                if (footer) {
+                  footer.scrollIntoView({ behavior: 'smooth' });
+                  // 添加突出显示效果
+                  const contactSection = footer.querySelector('.contact-section');
+                  if (contactSection) {
+                    contactSection.classList.add('highlight-contact');
+                    setTimeout(() => {
+                      contactSection.classList.remove('highlight-contact');
+                    }, 3000);
+                  }
+                }
+              }}
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium cursor-pointer"
             >
-              {t('nav.about')}
-            </a>
+              {t('nav.contact')}
+            </button>
           </div>
         </div>
 
@@ -97,12 +110,25 @@ export default function StickySearchBar({
               >
                 {t('nav.products')}
               </a>
-              <a 
-                href="/about" 
-                className="text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium"
+              <button 
+                onClick={() => {
+                  const footer = document.getElementById('contact-footer');
+                  if (footer) {
+                    footer.scrollIntoView({ behavior: 'smooth' });
+                    // 添加突出显示效果
+                    const contactSection = footer.querySelector('.contact-section');
+                    if (contactSection) {
+                      contactSection.classList.add('highlight-contact');
+                      setTimeout(() => {
+                        contactSection.classList.remove('highlight-contact');
+                      }, 3000);
+                    }
+                  }
+                }}
+                className="text-sm text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors font-medium cursor-pointer"
               >
-                {t('nav.about')}
-              </a>
+                {t('nav.contact')}
+              </button>
             </div>
           </div>
           

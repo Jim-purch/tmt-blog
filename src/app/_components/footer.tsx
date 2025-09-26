@@ -6,7 +6,7 @@ import { useTranslation } from "@/lib/i18n";
 export function Footer() {
   const { t } = useTranslation();
   return (
-    <footer className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
+    <footer id="contact-footer" className="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800">
       <div className="container mx-auto px-5 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* 公司信息 */}
@@ -15,7 +15,15 @@ export function Footer() {
               {CONTACT_CONFIG.company}
             </h3>
             <p className="text-neutral-600 dark:text-neutral-400 mb-2">
-              {CONTACT_CONFIG.address}
+              <a 
+                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(CONTACT_CONFIG.address)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors cursor-pointer"
+                title="在Google地图中查看"
+              >
+                {CONTACT_CONFIG.address}
+              </a>
             </p>
             <p className="text-neutral-600 dark:text-neutral-400">
               <span className="font-medium">{t('footer.workingHours')}：</span>
@@ -24,7 +32,7 @@ export function Footer() {
           </div>
 
           {/* 联系方式 */}
-          <div>
+          <div className="contact-section">
             <h3 className="text-lg font-semibold mb-4 text-neutral-900 dark:text-neutral-100">
               {t('footer.contactUs')}
             </h3>
@@ -53,7 +61,14 @@ export function Footer() {
               </p>
               <p className="text-neutral-600 dark:text-neutral-400">
                 <span className="font-medium">{t('footer.whatsapp')}：</span>
-                {CONTACT_CONFIG.whatsapp}
+                <a 
+                  href={`https://wa.me/${CONTACT_CONFIG.whatsapp.replace(/[^0-9]/g, '')}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-green-600 dark:hover:text-green-400 transition-colors"
+                >
+                  {CONTACT_CONFIG.whatsapp}
+                </a>
               </p>
             </div>
           </div>
