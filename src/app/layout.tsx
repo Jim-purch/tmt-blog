@@ -73,7 +73,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
     languages: {
-      'zh-CN': 'https://parts.toomotoo.com',
+      'zh-Hans': 'https://parts.toomotoo.com',
       'en-US': 'https://parts.toomotoo.com/en',
       'ru-RU': 'https://parts.toomotoo.com/ru',
       'ja-JP': 'https://parts.toomotoo.com/ja',

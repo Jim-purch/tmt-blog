@@ -31,7 +31,7 @@ export function getContactInfo(): ContactInfo {
  */
 export function formatContactForLocale(contactInfo: ContactInfo, locale: string) {
   const emailLabels: Record<string, string> = {
-    'zh-CN': '联系邮箱',
+    'zh-Hans': '联系邮箱',
     'en': 'Contact Email',
     'ru': 'Контактный email',
     'ja': 'お問い合わせメール',
@@ -42,7 +42,7 @@ export function formatContactForLocale(contactInfo: ContactInfo, locale: string)
   };
 
   const phoneLabels: Record<string, string> = {
-    'zh-CN': '联系电话',
+    'zh-Hans': '联系电话',
     'en': 'Contact Phone',
     'ru': 'Контактный телефон',
     'ja': 'お問い合わせ電話',

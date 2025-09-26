@@ -10,13 +10,22 @@ export interface SEOConfig {
 }
 
 export const seoConfig: Record<string, SEOConfig> = {
-  'zh-CN': {
+  'zh-Hans': {
     title: 'TMT叉车配件 - 高品质叉车零部件和配件',
     description: '专业提供高品质叉车配件，服务全球叉车用户。品质保证，全球配送，专业支持。',
     keywords: '叉车配件,叉车零部件,TMT,叉车用品,叉车维修,叉车改装,液压系统,传动系统,制动系统',
     ogImage: '/assets/og-image-zh.jpg',
-    locale: 'zh-CN',
+    locale: 'zh-Hans',
     region: 'CN',
+    language: 'zh'
+  },
+  'zh-Hant': {
+    title: 'TMT堆高機配件 - 高品質堆高機零部件和配件',
+    description: '專業提供高品質堆高機配件，服務全球堆高機用戶。品質保證，全球配送，專業支持。',
+    keywords: '堆高機配件,堆高機零部件,TMT,堆高機用品,堆高機維修,堆高機改裝,液壓系統,傳動系統,制動系統',
+    ogImage: '/assets/og-image-zh-Hant.jpg',
+    locale: 'zh-Hant',
+    region: 'TW',
     language: 'zh'
   },
   'en': {

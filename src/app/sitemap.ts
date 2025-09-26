@@ -2,14 +2,14 @@ import { MetadataRoute } from 'next'
 import { getAllProducts } from '@/lib/productApi'
 import { getAllPosts } from '@/lib/api'
 
-const supportedLocales = ['zh-CN', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt']
+const supportedLocales = ['zh-Hans', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt']
 
 // 生成hreflang替代链接的辅助函数
 function generateAlternates(baseUrl: string, path: string, locales: string[]) {
   const alternates: Record<string, string> = {}
   
   locales.forEach(locale => {
-    const localePrefix = locale === 'zh-CN' ? '' : `/${locale}`
+    const localePrefix = locale === 'zh-Hans' ? '' : `/${locale}`
     alternates[locale] = `${baseUrl}${localePrefix}${path}`
   })
   
@@ -27,7 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   
   // 为每种语言生成静态页面
   supportedLocales.forEach(locale => {
-    const localePrefix = locale === 'zh-CN' ? '' : `/${locale}`
+    const localePrefix = locale === 'zh-Hans' ? '' : `/${locale}`
     
     // 静态页面
     const staticPages = [

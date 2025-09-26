@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import zhCN from '@/locales/zh-CN.json';
+import zhHans from '@/locales/zh-Hans.json';
+import zhHant from '@/locales/zh-Hant.json';
 import en from '@/locales/en.json';
 import ru from '@/locales/ru.json';
 import ja from '@/locales/ja.json';
@@ -9,7 +10,8 @@ import es from '@/locales/es.json';
 import pt from '@/locales/pt.json';
 
 const translations = {
-  'zh-CN': zhCN,
+  'zh-Hans': zhHans,
+  'zh-Hant': zhHant,
   'en': en,
   'ru': ru,
   'ja': ja,
@@ -22,7 +24,7 @@ const translations = {
 export type Locale = keyof typeof translations;
 
 export function useTranslation() {
-  const [locale, setLocale] = useState<Locale>('zh-CN');
+  const [locale, setLocale] = useState<Locale>('zh-Hans');
 
   useEffect(() => {
     // 从localStorage获取保存的语言设置
@@ -69,7 +71,8 @@ export function getStaticTranslation(locale: Locale, key: string): string {
 }
 
 export const supportedLocales: { code: Locale; name: string; flag: string }[] = [
-  { code: 'zh-CN', name: '简体中文', flag: '🇨🇳' },
+  { code: 'zh-Hans', name: '简体中文', flag: '🇨🇳' },
+  { code: 'zh-Hant', name: '繁體中文', flag: '🇨🇳' },
   { code: 'en', name: 'English', flag: '🇺🇸' },
   { code: 'ru', name: 'Русский', flag: '🇷🇺' },
   { code: 'ja', name: '日本語', flag: '🇯🇵' },

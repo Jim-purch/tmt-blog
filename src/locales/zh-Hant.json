@@ -1,0 +1,158 @@
+{
+  "cart": {
+    "title": "TMT工業自動化配件清單",
+    "generatedAt": "生成時間",
+    "headers": {
+      "index": "序號",
+      "productName": "產品名稱",
+      "partNumber": "零件號",
+      "brand": "品牌",
+      "category": "分類",
+      "quantity": "數量"
+    },
+    "totalItems": "總計商品數量",
+    "items": "件",
+    "note": "注：價格僅供參考，實際價格請聯繫確認。",
+    "contact": {
+      "emailLabel": "聯繫郵箱",
+      "phoneLabel": "聯繫電話"
+    },
+    "copyList": "📋 複製清單",
+    "copySuccess": "已複製",
+    "clear": "清空",
+    "contactNow": "立即聯繫",
+    "cartTitle": "購物車",
+    "itemsCount": "項",
+    "tooltip": "購物車 ({count} 件商品)",
+    "moreItems": "還有 {count} 件商品...",
+    "total": "總計:",
+    "remove": "刪除",
+    "empty": "購物車為空，快去添加一些工業配件吧！"
+  },
+  "product": {
+    "notFound": "產品未找到",
+    "imageNotAvailable": "產品圖片暫不可用",
+    "imageServiceClosed": "圖片服務暫時關閉",
+    "specifications": "產品規格",
+    "weight": "重量:",
+    "brand": "品牌:",
+    "partNumber": "零件號:",
+    "category": "分類:",
+    "contactNow": "立即聯繫",
+    "adding": "添加中...",
+    "inCart": "已在購物車 ({quantity})",
+    "addToCart": "加入購物車",
+    "addSuccess": "商品已成功添加到購物車！",
+    "relatedProducts": "相關產品",
+    "model": "型號:",
+    "quantity": "數量:",
+    "noProducts": "暫無產品",
+    "viewMore": "查看更多產品 ({count}+)"
+  },
+  "search": {
+    "placeholder": "搜尋產品名稱...",
+    "partNumberPlaceholder": "搜尋零件號",
+    "quickSearch": "快速搜尋產品",
+    "quickSearchDesc": "輸入產品名稱快速找到您需要的零配件",
+    "found": "找到 {count} 個產品",
+    "foundRelated": "找到 {count} 個相關產品",
+    "noResults": "未找到相關產品",
+    "tryOtherKeywords": "請嘗試其他關鍵詞",
+    "viewAllResults": "查看所有搜尋結果 →",
+    "searchFailed": "搜尋請求失敗",
+    "searchError": "搜尋產品時出錯:",
+    "searchFor": "搜尋"
+  },
+  "filter": {
+    "title": "篩選產品",
+    "search": "搜尋",
+    "searchPlaceholder": "輸入產品名稱或零件號...",
+    "category": "分類",
+    "allCategories": "所有分類",
+    "brand": "品牌",
+    "allBrands": "輸入品牌名稱...",
+    "clear": "清除篩選",
+    "clearFilters": "清除篩選"
+  },
+  "page": {
+    "productsTitle": "產品中心",
+    "productsDesc": "瀏覽我們的全部產品，找到您需要的零配件",
+    "foundProducts": "共找到 {count} 個產品",
+    "showingProducts": "顯示第 {start} - {end} 項，共 {total} 項",
+    "categoryFilter": "分類:",
+    "brandFilter": "品牌:",
+    "featuredProducts": "精選產品",
+    "featuredProductsDesc": "為您精心挑選的優質零配件產品",
+    "productCategories": "產品分類",
+    "productCategoriesDesc": "按分類瀏覽我們的產品",
+    "viewAllCategory": "查看所有{category}產品"
+  },
+  "pagination": {
+    "previous": "上一頁",
+    "next": "下一頁",
+    "page": "第 {page} 頁",
+    "pageSize": "每頁顯示",
+    "items": "項"
+  },
+  "home": {
+    "featuredProducts": "精選產品",
+    "featuredProductsDesc": "為您精心挑選的優質零配件產品",
+    "productCategories": "產品分類",
+    "productCategoriesDesc": "按分類瀏覽我們的產品",
+    "viewAllProducts": "查看所有{category}產品",
+    "categories": {
+      "engineSystem": "發動機系統",
+      "brakeSystem": "煞車系統",
+      "coolingSystem": "冷卻系統",
+      "electricalSystem": "電氣系統",
+      "exhaustSystem": "排氣系統",
+      "transmissionSystem": "傳動系統",
+      "exteriorAccessories": "外觀配件",
+      "tireSystem": "輪胎系統",
+      "durability": "耐用性配件",
+      "otherAccessories": "其他配件"
+    }
+  },
+  "footer": {
+    "companyInfo": "公司資訊",
+    "contactUs": "聯繫我們",
+    "phone": "電話",
+    "email": "郵箱",
+    "wechat": "微信",
+    "whatsapp": "WhatsApp",
+    "workingHours": "工作時間",
+    "quickLinks": "快速連結",
+    "home": "首頁",
+    "products": "產品中心",
+    "about": "關於我們",
+    "copyright": "© 2024 TMT Parts Sale. 保留所有權利。"
+  },
+  "theme": {
+    "light": "淺色模式",
+    "dark": "深色模式",
+    "system": "跟隨系統"
+  },
+  "language": {
+    "switch": "切換語言",
+    "zh-Hans": "簡體中文",
+    "zh-Hant": "繁體中文",
+    "en": "English",
+    "ru": "Русский"
+  },
+  "common": {
+    "loading": "載入中...",
+    "search": "搜尋",
+    "filter": "篩選",
+    "clear": "清除",
+    "home": "首頁",
+    "products": "產品中心",
+    "about": "關於我們",
+    "contact": "聯繫我們"
+  },
+  "nav": {
+    "home": "首頁",
+    "products": "產品中心",
+    "about": "關於我們",
+    "contact": "聯繫我們"
+  }
+}

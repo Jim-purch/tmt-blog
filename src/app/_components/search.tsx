@@ -135,7 +135,7 @@ export default function Search({ posts }: SearchProps) {
                       {product.title}
                     </div>
                     <div className="text-sm text-gray-500 dark:text-gray-400">
-                      {new Date(product.date).toLocaleDateString('zh-CN')}
+                      {new Date(product.date).toLocaleDateString('zh-Hans')}
                     </div>
                   </div>
                 </Link>

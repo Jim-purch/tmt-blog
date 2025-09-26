@@ -48,7 +48,7 @@ export const CURRENT_URL_STRUCTURE: URLStructureConfig = {
   },
   multilingual: {
     structure: 'subdirectory',
-    defaultLocale: 'zh-CN',
+    defaultLocale: 'zh-Hans',
     localeInUrl: true,
   },
 }
@@ -87,7 +87,7 @@ export const URL_SEO_ANALYSIS = {
       aspect: '多语言支持',
       description: '使用子目录结构实现多语言URL',
       examples: [
-        '/ (zh-CN)',
+        '/ (zh-Hans)',
         '/en/products',
         '/ru/posts',
       ],

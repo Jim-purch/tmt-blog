@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { supportedLocales, type Locale } from '@/lib/i18n';
 
 export function LanguageSwitcher() {
-  const [currentLocale, setCurrentLocale] = useState<Locale>('zh-CN');
+  const [currentLocale, setCurrentLocale] = useState<Locale>('zh-Hans');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export function LanguageSwitcher() {
     } else if (browserLocale.startsWith('ru')) {
       setCurrentLocale('ru');
     } else {
-      setCurrentLocale('zh-CN');
+      setCurrentLocale('zh-Hans');
     }
   }, []);
 

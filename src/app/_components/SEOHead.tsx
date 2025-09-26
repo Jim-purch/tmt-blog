@@ -12,7 +12,8 @@ interface SEOHeadProps {
 }
 
 const supportedLocales = [
-  { code: 'zh-CN', region: 'CN' },
+  { code: 'zh-Hans', region: 'CN' },
+  { code: 'zh-Hant', region: 'TW' },
   { code: 'en', region: 'US' },
   { code: 'ru', region: 'RU' },
   { code: 'ja', region: 'JP' },
@@ -38,7 +39,7 @@ export default function SEOHead({
   // 生成hreflang链接
   const generateHreflangLinks = () => {
     return supportedLocales.map(({ code, region }) => {
-      const href = code === 'zh-CN' 
+      const href = code === 'zh-Hans' 
         ? `${baseUrl}${asPath}` 
         : `${baseUrl}/${code}${asPath}`
       

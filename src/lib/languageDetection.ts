@@ -10,11 +10,18 @@ export interface LanguageMapping {
 
 export const languageMappings: LanguageMapping[] = [
   {
-    code: 'zh-CN',
+    code: 'zh-Hans',
     name: '简体中文',
     region: 'CN',
     flag: '🇨🇳',
     searchEngines: ['baidu.com', 'sogou.com', '360.cn', 'bing.cn']
+  },
+  {
+    code: 'zh-Hant',
+    name: '繁體中文',
+    region: 'TW',
+    flag: '🇨🇳',
+    searchEngines: ['google.com.tw', 'yahoo.com.tw', 'bing.com', 'pchome.com.tw']
   },
   {
     code: 'en',
@@ -69,7 +76,7 @@ export const languageMappings: LanguageMapping[] = [
 
 // 根据用户的Accept-Language头检测首选语言
 export function detectLanguageFromHeaders(acceptLanguage: string): string {
-  if (!acceptLanguage) return 'zh-CN'
+  if (!acceptLanguage) return 'zh-Hans'
   
   // 解析Accept-Language头
   const languages = acceptLanguage
@@ -94,15 +101,15 @@ export function detectLanguageFromHeaders(acceptLanguage: string): string {
     }
   }
   
-  return 'zh-CN' // 默认语言
+  return 'zh-Hans' // 默认语言
 }
 
 // 根据IP地址检测地理位置（需要配合地理位置API）
 export function detectLanguageFromGeoLocation(countryCode: string): string {
   const geoMapping: Record<string, string> = {
-    'CN': 'zh-CN',
-    'TW': 'zh-CN',
-    'HK': 'zh-CN',
+    'CN': 'zh-Hans',
+    'TW': 'zh-Hans',
+    'HK': 'zh-Hans',
     'US': 'en',
     'GB': 'en',
     'CA': 'en',
@@ -168,7 +175,7 @@ export function detectOptimalLanguage(
   // 3. 浏览器语言设置
   if (acceptLanguage) {
     const headerLang = detectLanguageFromHeaders(acceptLanguage)
-    if (headerLang !== 'zh-CN') return headerLang
+    if (headerLang !== 'zh-Hans') return headerLang
   }
   
   // 4. 地理位置
@@ -178,14 +185,14 @@ export function detectOptimalLanguage(
   }
   
   // 5. 默认语言
-  return 'zh-CN'
+  return 'zh-Hans'
 }
 
 // 生成语言切换URL
 export function generateLanguageUrls(currentPath: string, baseUrl: string) {
   return languageMappings.map(mapping => ({
     ...mapping,
-    url: mapping.code === 'zh-CN' 
+    url: mapping.code === 'zh-Hans' 
       ? `${baseUrl}${currentPath}`
       : `${baseUrl}/${mapping.code}${currentPath}`
   }))

@@ -16,7 +16,8 @@ interface EnhancedSEOHeadProps {
 }
 
 const supportedLocales = [
-  { code: 'zh-CN', region: 'CN', language: 'zh' },
+  { code: 'zh-Hans', region: 'CN', language: 'zh' },
+  { code: 'zh-Hant', region: 'TW', language: 'zh' },
   { code: 'en', region: 'US', language: 'en' },
   { code: 'ru', region: 'RU', language: 'ru' },
   { code: 'ja', region: 'JP', language: 'ja' },
@@ -53,7 +54,7 @@ export default function EnhancedSEOHead({
   // 生成hreflang链接
   const generateHreflangLinks = () => {
     return supportedLocales.map(({ code, region, language }) => {
-      const href = code === 'zh-CN' 
+      const href = code === 'zh-Hans' 
         ? `${baseUrl}${currentPath}` 
         : `${baseUrl}/${code}${currentPath}`
       
@@ -193,7 +194,7 @@ export function generateSEOMetadata(locale: string, options: Partial<EnhancedSEO
     alternates: {
       canonical: options.canonicalUrl,
       languages: supportedLocales.reduce((acc, { code, language, region }) => {
-        const href = code === 'zh-CN' 
+        const href = code === 'zh-Hans' 
           ? baseUrl 
           : `${baseUrl}/${code}`
         acc[`${language}-${region}`] = href
