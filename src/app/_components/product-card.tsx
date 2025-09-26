@@ -15,11 +15,13 @@ type Props = {
 
 export function ProductCard({ product }: Props) {
   const { t } = useTranslation();
-  const { addItem } = useCart();
+  const { addItem, isInCart, getItemQuantity } = useCart();
   const [showTooltip, setShowTooltip] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
   const [showCartButton, setShowCartButton] = useState(false);
+  const [isAddingToCart, setIsAddingToCart] = useState(false);
+  const [showAddedMessage, setShowAddedMessage] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -45,12 +47,25 @@ export function ProductCard({ product }: Props) {
     setShowCartButton(false);
   };
 
-  const handleAddToCart = (e: React.MouseEvent) => {
+  const handleAddToCart = async (e: React.MouseEvent) => {
     e.preventDefault(); // 阻止Link导航
     e.stopPropagation(); // 阻止事件冒泡
-    addItem(product, 1);
+    setIsAddingToCart(true);
+    try {
+      addItem(product, 1);
+      setShowAddedMessage(true);
+      setTimeout(() => setShowAddedMessage(false), 3000);
+    } catch (error) {
+      console.error('Error adding to cart:', error);
+    } finally {
+      setIsAddingToCart(false);
+    }
   };
-  
+
+  // 动态计算购物车状态
+  const itemQuantity = getItemQuantity(product.slug);
+  const isProductInCart = isInCart(product.slug);
+
   return (
     <div className="group bg-white dark:bg-gray-800 rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 overflow-hidden h-[450px] flex flex-col">
       <Link href={`/products/${product.seo}`} className="block flex-1 flex flex-col">
@@ -117,12 +132,35 @@ export function ProductCard({ product }: Props) {
               <div className="absolute inset-0 flex items-center justify-center bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-lg transition-all duration-200">
                 <button
                   onClick={handleAddToCart}
-                  className="flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 font-medium"
+                  disabled={isAddingToCart}
+                  className={`flex items-center gap-2 px-4 py-2 rounded-lg shadow-lg transform hover:scale-105 transition-all duration-200 font-medium ${
+                    isProductInCart 
+                      ? 'bg-green-100 hover:bg-green-200 dark:bg-green-900 dark:hover:bg-green-800 text-green-700 dark:text-green-300' 
+                      : 'bg-blue-600 hover:bg-blue-700 text-white'
+                  } ${isAddingToCart ? 'opacity-50 cursor-not-allowed' : ''}`}
                 >
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5-6m0 0h15M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z" />
-                  </svg>
-                  {t('product.addToCart')}
+                  {isAddingToCart ? (
+                    <>
+                      <svg className="w-4 h-4 animate-spin" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                      {t('product.adding')}
+                    </>
+                  ) : isProductInCart ? (
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                      {t('product.inCart').replace('{quantity}', itemQuantity.toString())}
+                    </>
+                  ) : (
+                    <>
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-1.5 6M7 13l-1.5-6m0 0h15M17 21a2 2 0 100-4 2 2 0 000 4zM9 21a2 2 0 100-4 2 2 0 000 4z" />
+                      </svg>
+                      {t('product.addToCart')}
+                    </>
+                  )}
                 </button>
               </div>
             )}
@@ -149,6 +187,16 @@ export function ProductCard({ product }: Props) {
           </div>
         </div>
       </Link>
+
+      {/* 添加成功提示 */}
+      {showAddedMessage && (
+        <div className="absolute top-2 left-2 right-2 bg-green-100 dark:bg-green-900 border border-green-200 dark:border-green-800 text-green-700 dark:text-green-300 px-3 py-2 rounded-lg flex items-center gap-2 z-10 shadow-lg">
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+          </svg>
+          <span className="text-sm font-medium">{t('product.addedToCart')}</span>
+        </div>
+      )}
     </div>
   );
 }
