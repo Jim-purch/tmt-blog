@@ -16,7 +16,7 @@ export interface ContactInfo {
  */
 export function getContactInfo(): ContactInfo {
   return {
-    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'contact@toomotoo.com',
+    email: process.env.NEXT_PUBLIC_CONTACT_EMAIL || 'info@toomotoo.com',
     phone: process.env.NEXT_PUBLIC_CONTACT_PHONE || '+86 400-123-4567',
     address: process.env.NEXT_PUBLIC_CONTACT_ADDRESS || '',
     workingHours: process.env.NEXT_PUBLIC_WORKING_HOURS || '周一至周五 9:00-18:00',

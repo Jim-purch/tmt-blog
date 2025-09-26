@@ -13,7 +13,7 @@ export const SITE_CONFIG = {
 // 联系方式配置
 export const CONTACT_CONFIG = {
   company: "TMT Parts Sale",
-  email: "contact@toomotoo.com",
+  email: "jim@toomotoo.com",
   phone: "+86 400-123-4567",
   address: "北京市朝阳区科技园区123号",
   wechat: "TMT_Parts",
