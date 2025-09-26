@@ -24,10 +24,10 @@ export const CONTACT_CONFIG = {
 
 // 产品图片配置
 export const IMAGE_CONFIG = {
-  baseUrl: "https://cdn.toomotoo.com/products",
-  thumbnailBaseUrl: "https://thumbnails.toomotoo.com/thumbnails",
+  baseUrl: "http://43.160.247.85:7791/uploads/2025",
+  thumbnailBaseUrl: "http://43.160.247.85:7791/uploads/2025",
   defaultImage: "/assets/default-product.jpg",
-  enabled: false, // 暂时关闭图片服务
+  enabled: true, // 启用图片服务
 };
 
 // 产品标题和SEO配置

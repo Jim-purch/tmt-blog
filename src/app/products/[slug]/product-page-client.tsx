@@ -8,7 +8,7 @@ import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import { formatPrice } from "@/lib/priceUtils";
-import Image from "next/image";
+import { OptimizedImage } from "@/app/_components/optimized-image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -73,20 +73,14 @@ export function ProductPageClient({ product, relatedProducts }: ProductPageClien
         {/* 产品图片 */}
         <div className="space-y-4">
           <div className="relative aspect-square overflow-hidden rounded-lg bg-gray-100 dark:bg-gray-800">
-            <Image
-              src={IMAGE_CONFIG.enabled ? product.imageUrl : IMAGE_CONFIG.defaultImage}
-              alt={product.title}
-              fill
-              className="object-cover"
-              priority
-              onError={(e) => {
-                // 如果图片加载失败，显示默认图片
-                const target = e.target as HTMLImageElement;
-                if (target.src !== IMAGE_CONFIG.defaultImage) {
-                  target.src = IMAGE_CONFIG.defaultImage;
-                }
-              }}
-            />
+            <OptimizedImage
+            src={product.imageUrl}
+            alt={product.title}
+            fill
+            className="object-cover"
+            priority
+            checkExists={true}
+          />
           </div>
         </div>
 

@@ -6,7 +6,7 @@ import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import { useCart } from "@/contexts/CartContext";
 import { formatPrice } from "@/lib/priceUtils";
-import Image from "next/image";
+import { OptimizedImage } from "./optimized-image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -76,23 +76,18 @@ export function ProductCard({ product }: Props) {
           onMouseEnter={handleMouseEnter}
           onMouseLeave={handleMouseLeave}
         >
-          <Image
-            src={IMAGE_CONFIG.enabled ? product.thumbnailUrl : IMAGE_CONFIG.defaultImage}
+          <OptimizedImage
+            src={product.thumbnailUrl}
             alt={product.title}
             fill
+            loading="lazy"
             className="object-cover transition-transform duration-300 ease-out"
             style={{
               transform: isHovering 
                 ? `scale(1.5) translate(${(mousePosition.x - 50) * 0.8}px, ${(mousePosition.y - 50) * 0.8}px)`
                 : 'scale(1) translate(0px, 0px)'
             }}
-            onError={(e) => {
-              // 如果图片加载失败，显示默认图片
-              const target = e.target as HTMLImageElement;
-              if (target.src !== IMAGE_CONFIG.defaultImage) {
-                target.src = IMAGE_CONFIG.defaultImage;
-              }
-            }}
+            checkExists={true}
           />
           {formatPrice(product.price) && (
             <div className="absolute top-2 right-2 bg-blue-600 text-white px-2 py-1 rounded text-sm font-medium">
