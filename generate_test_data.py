@@ -34,19 +34,19 @@ class PerformanceTestDataGenerator:
         # 产品描述模板（包含不同长度的描述，测试文本渲染性能）
         self.description_templates = [
             "Premium {adjective} {product_type} for enhanced {benefit}",
-            "High-quality {product_type} for {benefit} and optimal performance",
-            "Advanced {adjective} {product_type} system for improved {benefit}",
+            "High-quality {product_type} for {benefit}",
+            "Advanced {adjective} {product_type} improved {benefit}",
             "Professional grade {product_type} with {adjective} technology",
-            "Ultra-premium {adjective} {product_type} designed for maximum {benefit} and superior performance in all conditions",
-            "State-of-the-art {product_type} featuring cutting-edge {adjective} technology for unparalleled {benefit}, durability, and reliability",
+            "Ultra-premium {adjective} {product_type} designed for maximum {benefit}",
+            "State {product_type} cutting-edge {adjective}  {benefit}",
             "A", "AB", "ABC", "ABCD", "ABCDE",  # 短描述测试
-            "This is an extremely long product description that contains multiple sentences and detailed information about the product features, specifications, benefits, and usage instructions to test how the website handles very long text content and its impact on rendering performance and user experience.",  # 长描述测试
+            "This is an the product experience.",  # 长描述测试
         ]
         
         self.adjectives = [
             'ceramic', 'synthetic', 'high-performance', 'premium', 'professional',
             'advanced', 'ultra-premium', 'heavy-duty', 'lightweight', 'durable',
-            'efficient', 'reliable', 'innovative', 'precision-engineered'
+            'efficient', 'reliable', 'innovative', 'precision'
         ]
         
         self.product_types = [
@@ -136,7 +136,7 @@ class PerformanceTestDataGenerator:
             'partNumber': self.generate_part_number(index)
         }
     
-    def generate_test_data(self, count: int = 5000) -> List[Dict[str, str]]:
+    def generate_test_data(self, count: int = 100000) -> List[Dict[str, str]]:
         """生成测试数据"""
         print(f"正在生成 {count} 条测试数据...")
         
@@ -145,8 +145,8 @@ class PerformanceTestDataGenerator:
             product = self.generate_single_product(i)
             products.append(product)
             
-            # 每生成1000条数据显示进度
-            if i % 1000 == 0:
+            # 每生成5000条数据显示进度
+            if i % 5000 == 0:
                 print(f"已生成 {i} 条数据...")
         
         print(f"数据生成完成！总计 {len(products)} 条记录")
@@ -234,7 +234,7 @@ def main():
     generator = PerformanceTestDataGenerator()
     
     # 生成测试数据
-    products = generator.generate_test_data(5000)
+    products = generator.generate_test_data(100000)
     
     # 保存到指定路径
     output_path = "/Users/cxxvc/Documents/myCoding/tmt-blog/public/data/products.csv"

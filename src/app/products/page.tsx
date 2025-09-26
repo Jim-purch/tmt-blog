@@ -93,9 +93,11 @@ function ProductsPageContent() {
           filtered = filtered.filter((product: Product) => product.category === categoryParam);
         }
         
-        // 处理品牌参数
+        // 处理品牌参数 - 支持模糊搜索
         if (brandParam) {
-          filtered = filtered.filter((product: Product) => product.brand === brandParam);
+          filtered = filtered.filter((product: Product) => 
+            product.brand.toLowerCase().includes(brandParam.toLowerCase())
+          );
         }
         
         setFilteredProducts(filtered);
@@ -132,9 +134,11 @@ function ProductsPageContent() {
       filtered = filtered.filter((product: Product) => product.category === filters.category);
     }
 
-    // 应用品牌过滤
+    // 应用品牌过滤 - 支持模糊搜索
     if (filters.brand) {
-      filtered = filtered.filter((product: Product) => product.brand === filters.brand);
+      filtered = filtered.filter((product: Product) => 
+        product.brand.toLowerCase().includes(filters.brand.toLowerCase())
+      );
     }
 
     setFilteredProducts(filtered);
