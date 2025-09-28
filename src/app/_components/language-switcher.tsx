@@ -2,24 +2,17 @@
 
 import { useState, useEffect } from 'react';
 import { supportedLocales, type Locale } from '@/lib/i18n';
+import { autoDetectAndSetLanguage, markLanguagePreferenceSet } from '@/lib/languageDetection';
 
 export function LanguageSwitcher() {
   const [currentLocale, setCurrentLocale] = useState<Locale>('zh-Hans');
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
-    // 从localStorage获取保存的语言设置，或使用浏览器语言
-    const savedLocale = localStorage.getItem('locale') as Locale;
-    const browserLocale = navigator.language;
-    
-    if (savedLocale && supportedLocales.find(l => l.code === savedLocale)) {
-      setCurrentLocale(savedLocale);
-    } else if (browserLocale.startsWith('en')) {
-      setCurrentLocale('en');
-    } else if (browserLocale.startsWith('ru')) {
-      setCurrentLocale('ru');
-    } else {
-      setCurrentLocale('zh-Hans');
+    // 使用自动检测功能获取最佳语言
+    const detectedLocale = autoDetectAndSetLanguage() as Locale;
+    if (detectedLocale && supportedLocales.find(l => l.code === detectedLocale)) {
+      setCurrentLocale(detectedLocale);
     }
   }, []);
 
@@ -28,6 +21,7 @@ export function LanguageSwitcher() {
   const handleLanguageChange = (newLocale: Locale) => {
     setCurrentLocale(newLocale);
     localStorage.setItem('locale', newLocale);
+    markLanguagePreferenceSet(); // 标记用户已设置语言偏好
     setIsOpen(false);
     
     // 触发自定义事件，通知其他组件语言已更改

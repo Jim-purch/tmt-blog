@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { autoDetectAndSetLanguage } from './languageDetection';
 import zhHans from '@/locales/zh-Hans.json';
 import zhHant from '@/locales/zh-Hant.json';
 import en from '@/locales/en.json';
@@ -27,10 +28,10 @@ export function useTranslation() {
   const [locale, setLocale] = useState<Locale>('zh-Hans');
 
   useEffect(() => {
-    // 从localStorage获取保存的语言设置
-    const savedLocale = localStorage.getItem('locale') as Locale;
-    if (savedLocale && supportedLocales.find(l => l.code === savedLocale)) {
-      setLocale(savedLocale);
+    // 自动检测并设置最佳语言（包括浏览器语言检测）
+    const detectedLocale = autoDetectAndSetLanguage() as Locale;
+    if (detectedLocale && supportedLocales.find(l => l.code === detectedLocale)) {
+      setLocale(detectedLocale);
     }
 
     // 监听语言变更事件

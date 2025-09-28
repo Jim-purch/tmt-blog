@@ -175,7 +175,7 @@ export function detectOptimalLanguage(
   // 3. 浏览器语言设置
   if (acceptLanguage) {
     const headerLang = detectLanguageFromHeaders(acceptLanguage)
-    if (headerLang !== 'zh-Hans') return headerLang
+    if (headerLang !== 'en') return headerLang
   }
   
   // 4. 地理位置
@@ -185,15 +185,102 @@ export function detectOptimalLanguage(
   }
   
   // 5. 默认语言
-  return 'zh-Hans'
+  return 'en'
 }
 
 // 生成语言切换URL
 export function generateLanguageUrls(currentPath: string, baseUrl: string) {
   return languageMappings.map(mapping => ({
     ...mapping,
-    url: mapping.code === 'zh-Hans' 
+    url: mapping.code === 'en' 
       ? `${baseUrl}${currentPath}`
       : `${baseUrl}/${mapping.code}${currentPath}`
   }))
+}
+
+// 客户端浏览器语言检测
+export function detectBrowserLanguage(): string {
+  if (typeof window === 'undefined') {
+    return 'en' // 服务端默认语言
+  }
+
+  // 获取浏览器语言设置
+  const browserLanguages = [
+    navigator.language,
+    ...(navigator.languages || [])
+  ].filter(Boolean)
+
+  // 查找匹配的语言
+  for (const browserLang of browserLanguages) {
+    const normalizedLang = browserLang.toLowerCase()
+    
+    // 精确匹配
+    const exactMatch = languageMappings.find(mapping => 
+      mapping.code.toLowerCase() === normalizedLang
+    )
+    if (exactMatch) {
+      return exactMatch.code
+    }
+
+    // 语言代码匹配（忽略地区代码）
+    const langCode = normalizedLang.split('-')[0]
+    const langMatch = languageMappings.find(mapping => {
+      const mappingLangCode = mapping.code.toLowerCase().split('-')[0]
+      return mappingLangCode === langCode
+    })
+    if (langMatch) {
+      return langMatch.code
+    }
+  }
+
+  return 'en' // 默认语言
+}
+
+// 检查是否为首次访问（没有保存的语言偏好）
+export function isFirstVisit(): boolean {
+  if (typeof window === 'undefined') {
+    return false
+  }
+  
+  return !localStorage.getItem('locale') && !localStorage.getItem('language-preference-set')
+}
+
+// 设置语言偏好已配置标记
+export function markLanguagePreferenceSet(): void {
+  if (typeof window !== 'undefined') {
+    localStorage.setItem('language-preference-set', 'true')
+  }
+}
+
+// 自动检测并设置最佳语言
+export function autoDetectAndSetLanguage(): string {
+  if (typeof window === 'undefined') {
+    return 'en'
+  }
+
+  // 如果用户已经设置过语言偏好，使用保存的设置
+  const savedLocale = localStorage.getItem('locale')
+  if (savedLocale && languageMappings.find(m => m.code === savedLocale)) {
+    return savedLocale
+  }
+
+  // 如果是首次访问，检测浏览器语言
+  if (isFirstVisit()) {
+    const detectedLanguage = detectBrowserLanguage()
+    
+    // 如果检测到的语言不是默认语言，自动设置
+    if (detectedLanguage !== 'en') {
+      localStorage.setItem('locale', detectedLanguage)
+      markLanguagePreferenceSet()
+      
+      // 触发语言变更事件
+      window.dispatchEvent(new CustomEvent('localeChange', { 
+        detail: detectedLanguage 
+      }))
+      
+      return detectedLanguage
+    }
+  }
+
+  return 'en'
 }

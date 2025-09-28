@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import cn from "classnames";
 import { ThemeSwitcher } from "./_components/theme-switcher";
 import { LanguageSwitcher } from "./_components/language-switcher";
+import { LanguageAutoDetector } from "./_components/language-auto-detector";
 import { CartDisplay } from "./_components/cart-display";
 import { Footer } from "./_components/footer";
 import { CartProvider } from "@/contexts/CartContext";
@@ -136,6 +137,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <CartProvider>
+          <LanguageAutoDetector />
           <div className="absolute right-4 top-4 z-40 flex items-center gap-3">
             <LanguageSwitcher />
             <ThemeSwitcher />
