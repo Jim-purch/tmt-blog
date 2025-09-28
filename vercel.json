@@ -8,6 +8,7 @@
       "runtime": "nodejs18.x"
     }
   },
+  "trailingSlash": false,
   "headers": [
     {
       "source": "/favicon/(.*)",
@@ -61,5 +62,6 @@
       "source": "/sitemap.xml",
       "destination": "/api/sitemap"
     }
-  ]
+  ],
+  "cleanUrls": true
 }

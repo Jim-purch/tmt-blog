@@ -175,24 +175,24 @@ export function detectOptimalLanguage(
   // 3. 浏览器语言设置
   if (acceptLanguage) {
     const headerLang = detectLanguageFromHeaders(acceptLanguage)
-    if (headerLang !== 'en') return headerLang
+    if (headerLang !== 'zh-Hans') return headerLang
   }
   
   // 4. 地理位置
   if (countryCode) {
     const geoLang = detectLanguageFromGeoLocation(countryCode)
-    if (geoLang !== 'en') return geoLang
+    if (geoLang !== 'zh-Hans') return geoLang
   }
   
   // 5. 默认语言
-  return 'en'
+  return 'zh-Hans'
 }
 
-// 生成语言切换URL
+// 生成语言切换URL (支持Next.js i18n路由)
 export function generateLanguageUrls(currentPath: string, baseUrl: string) {
   return languageMappings.map(mapping => ({
     ...mapping,
-    url: mapping.code === 'en' 
+    url: mapping.code === 'zh-Hans' 
       ? `${baseUrl}${currentPath}`
       : `${baseUrl}/${mapping.code}${currentPath}`
   }))
@@ -252,10 +252,46 @@ export function markLanguagePreferenceSet(): void {
   }
 }
 
+// 从URL路径中提取语言代码
+export function detectLanguageFromPath(): string | null {
+  if (typeof window === 'undefined') {
+    return null
+  }
+
+  const pathname = window.location.pathname
+  const pathSegments = pathname.split('/').filter(Boolean)
+  
+  if (pathSegments.length > 0) {
+    const firstSegment = pathSegments[0]
+    // 检查第一个路径段是否是支持的语言代码
+    const supportedLanguage = languageMappings.find(m => m.code === firstSegment)
+    if (supportedLanguage) {
+      return firstSegment
+    }
+  }
+  
+  return null
+}
+
 // 自动检测并设置最佳语言
 export function autoDetectAndSetLanguage(): string {
   if (typeof window === 'undefined') {
-    return 'en'
+    return 'zh-Hans'
+  }
+
+  // 首先检查URL路径中的语言
+  const pathLanguage = detectLanguageFromPath()
+  if (pathLanguage) {
+    // 如果URL中有语言代码，优先使用并保存
+    localStorage.setItem('locale', pathLanguage)
+    markLanguagePreferenceSet()
+    
+    // 触发语言变更事件
+    window.dispatchEvent(new CustomEvent('localeChange', { 
+      detail: pathLanguage 
+    }))
+    
+    return pathLanguage
   }
 
   // 如果用户已经设置过语言偏好，使用保存的设置
@@ -269,7 +305,7 @@ export function autoDetectAndSetLanguage(): string {
     const detectedLanguage = detectBrowserLanguage()
     
     // 如果检测到的语言不是默认语言，自动设置
-    if (detectedLanguage !== 'en') {
+    if (detectedLanguage !== 'zh-Hans') {
       localStorage.setItem('locale', detectedLanguage)
       markLanguagePreferenceSet()
       
@@ -282,5 +318,5 @@ export function autoDetectAndSetLanguage(): string {
     }
   }
 
-  return 'en'
+  return 'zh-Hans'
 }

@@ -1,12 +1,15 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useRouter, usePathname } from 'next/navigation';
 import { supportedLocales, type Locale } from '@/lib/i18n';
-import { autoDetectAndSetLanguage, markLanguagePreferenceSet } from '@/lib/languageDetection';
+import { autoDetectAndSetLanguage, markLanguagePreferenceSet, detectLanguageFromPath } from '@/lib/languageDetection';
 
 export function LanguageSwitcher() {
   const [currentLocale, setCurrentLocale] = useState<Locale>('zh-Hans');
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     // 使用自动检测功能获取最佳语言
@@ -14,7 +17,30 @@ export function LanguageSwitcher() {
     if (detectedLocale && supportedLocales.find(l => l.code === detectedLocale)) {
       setCurrentLocale(detectedLocale);
     }
-  }, []);
+
+    // 监听路径变化
+    const handlePathChange = () => {
+      const pathLanguage = detectLanguageFromPath();
+      if (pathLanguage) {
+        setCurrentLocale(pathLanguage as Locale);
+      }
+    };
+
+    // 监听popstate事件（浏览器前进后退）
+    window.addEventListener('popstate', handlePathChange);
+    
+    // 监听自定义语言变更事件
+    const handleLocaleChange = (event: CustomEvent) => {
+      setCurrentLocale(event.detail);
+    };
+    
+    window.addEventListener('localeChange', handleLocaleChange as EventListener);
+
+    return () => {
+      window.removeEventListener('popstate', handlePathChange);
+      window.removeEventListener('localeChange', handleLocaleChange as EventListener);
+    };
+  }, []); // 移除currentLocale依赖，避免无限循环
 
   const currentLocaleInfo = supportedLocales.find(l => l.code === currentLocale);
 
@@ -23,6 +49,30 @@ export function LanguageSwitcher() {
     localStorage.setItem('locale', newLocale);
     markLanguagePreferenceSet(); // 标记用户已设置语言偏好
     setIsOpen(false);
+    
+    // 构建新的URL路径
+    const currentPath = pathname;
+    
+    // 移除当前路径中的语言前缀（如果存在）
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    const currentPathLanguage = detectLanguageFromPath();
+    
+    if (currentPathLanguage) {
+      // 如果当前路径有语言前缀，移除它
+      pathSegments.shift();
+    }
+    
+    // 构建新路径
+    let newPath = '';
+    // 所有语言都使用语言前缀，确保URL一致性
+    newPath = '/' + newLocale + (pathSegments.length > 0 ? '/' + pathSegments.join('/') : '');
+    
+    // 确保路径格式正确，避免双斜杠
+    newPath = newPath.replace(/\/+/g, '/');
+    if (newPath === '') newPath = '/';
+    
+    // 导航到新路径
+    router.push(newPath);
     
     // 触发自定义事件，通知其他组件语言已更改
     window.dispatchEvent(new CustomEvent('localeChange', { detail: newLocale }));
