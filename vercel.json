@@ -46,6 +46,22 @@
         {
           "key": "Referrer-Policy",
           "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "Strict-Transport-Security",
+          "value": "max-age=31536000; includeSubDomains; preload"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https: http:; connect-src 'self' https://www.google-analytics.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self';"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), interest-cohort=()"
+        },
+        {
+          "key": "X-DNS-Prefetch-Control",
+          "value": "on"
         }
       ]
     }
@@ -54,6 +70,36 @@
     {
       "source": "/favicon.ico",
       "destination": "/favicon/favicon.ico",
+      "permanent": true
+    },
+    {
+      "source": "/.env",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/.env.local",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/config",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/admin",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin",
+      "destination": "/404",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/404",
       "permanent": true
     }
   ],
