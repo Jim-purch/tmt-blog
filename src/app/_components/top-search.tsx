@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 import type { Product } from '@/interfaces/product'
 import { getCategoryTranslationKey } from '@/lib/categoryUtils'
 import { useTranslation } from '@/lib/i18n'
-import { formatPrice } from '@/lib/priceUtils'
+import { useFormatPrice } from '@/lib/useCurrency'
 
 interface TopSearchProps {
   placeholder?: string
@@ -17,6 +17,7 @@ export default function TopSearch({
   showResults = true 
 }: TopSearchProps) {
   const { t } = useTranslation()
+  const formatPrice = useFormatPrice()
   const [searchTerm, setSearchTerm] = useState('')
   const [searchResults, setSearchResults] = useState<Product[]>([])
   const [isSearching, setIsSearching] = useState(false)

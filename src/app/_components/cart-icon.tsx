@@ -2,12 +2,14 @@
 
 import { useCart } from "@/contexts/CartContext";
 import { useTranslation } from "@/lib/i18n";
-import { formatPrice, isValidPrice } from "@/lib/priceUtils";
+import { useFormatPrice } from "@/lib/useCurrency";
+import { isValidPrice } from "@/lib/priceUtils";
 import { useState } from "react";
 
 export function CartIcon() {
   const { cart } = useCart();
   const { t } = useTranslation();
+  const formatPrice = useFormatPrice();
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (

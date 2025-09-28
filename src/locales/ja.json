@@ -176,5 +176,15 @@
     "email": "メール",
     "phone": "電話",
     "address": "住所"
+  },
+  "currency": {
+    "code": "JPY",
+    "symbol": "¥",
+    "name": "日本円",
+    "exchangeRate": 21.0,
+    "decimalPlaces": 0,
+    "thousandSeparator": ",",
+    "decimalSeparator": ".",
+    "symbolPosition": "before"
   }
 }

@@ -176,5 +176,15 @@
     "email": "E-mail",
     "phone": "Téléphone",
     "address": "Adresse"
+  },
+  "currency": {
+    "code": "EUR",
+    "symbol": "€",
+    "name": "Euro",
+    "exchangeRate": 0.13,
+    "decimalPlaces": 2,
+    "thousandSeparator": " ",
+    "decimalSeparator": ",",
+    "symbolPosition": "after"
   }
 }

@@ -176,5 +176,15 @@
     "email": "Email",
     "phone": "Telefone",
     "address": "Endereço"
+  },
+  "currency": {
+    "code": "BRL",
+    "symbol": "R$",
+    "name": "Real Brasileiro",
+    "exchangeRate": 0.75,
+    "decimalPlaces": 2,
+    "thousandSeparator": ".",
+    "decimalSeparator": ",",
+    "symbolPosition": "before"
   }
 }

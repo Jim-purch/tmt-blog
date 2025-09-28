@@ -7,7 +7,7 @@ import { useCart } from "@/contexts/CartContext";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
-import { formatPrice } from "@/lib/priceUtils";
+import { useFormatPrice } from "@/lib/useCurrency";
 import { OptimizedImage } from "@/app/_components/optimized-image";
 import Link from "next/link";
 import { useState } from "react";
@@ -20,6 +20,7 @@ interface ProductPageClientProps {
 export function ProductPageClient({ product, relatedProducts }: ProductPageClientProps) {
   const { t } = useTranslation();
   const { addItem, isInCart, getItemQuantity } = useCart();
+  const formatPrice = useFormatPrice();
   const [isAddingToCart, setIsAddingToCart] = useState(false);
   const [showAddedMessage, setShowAddedMessage] = useState(false);
 

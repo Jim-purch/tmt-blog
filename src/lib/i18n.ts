@@ -24,6 +24,18 @@ const translations = {
 
 export type Locale = keyof typeof translations;
 
+export const supportedLocales: { code: Locale; name: string; flag: string }[] = [
+  { code: 'zh-Hans', name: '简体中文', flag: '🇨🇳' },
+  { code: 'zh-Hant', name: '繁體中文', flag: '🇨🇳' },
+  { code: 'en', name: 'English', flag: '🇺🇸' },
+  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
+  { code: 'ja', name: '日本語', flag: '🇯🇵' },
+  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
+  { code: 'fr', name: 'Français', flag: '🇫🇷' },
+  { code: 'es', name: 'Español', flag: '🇪🇸' },
+  { code: 'pt', name: 'Português', flag: '🇵🇹' },
+];
+
 export function useTranslation() {
   const [locale, setLocale] = useState<Locale>('en');
 
@@ -70,15 +82,3 @@ export function getStaticTranslation(locale: Locale, key: string): string {
   
   return value || key;
 }
-
-export const supportedLocales: { code: Locale; name: string; flag: string }[] = [
-  { code: 'zh-Hans', name: '简体中文', flag: '🇨🇳' },
-  { code: 'zh-Hant', name: '繁體中文', flag: '🇨🇳' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'pt', name: 'Português', flag: '🇵🇹' },
-];

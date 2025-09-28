@@ -183,5 +183,15 @@
     "products": "產品中心",
     "about": "關於我們",
     "contact": "聯繫我們"
+  },
+  "currency": {
+    "code": "TWD",
+    "symbol": "NT$",
+    "name": "新台幣",
+    "exchangeRate": 4.5,
+    "decimalPlaces": 0,
+    "thousandSeparator": ",",
+    "decimalSeparator": ".",
+    "symbolPosition": "before"
   }
 }

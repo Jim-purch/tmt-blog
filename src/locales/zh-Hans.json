@@ -183,5 +183,15 @@
     "products": "产品中心",
     "about": "关于我们",
     "contact": "联系我们"
+  },
+  "currency": {
+    "code": "CNY",
+    "symbol": "¥",
+    "name": "人民币",
+    "exchangeRate": 1.0,
+    "decimalPlaces": 2,
+    "thousandSeparator": ",",
+    "decimalSeparator": ".",
+    "symbolPosition": "before"
   }
 }

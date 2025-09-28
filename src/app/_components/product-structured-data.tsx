@@ -1,10 +1,15 @@
+'use client';
+
 import { Product } from "@/interfaces/product";
+import { useCurrency, useFormatPrice } from "@/lib/useCurrency";
 
 interface ProductStructuredDataProps {
   product: Product;
 }
 
 export function ProductStructuredData({ product }: ProductStructuredDataProps) {
+  const currency = useCurrency();
+  const formatPrice = useFormatPrice();
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -21,8 +26,8 @@ export function ProductStructuredData({ product }: ProductStructuredDataProps) {
     "url": `https://parts.toomotoo.com/products/${product.seo}`,
     "offers": {
       "@type": "Offer",
-      "price": product.price,
-      "priceCurrency": "CNY",
+      "price": (Number(product.price) * currency.exchangeRate).toFixed(currency.decimalPlaces),
+      "priceCurrency": currency.code,
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",

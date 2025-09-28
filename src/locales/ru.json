@@ -182,5 +182,15 @@
     "products": "Продукты",
     "about": "О нас",
     "contact": "Контакты"
+  },
+  "currency": {
+    "code": "RUB",
+    "symbol": "₽",
+    "name": "Российский рубль",
+    "exchangeRate": 13.0,
+    "decimalPlaces": 2,
+    "thousandSeparator": " ",
+    "decimalSeparator": ",",
+    "symbolPosition": "after"
   }
 }

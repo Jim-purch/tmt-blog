@@ -183,5 +183,15 @@
     "products": "Products",
     "about": "About",
     "contact": "Contact"
+  },
+  "currency": {
+    "code": "USD",
+    "symbol": "$",
+    "name": "US Dollar",
+    "exchangeRate": 0.14,
+    "decimalPlaces": 2,
+    "thousandSeparator": ",",
+    "decimalSeparator": ".",
+    "symbolPosition": "before"
   }
 }

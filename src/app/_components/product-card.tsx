@@ -5,7 +5,7 @@ import { IMAGE_CONFIG } from "@/lib/constants";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
 import { useTranslation } from "@/lib/i18n";
 import { useCart } from "@/contexts/CartContext";
-import { formatPrice } from "@/lib/priceUtils";
+import { useFormatPrice } from "@/lib/useCurrency";
 import { OptimizedImage } from "./optimized-image";
 import Link from "next/link";
 import { useState } from "react";
@@ -17,6 +17,7 @@ type Props = {
 export function ProductCard({ product }: Props) {
   const { t } = useTranslation();
   const { addItem, isInCart, getItemQuantity } = useCart();
+  const formatPrice = useFormatPrice();
   const [showTooltip, setShowTooltip] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovering, setIsHovering] = useState(false);
