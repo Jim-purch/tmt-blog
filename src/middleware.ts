@@ -3,7 +3,7 @@ import { detectOptimalLanguage } from '@/lib/languageDetection'
 
 // 支持的语言列表
 const locales = ['zh-Hans', 'zh-Hant', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt']
-const defaultLocale = 'zh-Hans'
+const defaultLocale = 'en'
 
 // 获取路径名中的语言代码
 function getLocaleFromPathname(pathname: string): string | undefined {

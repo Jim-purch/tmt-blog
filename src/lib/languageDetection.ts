@@ -76,7 +76,7 @@ export const languageMappings: LanguageMapping[] = [
 
 // 根据用户的Accept-Language头检测首选语言
 export function detectLanguageFromHeaders(acceptLanguage: string): string {
-  if (!acceptLanguage) return 'zh-Hans'
+  if (!acceptLanguage) return 'en'
   
   // 解析Accept-Language头
   const languages = acceptLanguage
@@ -101,7 +101,7 @@ export function detectLanguageFromHeaders(acceptLanguage: string): string {
     }
   }
   
-  return 'zh-Hans' // 默认语言
+  return 'en' // 默认语言
 }
 
 // 根据IP地址检测地理位置（需要配合地理位置API）
@@ -175,17 +175,17 @@ export function detectOptimalLanguage(
   // 3. 浏览器语言设置
   if (acceptLanguage) {
     const headerLang = detectLanguageFromHeaders(acceptLanguage)
-    if (headerLang !== 'zh-Hans') return headerLang
+    if (headerLang !== 'en') return headerLang
   }
   
   // 4. 地理位置
   if (countryCode) {
     const geoLang = detectLanguageFromGeoLocation(countryCode)
-    if (geoLang !== 'zh-Hans') return geoLang
+    if (geoLang !== 'en') return geoLang
   }
   
   // 5. 默认语言
-  return 'zh-Hans'
+  return 'en'
 }
 
 // 生成语言切换URL (支持Next.js i18n路由)
@@ -276,7 +276,7 @@ export function detectLanguageFromPath(): string | null {
 // 自动检测并设置最佳语言
 export function autoDetectAndSetLanguage(): string {
   if (typeof window === 'undefined') {
-    return 'zh-Hans'
+    return 'en'
   }
 
   // 首先检查URL路径中的语言
@@ -305,7 +305,7 @@ export function autoDetectAndSetLanguage(): string {
     const detectedLanguage = detectBrowserLanguage()
     
     // 如果检测到的语言不是默认语言，自动设置
-    if (detectedLanguage !== 'zh-Hans') {
+    if (detectedLanguage !== 'en') {
       localStorage.setItem('locale', detectedLanguage)
       markLanguagePreferenceSet()
       
@@ -318,5 +318,5 @@ export function autoDetectAndSetLanguage(): string {
     }
   }
 
-  return 'zh-Hans'
+  return 'en'
 }

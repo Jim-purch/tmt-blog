@@ -25,7 +25,7 @@ const translations = {
 export type Locale = keyof typeof translations;
 
 export function useTranslation() {
-  const [locale, setLocale] = useState<Locale>('zh-Hans');
+  const [locale, setLocale] = useState<Locale>('en');
 
   useEffect(() => {
     // 自动检测并设置最佳语言（包括浏览器语言检测）
