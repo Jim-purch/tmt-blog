@@ -9,11 +9,11 @@ import { getAllPosts } from '@/lib/api'
 const locales = ['zh-Hans', 'zh-Hant', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt']
 
 interface LocalePageProps {
-  params: { locale: string }
+  params: Promise<{ locale: string }>
 }
 
-export default function LocalePage({ params }: LocalePageProps) {
-  const { locale } = params
+export default async function LocalePage({ params }: LocalePageProps) {
+  const { locale } = await params
 
   if (!locales.includes(locale)) {
     notFound()
