@@ -24,8 +24,8 @@ export const CONTACT_CONFIG = {
 
 // 产品图片配置
 export const IMAGE_CONFIG = {
-  baseUrl: "http://43.160.247.85:7791/uploads/2025",
-  thumbnailBaseUrl: "http://43.160.247.85:7791/uploads/2025",
+  baseUrl: "https://image.toomotoo.online/uploads/2025",
+  thumbnailBaseUrl: "https://image.toomotoo.online/uploads/2025",
   defaultImage: "/assets/default-product.jpg",
   enabled: true, // 启用图片服务
 };

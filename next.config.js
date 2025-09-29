@@ -10,14 +10,14 @@ const nextConfig = {
       },
       {
         protocol: 'https',
-        hostname: 'thumbnails.toomotoo.com',
+        hostname: 'image.toomotoo.online',
         port: '',
         pathname: '/**',
       },
       {
-        protocol: 'http',
-        hostname: '43.160.247.85',
-        port: '7791',
+        protocol: 'https',
+        hostname: 'image.toomotoo.online',
+        port: '443',
         pathname: '/uploads/**',
       },
     ],
