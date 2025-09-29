@@ -6,8 +6,8 @@ export const HOME_OG_IMAGE_URL =
 // 站点配置
 export const SITE_CONFIG = {
   title: "TMT Parts Sale",
-  description: "To quickly find the parts you need",
-  metaDescription: "To quickly find the parts you need",
+  description: "To quickly find the parts you need!",
+  metaDescription: "To quickly find the parts you need!",
 };
 
 // 联系方式配置

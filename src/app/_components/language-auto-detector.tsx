@@ -1,19 +1,25 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { detectBrowserLanguage, isFirstVisit, markLanguagePreferenceSet } from '@/lib/languageDetection';
+import { useRouter, usePathname } from 'next/navigation';
+import { detectBrowserLanguage, isFirstVisit, markLanguagePreferenceSet, detectLanguageFromPath } from '@/lib/languageDetection';
 import { supportedLocales, type Locale } from '@/lib/i18n';
 
 export function LanguageAutoDetector() {
   const [showDetectionPrompt, setShowDetectionPrompt] = useState(false);
   const [detectedLanguage, setDetectedLanguage] = useState<Locale>('en');
   const [currentLanguage, setCurrentLanguage] = useState<Locale>('en');
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     // 检查是否为首次访问
     if (isFirstVisit()) {
       const detected = detectBrowserLanguage() as Locale;
-      const current = (localStorage.getItem('locale') || 'en') as Locale;
+      // 优先从URL路径获取当前语言，如果没有则从localStorage获取，最后默认为'en'
+      const pathLanguage = detectLanguageFromPath();
+      const storedLanguage = localStorage.getItem('locale');
+      const current = (pathLanguage || storedLanguage || 'en') as Locale;
       
       // 如果检测到的语言与当前语言不同，且不是默认语言，显示提示
       if (detected !== current && detected !== 'en') {
@@ -22,12 +28,36 @@ export function LanguageAutoDetector() {
         setShowDetectionPrompt(true);
       }
     }
-  }, []);
+  }, [pathname]);
 
   const handleAcceptDetection = () => {
     // 接受检测到的语言
     localStorage.setItem('locale', detectedLanguage);
     markLanguagePreferenceSet();
+    
+    // 构建新的URL路径
+    const currentPath = pathname;
+    
+    // 移除当前路径中的语言前缀（如果存在）
+    const pathSegments = currentPath.split('/').filter(Boolean);
+    const currentPathLanguage = detectLanguageFromPath();
+    
+    if (currentPathLanguage) {
+      // 如果当前路径有语言前缀，移除它
+      pathSegments.shift();
+    }
+    
+    // 构建新路径
+    let newPath = '';
+    // 所有语言都使用语言前缀，确保URL一致性
+    newPath = '/' + detectedLanguage + (pathSegments.length > 0 ? '/' + pathSegments.join('/') : '');
+    
+    // 确保路径格式正确，避免双斜杠
+    newPath = newPath.replace(/\/+/g, '/');
+    if (newPath === '') newPath = '/';
+    
+    // 导航到新路径
+    router.push(newPath);
     
     // 触发语言变更事件
     window.dispatchEvent(new CustomEvent('localeChange', { 

@@ -139,7 +139,8 @@
     "zh-Hans": "简体中文",
     "zh-Hant": "繁體中文",
     "en": "English",
-    "ru": "Русский"
+    "ru": "Русский",
+    "ar": "العربية"
   },
   "common": {
     "loading": "Loading...",

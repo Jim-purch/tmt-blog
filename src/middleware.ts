@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { detectOptimalLanguage } from '@/lib/languageDetection'
 
 // 支持的语言列表
-const locales = ['zh-Hans', 'zh-Hant', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt']
+const locales = ['zh-Hans', 'zh-Hant', 'en', 'ru', 'ja', 'de', 'fr', 'es', 'pt', 'ar']
 const defaultLocale = 'en'
 
 // 获取路径名中的语言代码

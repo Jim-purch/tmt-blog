@@ -7,6 +7,7 @@ import de from '@/locales/de.json';
 import fr from '@/locales/fr.json';
 import es from '@/locales/es.json';
 import pt from '@/locales/pt.json';
+import ar from '@/locales/ar.json';
 
 // 翻译资源配置
 export const translations = {
@@ -19,6 +20,7 @@ export const translations = {
   'fr': fr,
   'es': es,
   'pt': pt,
+  'ar': ar,
 };
 
 // 支持的语言类型
@@ -29,15 +31,16 @@ export const defaultLocale: Locale = 'en';
 
 // 支持的语言列表配置
 export const supportedLocales: { code: Locale; name: string; flag: string }[] = [
-  { code: 'zh-Hans', name: '简体中文', flag: '🇨🇳' },
-  { code: 'zh-Hant', name: '繁體中文', flag: '🇨🇳' },
-  { code: 'en', name: 'English', flag: '🇺🇸' },
-  { code: 'ru', name: 'Русский', flag: '🇷🇺' },
-  { code: 'ja', name: '日本語', flag: '🇯🇵' },
-  { code: 'de', name: 'Deutsch', flag: '🇩🇪' },
-  { code: 'fr', name: 'Français', flag: '🇫🇷' },
-  { code: 'es', name: 'Español', flag: '🇪🇸' },
-  { code: 'pt', name: 'Português', flag: '🇵🇹' },
+  { code: 'zh-Hans', name: '简体中文', flag: '简' },
+  { code: 'zh-Hant', name: '繁體中文', flag: '繁' },
+  { code: 'en', name: 'English', flag: '🌐' },
+  { code: 'ru', name: 'Русский', flag: 'Ру' },
+  { code: 'ja', name: '日本語', flag: 'あ' },
+  { code: 'de', name: 'Deutsch', flag: 'De' },
+  { code: 'fr', name: 'Français', flag: 'Fr' },
+  { code: 'es', name: 'Español', flag: 'Es' },
+  { code: 'pt', name: 'Português', flag: 'Pt' },
+  { code: 'ar', name: 'العربية', flag: 'ع' },
 ];
 
 // 语言代码数组

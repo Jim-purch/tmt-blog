@@ -13,64 +13,71 @@ export const languageMappings: LanguageMapping[] = [
     code: 'zh-Hans',
     name: '简体中文',
     region: 'CN',
-    flag: '🇨🇳',
+    flag: '简',
     searchEngines: ['baidu.com', 'sogou.com', '360.cn', 'bing.cn']
   },
   {
     code: 'zh-Hant',
     name: '繁體中文',
     region: 'TW',
-    flag: '🇨🇳',
+    flag: '繁',
     searchEngines: ['google.com.tw', 'yahoo.com.tw', 'bing.com', 'pchome.com.tw']
   },
   {
     code: 'en',
     name: 'English',
     region: 'US',
-    flag: '🇺🇸',
+    flag: '🌐',
     searchEngines: ['google.com', 'bing.com', 'yahoo.com', 'duckduckgo.com']
   },
   {
     code: 'ru',
     name: 'Русский',
     region: 'RU',
-    flag: '🇷🇺',
+    flag: 'Ру',
     searchEngines: ['yandex.ru', 'mail.ru', 'rambler.ru', 'google.ru']
   },
   {
     code: 'ja',
     name: '日本語',
     region: 'JP',
-    flag: '🇯🇵',
+    flag: 'あ',
     searchEngines: ['google.co.jp', 'yahoo.co.jp', 'bing.com', 'goo.ne.jp']
   },
   {
     code: 'de',
     name: 'Deutsch',
     region: 'DE',
-    flag: '🇩🇪',
+    flag: 'De',
     searchEngines: ['google.de', 'bing.com', 'yahoo.de', 'web.de']
   },
   {
     code: 'fr',
     name: 'Français',
     region: 'FR',
-    flag: '🇫🇷',
+    flag: 'Fr',
     searchEngines: ['google.fr', 'bing.com', 'yahoo.fr', 'orange.fr']
   },
   {
     code: 'es',
     name: 'Español',
     region: 'ES',
-    flag: '🇪🇸',
+    flag: 'Es',
     searchEngines: ['google.es', 'bing.com', 'yahoo.es', 'terra.es']
   },
   {
     code: 'pt',
     name: 'Português',
     region: 'BR',
-    flag: '🇵🇹',
+    flag: 'Pt',
     searchEngines: ['google.com.br', 'bing.com', 'yahoo.com.br', 'uol.com.br']
+  },
+  {
+    code: 'ar',
+    name: 'العربية',
+    region: 'SA',
+    flag: 'ع',
+    searchEngines: ['google.com.sa', 'bing.com', 'yahoo.com', 'maktoob.com']
   }
 ]
 
