@@ -23,6 +23,12 @@ const nextConfig = {
         port: '443',
         pathname: '/uploads/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'image.blueant.top',
+        port: '',
+        pathname: '/uploads/**',
+      },
     ],
   },
 }
