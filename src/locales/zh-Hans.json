@@ -236,6 +236,15 @@
     "about": "关于我们",
     "contact": "联系我们"
   },
+  "metadata": {
+    "products": {
+      "title": "产品中心",
+      "description": "浏览我们的全系列BAT叉车配件产品，包括叉车配件、叉车零部件、工业配件等。快速找到您所需的高质量叉车配件。",
+      "keywords": ["产品中心", "BAT叉车配件", "叉车配件目录", "叉车配件", "叉车零部件"],
+      "ogTitle": "产品中心 | BAT叉车配件销售",
+      "ogDescription": "浏览我们的全系列BAT叉车配件产品，包括叉车配件、叉车零部件、工业配件等。"
+    }
+  },
   "currency": {
     "code": "CNY",
     "symbol": "¥",

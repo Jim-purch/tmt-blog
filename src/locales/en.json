@@ -185,6 +185,15 @@
     "about": "About",
     "contact": "Contact"
   },
+  "metadata": {
+    "products": {
+      "title": "Product Center",
+      "description": "Browse our complete range of BAT forklift parts and accessories, including forklift components, spare parts, and industrial accessories. Find the high-quality forklift parts you need quickly.",
+      "keywords": ["Product Center", "BAT Forklift Parts", "Forklift Parts Catalog", "Forklift Components", "Forklift Spare Parts"],
+      "ogTitle": "Product Center | BAT Forklift Parts Sales",
+      "ogDescription": "Browse our complete range of BAT forklift parts and accessories, including forklift components, spare parts, and industrial accessories."
+    }
+  },
   "currency": {
     "code": "USD",
     "symbol": "$",

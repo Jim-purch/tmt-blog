@@ -192,6 +192,15 @@
     "about": "À propos",
     "contact": "Contact"
   },
+  "metadata": {
+    "products": {
+      "title": "Centre de Produits",
+      "description": "Parcourez notre gamme complète de pièces et accessoires de chariots élévateurs BAT, y compris les composants de chariots élévateurs, les pièces de rechange et les accessoires industriels. Trouvez rapidement les pièces de chariots élévateurs de haute qualité dont vous avez besoin.",
+      "keywords": ["Centre de Produits", "Pièces de Chariots Élévateurs BAT", "Catalogue de Pièces de Chariots Élévateurs", "Composants de Chariots Élévateurs", "Pièces de Rechange de Chariots Élévateurs"],
+      "ogTitle": "Centre de Produits | Vente de Pièces de Chariots Élévateurs BAT",
+      "ogDescription": "Parcourez notre gamme complète de pièces et accessoires de chariots élévateurs BAT, y compris les composants de chariots élévateurs, les pièces de rechange et les accessoires industriels."
+    }
+  },
   "common": {
     "loading": "Chargement...",
     "search": "Rechercher",

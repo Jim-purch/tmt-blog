@@ -6,6 +6,7 @@ import { ProductGrid } from "@/app/_components/product-grid";
 import { Pagination, PageSizeSelector } from "@/app/_components/pagination";
 import TopSearch from "@/app/_components/top-search";
 import StickySearchBar from "@/app/_components/sticky-search-bar";
+import { DynamicProductsMeta } from "@/app/_components/dynamic-products-meta";
 import { useTranslation } from "@/lib/i18n";
 import { Product } from "@/interfaces/product";
 import { getCategoryTranslationKey } from "@/lib/categoryUtils";
@@ -187,6 +188,9 @@ function ProductsPageContent() {
 
   return (
     <>
+      {/* 动态更新页面 meta 标签 */}
+      <DynamicProductsMeta />
+      
       {/* 固定搜索栏 - 始终显示在顶部 */}
       <StickySearchBar showOnScroll={true} />
       

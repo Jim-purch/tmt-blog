@@ -192,6 +192,15 @@
     "about": "Sobre",
     "contact": "Contato"
   },
+  "metadata": {
+    "products": {
+      "title": "Centro de Produtos",
+      "description": "Navegue pela nossa gama completa de peças e acessórios para empilhadeiras BAT, incluindo componentes de empilhadeiras, peças sobressalentes e acessórios industriais. Encontre rapidamente as peças de empilhadeiras de alta qualidade que você precisa.",
+      "keywords": ["Centro de Produtos", "Peças de Empilhadeiras BAT", "Catálogo de Peças de Empilhadeiras", "Componentes de Empilhadeiras", "Peças Sobressalentes de Empilhadeiras"],
+      "ogTitle": "Centro de Produtos | Venda de Peças de Empilhadeiras BAT",
+      "ogDescription": "Navegue pela nossa gama completa de peças e acessórios para empilhadeiras BAT, incluindo componentes de empilhadeiras, peças sobressalentes e acessórios industriais."
+    }
+  },
   "common": {
     "loading": "Carregando...",
     "search": "Pesquisar",

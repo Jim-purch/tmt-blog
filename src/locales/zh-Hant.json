@@ -236,6 +236,15 @@
     "about": "關於我們",
     "contact": "聯繫我們"
   },
+  "metadata": {
+    "products": {
+      "title": "產品中心",
+      "description": "瀏覽我們的全系列BAT叉車配件產品，包括叉車配件、叉車零部件、工業配件等。快速找到您所需的高質量叉車配件。",
+      "keywords": ["產品中心", "BAT叉車配件", "叉車配件目錄", "叉車配件", "叉車零部件"],
+      "ogTitle": "產品中心 | BAT叉車配件銷售",
+      "ogDescription": "瀏覽我們的全系列BAT叉車配件產品，包括叉車配件、叉車零部件、工業配件等。"
+    }
+  },
   "currency": {
     "code": "TWD",
     "symbol": "NT$",

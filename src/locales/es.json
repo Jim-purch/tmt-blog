@@ -192,6 +192,15 @@
     "about": "Acerca de",
     "contact": "Contacto"
   },
+  "metadata": {
+    "products": {
+      "title": "Centro de Productos",
+      "description": "Explore nuestra gama completa de piezas y accesorios para montacargas BAT, incluyendo componentes de montacargas, repuestos y accesorios industriales. Encuentre rápidamente las piezas de montacargas de alta calidad que necesita.",
+      "keywords": ["Centro de Productos", "Piezas de Montacargas BAT", "Catálogo de Piezas de Montacargas", "Componentes de Montacargas", "Repuestos de Montacargas"],
+      "ogTitle": "Centro de Productos | Venta de Piezas de Montacargas BAT",
+      "ogDescription": "Explore nuestra gama completa de piezas y accesorios para montacargas BAT, incluyendo componentes de montacargas, repuestos y accesorios industriales."
+    }
+  },
   "common": {
     "loading": "Cargando...",
     "search": "Buscar",

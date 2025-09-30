@@ -192,6 +192,15 @@
     "about": "Über uns",
     "contact": "Kontakt"
   },
+  "metadata": {
+    "products": {
+      "title": "Produktzentrum",
+      "description": "Durchsuchen Sie unser komplettes Sortiment an BAT Gabelstapler-Teilen und Zubehör, einschließlich Gabelstapler-Komponenten, Ersatzteile und Industriezubehör. Finden Sie schnell die hochwertigen Gabelstapler-Teile, die Sie benötigen.",
+      "keywords": ["Produktzentrum", "BAT Gabelstapler-Teile", "Gabelstapler-Teile Katalog", "Gabelstapler-Komponenten", "Gabelstapler-Ersatzteile"],
+      "ogTitle": "Produktzentrum | BAT Gabelstapler-Teile Verkauf",
+      "ogDescription": "Durchsuchen Sie unser komplettes Sortiment an BAT Gabelstapler-Teilen und Zubehör, einschließlich Gabelstapler-Komponenten, Ersatzteile und Industriezubehör."
+    }
+  },
   "common": {
     "loading": "Laden...",
     "search": "Suchen",
