@@ -226,7 +226,7 @@ class PerformanceTestDataGenerator:
 
 def main():
     """主函数"""
-    print("=== TMT博客性能测试数据生成器 ===")
+    print("=== BAT博客性能测试数据生成器 ===")
     print("专门用于测试Vercel部署后的客户端性能表现")
     print("包括页面加载速度、资源加载时间和交互响应时间等指标\n")
     
@@ -237,7 +237,7 @@ def main():
     products = generator.generate_test_data(100000)
     
     # 保存到指定路径
-    output_path = "/Users/cxxvc/Documents/myCoding/tmt-blog/public/data/products.csv"
+    output_path = "/Users/cxxvc/Documents/myCoding/BAT-blog/public/data/products.csv"
     generator.save_to_csv(products, output_path)
     
     # 生成性能报告

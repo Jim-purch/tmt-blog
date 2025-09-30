@@ -28,7 +28,7 @@ export async function generateMetadata({
   }
 
   const seoConfig = getSEOConfig(locale)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top'
 
   return {
     title: seoConfig.title,

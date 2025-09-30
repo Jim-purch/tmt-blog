@@ -1,6 +1,6 @@
 {
   "cart": {
-    "title": "TMT産業オートメーション部品リスト",
+    "title": "BAT産業オートメーション部品リスト",
     "generatedAt": "生成日時",
     "headers": {
       "index": "番号",
@@ -138,7 +138,7 @@
     "viewAllCategory": "すべての{category}製品を表示"
   },
   "home": {
-    "title": "TMT自動車部品 - 高品質な自動車部品とアクセサリー",
+    "title": "BAT自動車部品 - 高品質な自動車部品とアクセサリー",
     "subtitle": "世界中の自動車愛好家に信頼される品質",
     "featuredProducts": "注目の製品",
     "featuredProductsDesc": "厳選された高品質な自動車部品をお届けします",
@@ -170,7 +170,7 @@
     "home": "ホーム",
     "products": "製品",
     "about": "会社概要",
-    "copyright": "© 2024 TMT部品. 全著作権所有。"
+    "copyright": "© 2024 BAT部品. 全著作権所有。"
   },
   "theme": {
     "light": "ライトモード",

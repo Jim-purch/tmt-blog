@@ -1,4 +1,4 @@
-# TMT Blog
+# BAT Blog
 
 这是一个使用 Next.js、Markdown 和 TypeScript 构建的静态博客，专注于叉车配件和相关产品的展示。
 
@@ -117,7 +117,7 @@ npm audit fix
 
 ### 安全报告
 如果发现安全漏洞，请通过以下方式报告：
-- 发送邮件至：security@toomotoo.com
+- 发送邮件至：security@blueant.top
 - 请不要在公开的 issue 中报告安全问题
 
 ### 代码审查

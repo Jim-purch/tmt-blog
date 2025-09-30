@@ -23,7 +23,7 @@ export function ProductStructuredData({ product }: ProductStructuredDataProps) {
     "sku": product.partNumber,
     "mpn": product.partNumber,
     "image": product.imageUrl,
-    "url": `https://parts.toomotoo.com/products/${product.seo}`,
+    "url": `https://parts.blueant.top/products/${product.seo}`,
     "offers": {
       "@type": "Offer",
       "price": (Number(product.price) * currency.exchangeRate).toFixed(currency.decimalPlaces),
@@ -31,7 +31,7 @@ export function ProductStructuredData({ product }: ProductStructuredDataProps) {
       "availability": "https://schema.org/InStock",
       "seller": {
         "@type": "Organization",
-        "name": "TMT Parts Sale"
+        "name": "BAT Parts Sale"
       }
     },
     "manufacturer": {

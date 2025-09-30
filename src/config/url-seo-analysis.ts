@@ -61,7 +61,7 @@ export const URL_SEO_ANALYSIS = {
       description: '产品和文章URL使用描述性slug，有利于SEO',
       examples: [
         '/products/forklift-parts-brake-pad-123',
-        '/posts/ai-and-tmt-sales',
+        '/posts/ai-and-BAT-sales',
       ],
       impact: 'high',
     },
@@ -79,7 +79,7 @@ export const URL_SEO_ANALYSIS = {
       description: '所有URL使用小写字母，避免大小写混淆',
       examples: [
         '/products/engine-parts',
-        '/posts/welcome-to-tmt-blog',
+        '/posts/welcome-to-BAT-blog',
       ],
       impact: 'medium',
     },

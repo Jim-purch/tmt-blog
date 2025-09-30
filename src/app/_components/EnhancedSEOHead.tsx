@@ -39,7 +39,7 @@ export default function EnhancedSEOHead({
   noIndex = false
 }: EnhancedSEOHeadProps) {
   const seoConfig = getSEOConfig(locale)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top'
   
   // 使用传入的值或配置的默认值
   const finalTitle = title || seoConfig.title
@@ -102,7 +102,7 @@ export default function EnhancedSEOHead({
     updateMetaTag('og:image', `${baseUrl}${finalOgImage}`, true)
     updateMetaTag('og:url', currentUrl, true)
     updateMetaTag('og:type', pageType === 'article' ? 'article' : 'website', true)
-    updateMetaTag('og:site_name', 'TMT叉车配件', true)
+    updateMetaTag('og:site_name', 'BAT叉车配件', true)
     updateMetaTag('og:locale', locale.replace('-', '_'), true)
     
     // Twitter Card标签
@@ -163,7 +163,7 @@ export default function EnhancedSEOHead({
 // 导出用于服务端渲染的函数
 export function generateSEOMetadata(locale: string, options: Partial<EnhancedSEOHeadProps> = {}) {
   const seoConfig = getSEOConfig(locale)
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top'
   
   const title = options.title || seoConfig.title
   const description = options.description || seoConfig.description

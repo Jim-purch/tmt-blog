@@ -1,6 +1,6 @@
 {
   "cart": {
-    "title": "TMT Industrial Automation Parts List",
+    "title": "BAT Industrial Automation Parts List",
     "generatedAt": "Generated at",
     "headers": {
       "index": "No.",
@@ -95,7 +95,7 @@
     "items": "items"
   },
   "home": {
-    "title": "TMT Auto Parts - High-Quality Auto Parts and Accessories",
+    "title": "BAT Auto Parts - High-Quality Auto Parts and Accessories",
     "subtitle": "Trusted quality for car enthusiasts worldwide",
     "featuredProducts": "Featured Products",
     "featuredProductsDesc": "Carefully selected quality auto parts for you",
@@ -127,7 +127,7 @@
     "home": "Home",
     "products": "Products",
     "about": "About Us",
-    "copyright": "© 2024 TMT Parts. All rights reserved."
+    "copyright": "© 2024 BAT Parts. All rights reserved."
   },
   "theme": {
     "light": "Light Mode",

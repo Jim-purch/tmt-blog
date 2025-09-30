@@ -15,7 +15,7 @@
 如果您发现了安全漏洞，请通过以下方式报告：
 
 ### 联系方式
-- **邮箱**: security@toomotoo.com
+- **邮箱**: security@blueant.top
 - **响应时间**: 我们会在 48 小时内回复您的报告
 
 ### 报告内容
@@ -89,8 +89,8 @@
 ## 联系信息
 
 如有安全相关问题，请联系：
-- **安全团队**: security@toomotoo.com
-- **技术负责人**: jim@toomotoo.com
+- **安全团队**: security@blueant.top
+- **技术负责人**: jim@blueant.top
 
 ---
 

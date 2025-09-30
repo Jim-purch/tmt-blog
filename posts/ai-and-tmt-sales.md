@@ -1,10 +1,10 @@
 ---
-title: 'AI 在 TMT 销售中的应用'
+title: 'AI 在 BAT 销售中的应用'
 date: '2024-01-12'
-excerpt: '探讨人工智能技术如何革新传统的TMT销售模式，提升客户体验和销售效率。'
+excerpt: '探讨人工智能技术如何革新传统的BAT销售模式，提升客户体验和销售效率。'
 author:
-  name: 'TMT Team'
-tags: ['AI', '销售', 'TMT', '自动化']
+  name: 'BAT Team'
+tags: ['AI', '销售', 'BAT', '自动化']
 ---
 
 # AI浪潮下，对拓贸通销售的实用性思考

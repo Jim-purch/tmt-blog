@@ -1,6 +1,6 @@
 {
   "cart": {
-    "title": "Lista de Piezas de Automatización Industrial TMT",
+    "title": "Lista de Piezas de Automatización Industrial BAT",
     "generatedAt": "Generado el",
     "headers": {
       "index": "No.",
@@ -138,7 +138,7 @@
     "viewAllCategory": "Ver todos los productos de {category}"
   },
   "home": {
-    "title": "TMT Autopartes - Repuestos y accesorios automotrices de alta calidad",
+    "title": "BAT Autopartes - Repuestos y accesorios automotrices de alta calidad",
     "subtitle": "Calidad confiable para entusiastas del automóvil en todo el mundo",
     "featuredProducts": "Productos Destacados",
     "featuredProductsDesc": "Autopartes de calidad cuidadosamente seleccionadas para usted",
@@ -170,7 +170,7 @@
     "home": "Inicio",
     "products": "Productos",
     "about": "Acerca de",
-    "copyright": "© 2024 TMT Partes. Todos los derechos reservados."
+    "copyright": "© 2024 BAT Partes. Todos los derechos reservados."
   },
   "theme": {
     "light": "Modo Claro",

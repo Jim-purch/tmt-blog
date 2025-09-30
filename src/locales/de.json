@@ -1,6 +1,6 @@
 {
   "cart": {
-    "title": "TMT Industrieautomatisierung Teileliste",
+    "title": "BAT Industrieautomatisierung Teileliste",
     "generatedAt": "Erstellt am",
     "headers": {
       "index": "Nr.",
@@ -138,7 +138,7 @@
     "viewAllCategory": "Alle {category} Produkte anzeigen"
   },
   "home": {
-    "title": "TMT Autoteile - Hochwertige Autoteile und Zubehör",
+    "title": "BAT Autoteile - Hochwertige Autoteile und Zubehör",
     "subtitle": "Vertraute Qualität für Autoliebhaber weltweit",
     "featuredProducts": "Empfohlene Produkte",
     "featuredProductsDesc": "Sorgfältig ausgewählte hochwertige Autoteile für Sie",
@@ -170,7 +170,7 @@
     "home": "Startseite",
     "products": "Produkte",
     "about": "Über uns",
-    "copyright": "© 2024 TMT Teile. Alle Rechte vorbehalten."
+    "copyright": "© 2024 BAT Teile. Alle Rechte vorbehalten."
   },
   "theme": {
     "light": "Heller Modus",

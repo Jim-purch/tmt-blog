@@ -7,13 +7,13 @@ import { CONTACT_CONFIG } from './constants';
 const EMAIL_CONFIG = {
   // 使用统一的联系邮箱
   contactEmail: CONTACT_CONFIG.email,
-  subject: '产品咨询 - TMT叉车配件',
+  subject: '产品咨询 - BAT叉车配件',
 };
 
 // 生成邮件内容
 export function generateEmailContent(product: Product): string {
   const emailBody = `
-尊敬的TMT叉车配件团队，
+尊敬的BAT叉车配件团队，
 
 我对以下产品感兴趣，希望获得更多信息：
 
@@ -41,7 +41,7 @@ ${product.description}
 敬礼
 
 ---
-此邮件通过TMT叉车配件网站生成
+此邮件通过BAT叉车配件网站生成
 产品链接：${window.location.href}
   `.trim();
 

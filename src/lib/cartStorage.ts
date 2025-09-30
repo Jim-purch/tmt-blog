@@ -3,7 +3,7 @@
 import { Cart, CartItem } from '@/interfaces/cart';
 import { Product } from '@/interfaces/product';
 
-const CART_STORAGE_KEY = 'tmt-cart';
+const CART_STORAGE_KEY = 'BAT-cart';
 
 // 获取购物车数据
 export function getCartFromStorage(): Cart {

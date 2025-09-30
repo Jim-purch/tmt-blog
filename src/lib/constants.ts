@@ -5,21 +5,21 @@ export const HOME_OG_IMAGE_URL =
 
 // 站点配置
 export const SITE_CONFIG = {
-  title: "TMT Parts Sale",
+  title: "BAT Parts Sale",
   description: "To quickly find the parts you need!",
   metaDescription: "To quickly find the parts you need!",
 };
 
 // 联系方式配置
 export const CONTACT_CONFIG = {
-  company: "TMT Parts Sale",
-  email: "jim@toomotoo.com",
+  company: "BAT Parts Sale",
+  email: "jim@blueant.top",
   phone: "+86 400-123-4567",
   address: "北京市朝阳区科技园区123号",
-  wechat: "TMT_Parts",
+  wechat: "BAT_Parts",
   whatsapp: "+86 400-123-4567",
   workingHours: "周一至周五 9:00-18:00",
-  copyright: "© 2024 TMT Parts Sale. 保留所有权利。",
+  copyright: "© 2024 BAT Parts Sale. 保留所有权利。",
 };
 
 // 产品图片配置
@@ -42,5 +42,5 @@ export const PRODUCT_CONFIG = {
 export const QUICK_LINKS_CONFIG = {
   home: "/",
   products: "/products",
-  about: "https://www.toomotoo.com/", // 关于我们页面链接，可在此处修改
+  about: "https://www.blueant.top/", // 关于我们页面链接，可在此处修改
 };

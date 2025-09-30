@@ -17,7 +17,7 @@ function generateAlternates(baseUrl: string, path: string, locales: string[]) {
 }
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top'
   
   // 获取所有产品和文章
   const products = getAllProducts()

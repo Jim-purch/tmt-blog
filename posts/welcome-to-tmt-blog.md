@@ -1,15 +1,15 @@
 ---
-title: '欢迎来到 TMT Blog'
+title: '欢迎来到 BAT Blog'
 date: '2024-01-15'
-excerpt: '这是 TMT Blog 的第一篇文章，介绍了这个博客的特点和使用方法。'
+excerpt: '这是 BAT Blog 的第一篇文章，介绍了这个博客的特点和使用方法。'
 author:
-  name: 'TMT Team'
+  name: 'BAT Team'
 tags: ['博客', '介绍', 'Next.js']
 ---
 
-# 欢迎来到 TMT Blog
+# 欢迎来到 BAT Blog
 
-欢迎来到 TMT Blog！这是一个使用 Next.js 构建的现代化静态博客，专注于分享技术见解与思考。
+欢迎来到 BAT Blog！这是一个使用 Next.js 构建的现代化静态博客，专注于分享技术见解与思考。
 
 ## 博客特点
 
@@ -76,7 +76,7 @@ tags: ['标签1', '标签2']
 ```javascript
 // 这是一个代码块示例
 function hello() {
-  console.log('Hello, TMT Blog!');
+  console.log('Hello, BAT Blog!');
 }
 ```
 

@@ -61,12 +61,12 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   return {
     title: product.title,
     description: product.description,
-    keywords: `${product.brand}, ${product.partNumber}, ${product.category}, 叉车配件, TMT`,
+    keywords: `${product.brand}, ${product.partNumber}, ${product.category}, 叉车配件, BAT`,
     openGraph: {
       title: product.title,
       description: product.description,
       url: `/products/${product.seo}`,
-      siteName: "TMT叉车配件",
+      siteName: "BAT叉车配件",
       images: [
         {
           url: product.imageUrl,

@@ -1,6 +1,6 @@
 {
   "cart": {
-    "title": "TMT工業自動化配件清單",
+    "title": "BAT工業自動化配件清單",
     "generatedAt": "生成時間",
     "headers": {
       "index": "序號",
@@ -146,7 +146,7 @@
     "items": "項"
   },
   "home": {
-    "title": "TMT汽車配件 - 高品質汽車零配件和配件",
+    "title": "BAT汽車配件 - 高品質汽車零配件和配件",
     "subtitle": "為全球汽車愛好者提供值得信賴的品質",
     "featuredProducts": "精選產品",
     "featuredProductsDesc": "為您精心挑選的優質零配件產品",
@@ -178,7 +178,7 @@
     "home": "首頁",
     "products": "產品中心",
     "about": "關於我們",
-    "copyright": "© 2024 TMT Parts Sale. 保留所有權利。"
+    "copyright": "© 2024 BAT Parts Sale. 保留所有權利。"
   },
   "theme": {
     "light": "淺色模式",

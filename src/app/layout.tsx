@@ -14,25 +14,25 @@ import "./globals.css";
 const systemFontClass = "font-sans";
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com'),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top'),
   title: {
     default: SITE_CONFIG.title,
     template: `%s | ${SITE_CONFIG.title}`,
   },
   description: SITE_CONFIG.metaDescription,
   keywords: [
-    'TMT配件', '叉车配件', '叉车零部件', '工业配件', '配件销售', '叉车维修',
-    'forklift parts', 'TMT parts', 'industrial parts', 'forklift accessories',
-    'запчасти для погрузчиков', 'TMT запчасти', 'детали погрузчиков',
-    'フォークリフト部品', 'TMT部品', 'フォークリフトパーツ',
-    'Gabelstaplerteile', 'TMT Teile', 'Staplerteile',
-    'pièces de chariot élévateur', 'TMT pièces', 'accessoires chariot',
-    'repuestos montacargas', 'TMT repuestos', 'partes montacargas',
-    'peças empilhadeira', 'TMT peças', 'acessórios empilhadeira'
+    'BAT配件', '叉车配件', '叉车零部件', '工业配件', '配件销售', '叉车维修',
+    'forklift parts', 'BAT parts', 'industrial parts', 'forklift accessories',
+    'запчасти для погрузчиков', 'BAT запчасти', 'детали погрузчиков',
+    'フォークリフト部品', 'BAT部品', 'フォークリフトパーツ',
+    'Gabelstaplerteile', 'BAT Teile', 'Staplerteile',
+    'pièces de chariot élévateur', 'BAT pièces', 'accessoires chariot',
+    'repuestos montacargas', 'BAT repuestos', 'partes montacargas',
+    'peças empilhadeira', 'BAT peças', 'acessórios empilhadeira'
   ],
-  authors: [{ name: 'TMT Parts Sale' }],
-  creator: 'TMT Parts Sale',
-  publisher: 'TMT Parts Sale',
+  authors: [{ name: 'BAT Parts Sale' }],
+  creator: 'BAT Parts Sale',
+  publisher: 'BAT Parts Sale',
   robots: {
     index: true,
     follow: true,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
+    url: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top',
     title: SITE_CONFIG.title,
     description: SITE_CONFIG.metaDescription,
     siteName: SITE_CONFIG.title,
@@ -72,17 +72,17 @@ export const metadata: Metadata = {
     yahoo: process.env.YAHOO_VERIFICATION_CODE || 'your-yahoo-verification-code',
   },
   alternates: {
-    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.toomotoo.com',
+    canonical: process.env.NEXT_PUBLIC_BASE_URL || 'https://parts.blueant.top',
     languages: {
-      'zh-Hans': 'https://parts.toomotoo.com',
-      'en-US': 'https://parts.toomotoo.com/en',
-      'ru-RU': 'https://parts.toomotoo.com/ru',
-      'ja-JP': 'https://parts.toomotoo.com/ja',
-      'de-DE': 'https://parts.toomotoo.com/de',
-      'fr-FR': 'https://parts.toomotoo.com/fr',
-      'es-ES': 'https://parts.toomotoo.com/es',
-      'pt-BR': 'https://parts.toomotoo.com/pt',
-      'x-default': 'https://parts.toomotoo.com',
+      'zh-Hans': 'https://parts.blueant.top',
+      'en-US': 'https://parts.blueant.top/en',
+      'ru-RU': 'https://parts.blueant.top/ru',
+      'ja-JP': 'https://parts.blueant.top/ja',
+      'de-DE': 'https://parts.blueant.top/de',
+      'fr-FR': 'https://parts.blueant.top/fr',
+      'es-ES': 'https://parts.blueant.top/es',
+      'pt-BR': 'https://parts.blueant.top/pt',
+      'x-default': 'https://parts.blueant.top',
     },
   },
   other: {
