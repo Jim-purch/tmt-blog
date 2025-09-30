@@ -90,7 +90,7 @@
 
 如有安全相关问题，请联系：
 - **安全团队**: security@blueant.top
-- **技术负责人**: jim@blueant.top
+- **技术负责人**: luna@blueant.top
 
 ---
 

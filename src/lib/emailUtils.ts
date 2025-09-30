@@ -3,68 +3,67 @@
 import { Product } from '@/interfaces/product';
 import { CONTACT_CONFIG } from './constants';
 
-// 邮件配置
+// Email configuration
 const EMAIL_CONFIG = {
-  // 使用统一的联系邮箱
+  // Use unified contact email
   contactEmail: CONTACT_CONFIG.email,
-  subject: '产品咨询 - BAT叉车配件',
+  subject: 'Product Inquiry - BAT Forklift Parts',
 };
 
-// 生成邮件内容
+// Generate email content
 export function generateEmailContent(product: Product): string {
   const emailBody = `
-尊敬的BAT叉车配件团队，
+Dear BAT Forklift Parts Team,
 
-我对以下产品感兴趣，希望获得更多信息：
+I am interested in the following product and would like to get more information:
 
-产品信息：
-- 产品名称：${product.title}
-- 品牌：${product.brand}
-- 零件号：${product.partNumber}
-- 分类：${product.category}
-- 价格：¥${product.price}
-- 重量：${product.weight}
+Product Information:
+- Product Name: ${product.title}
+- Brand: ${product.brand}
+- Part Number: ${product.partNumber}
+- Category: ${product.category}
+- Price: ¥${product.price}
+- Weight: ${product.weight}
 
-产品描述：
+Product Description:
 ${product.description}
 
-请联系我提供以下信息：
-□ 详细产品规格
-□ 库存情况
-□ 交货时间
-□ 批量采购优惠
-□ 技术支持
+Please contact me to provide the following information:
+□ Detailed product specifications
+□ Stock availability
+□ Delivery time
+□ Bulk purchase discounts
+□ Technical support
 
-期待您的回复。
+Looking forward to your reply.
 
-此致
-敬礼
+Best regards
 
 ---
-此邮件通过BAT叉车配件网站生成
-产品链接：${window.location.href}
+This email was generated through BAT Forklift Parts website
+Product link: ${window.location.href}
   `.trim();
 
   return emailBody;
 }
 
-// 打开邮件客户端
+// Open email client
 export function openEmailClient(product: Product): void {
   const subject = encodeURIComponent(`${EMAIL_CONFIG.subject} - ${product.brand} ${product.partNumber}`);
   const body = encodeURIComponent(generateEmailContent(product));
   const mailtoUrl = `mailto:${EMAIL_CONFIG.contactEmail}?subject=${subject}&body=${body}`;
   
-  // 打开默认邮件客户端
+  // Open default email client
   window.location.href = mailtoUrl;
 }
 
-// 复制联系信息到剪贴板
+// Copy contact information to clipboard
 export async function copyContactInfo(product: Product): Promise<boolean> {
   try {
     const contactInfo = `
-联系邮箱：${EMAIL_CONFIG.contactEmail}
-咨询产品：${product.brand} ${product.partNumber} - ${product.title}
-产品链接：${window.location.href}
+Contact Email: ${EMAIL_CONFIG.contactEmail}
+Product Inquiry: ${product.brand} ${product.partNumber} - ${product.title}
+Product Link: ${window.location.href}
     `.trim();
 
     await navigator.clipboard.writeText(contactInfo);
@@ -75,12 +74,12 @@ export async function copyContactInfo(product: Product): Promise<boolean> {
   }
 }
 
-// 检查是否支持邮件客户端
+// Check if email client is supported
 export function isEmailClientSupported(): boolean {
   return typeof window !== 'undefined' && 'location' in window;
 }
 
-// 检查是否支持剪贴板API
+// Check if clipboard API is supported
 export function isClipboardSupported(): boolean {
   return typeof navigator !== 'undefined' && 'clipboard' in navigator;
 }
