@@ -14,12 +14,12 @@ export const SITE_CONFIG = {
 export const CONTACT_CONFIG = {
   company: "BAT Parts Sale",
   email: "jim@blueant.top",
-  phone: "+86 400-123-4567",
+  phone: "+86 155-2216-8843",
   address: "北京市朝阳区科技园区123号",
-  wechat: "BAT_Parts",
-  whatsapp: "+86 400-123-4567",
+  wechat: "86 155-2216-8843",
+  whatsapp: "+86 155-2216-8843",
   workingHours: "周一至周五 9:00-18:00",
-  copyright: "© 2024 BAT Parts Sale. 保留所有权利。",
+  copyright: "© 2025 BAT Parts Sale. 保留所有权利。",
 };
 
 // 产品图片配置

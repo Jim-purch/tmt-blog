@@ -1,9 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 优化CSS加载
-  experimental: {
-    optimizeCss: true,
-  },
   // 压缩配置
   compress: true,
   // 图片优化配置
@@ -11,7 +7,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'cdn.blueant.top',
+        hostname: 'cdn.toomotoo.com',
         port: '',
         pathname: '/**',
       },
@@ -29,10 +25,6 @@ const nextConfig = {
       },
     ],
   },
-  // 静态资源优化
-  assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
-  // 启用SWC minify以获得更好的性能
-  swcMinify: true,
 }
 
 module.exports = nextConfig
