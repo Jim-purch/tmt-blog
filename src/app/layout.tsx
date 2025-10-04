@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import cn from "classnames";
+import { Analytics } from "@vercel/analytics/next";
 import { ThemeSwitcher } from "./_components/theme-switcher";
 import { LanguageSwitcher } from "./_components/language-switcher";
 import { LanguageAutoDetector } from "./_components/language-auto-detector";
@@ -148,6 +149,7 @@ export default function RootLayout({
             <Footer />
           </div>
         </CartProvider>
+        <Analytics />
       </body>
     </html>
   );
